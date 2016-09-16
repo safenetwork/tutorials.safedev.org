@@ -1,0 +1,10 @@
+{
+  "plugins": ["prism", "-highlight", "bootstrap-callout", "etoc", "back-to-top-button"],
+  "pluginsConfig": {
+   "etoc": {
+     "mindepth": 2,
+     "maxdepth": 3,
+     "notoc": true
+   }
+ }
+}
