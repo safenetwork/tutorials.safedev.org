@@ -10,10 +10,10 @@ SAFE Launcher exposes a REST API that applications can use to exchange data with
 
 ### What is SAFE Launcher?
 
-[SAFE Launcher](https://maidsafe.readme.io/docs/launcher) enables you to build [SAFE Network apps](https://apps.safenetwork.org/) that don't require users to give you access to their network credentials (their account secret and account password). This means users only have to share their network credentials with SAFE Launcher and not with every application they use. Apps only interact with the SAFE Network indirectly via SAFE Launcher, which can be thought of as the single point of contact with the network.
+[SAFE Launcher](https://maidsafe.readme.io/docs/launcher) enables you to build SAFE Network apps that don't require users to give you access to their network credentials (their account secret and account password). This means users only have to share their network credentials with SAFE Launcher and not with every application they use. Apps only interact with the SAFE Network indirectly via SAFE Launcher, which can be thought of as the single point of contact with the network.
 
 ### What is the SAFE Network?
 
-The [SAFE Network](https://safenetwork.org/) is a decentralized data storage and communications network that provides a secure, efficient and no-cost infrastructure for app developers.
+The SAFE Network is a decentralized data storage and communications network that provides a secure, efficient and no-cost infrastructure for app developers.
 
 Rather than using data centers and servers which are prone to data theft and surveillance, the SAFE Network uses advanced peer-to-peer technology that joins together the spare computing capacity of all SAFE users, creating a global network.
