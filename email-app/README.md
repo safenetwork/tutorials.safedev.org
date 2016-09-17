@@ -59,7 +59,7 @@ You need to have [SAFE Launcher v0.9.0](https://github.com/maidsafe/safe_launche
 node -v
 ```
 
-**Clone the [GiHub repository](https://github.com/maidsafe/safe_examples)**
+**Clone the [GitHub repository](https://github.com/maidsafe/safe_examples)**
 
 ```
 git clone https://github.com/maidsafe/safe_examples.git
