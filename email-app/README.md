@@ -4,8 +4,6 @@ In this tutorial, you will learn how to build **an email app that works entirely
 
 Instead of relying on an email service provider such as Gmail, or going through the trouble of running your own mail server, you can use the SAFE Network to build dynamic applications such as email and messaging apps.
 
-![Compose Mail page](/assets/compose-mail-page.png)
-
 ![Inbox page](/assets/inbox-page.png)
 
 ## Source code
