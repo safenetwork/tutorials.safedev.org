@@ -2,6 +2,7 @@
 
 The app prompts you to create an email ID (if you hadn't created one yet). An email ID is an identity that you can give to other users in order to receive emails via the SAFE Network. Likewise, to send emails to other SAFE Network users, you need to know their email ID.
 
+**Contents**
 <!-- toc -->
 
 ![Create Account page](/assets/create-account-page.png)

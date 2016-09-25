@@ -2,6 +2,7 @@
 
 When someone sends you a message, it gets stored in the appendable data corresponding to the hash of your email ID. When you refresh your inbox, the app fetches your appendable data and returns all the emails it contains.
 
+**Contents**
 <!-- toc -->
 
 ![Inbox page](/assets/inbox-page.png)

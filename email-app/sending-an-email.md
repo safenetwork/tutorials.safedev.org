@@ -4,6 +4,7 @@ To send emails to other SAFE Network users, you need to know their email ID.
 
 First, the app retrieves the encryption key associated with the appendable data that belongs to the recipient. Then, it encrypts the email using that encryption key and saves it as immutable data. Finally, it appends the immutable data that represents the email to the appendable data of the recipient.
 
+**Contents**
 <!-- toc -->
 
 ![Compose Mail page](/assets/compose-mail-page.png)
