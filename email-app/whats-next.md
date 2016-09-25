@@ -2,9 +2,9 @@
 
 Now that you understand how this example app works, feel free to [fork it](https://github.com/maidsafe/safe_examples) and build your own email app! And stay tuned for more tutorials!
 
----
+## New features
 
-Here is a list of potential features that you might want to build:
+Here are some potential features that you might want to build.
 
 ### Outbox
 
