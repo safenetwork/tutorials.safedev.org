@@ -2,7 +2,8 @@
 
 Your appendable data has a maximum size of 100 KiB. You can delete emails from your inbox by removing them from your appendable data. Your root structured data has no size limit. You can delete emails from your saved folder by removing them from your root structured data.
 
-**Contents**
+#### Contents
+
 <!-- toc -->
 
 ![Inbox page](/assets/inbox-page.png)

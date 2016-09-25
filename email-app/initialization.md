@@ -2,7 +2,8 @@
 
 There are multiple tasks that the app needs to do during its initialization. Some of these tasks are only necessary if it's the first time you are authorizing this app with your SAFE Network account.
 
-**Contents**
+#### Contents
+
 <!-- toc -->
 
 ![Initialization page](/assets/initialization-page.png)
