@@ -1,12 +1,12 @@
 # SAFE Dev Tutorials
 
-In this series of tutorials, we will present different use cases of the SAFE Launcher API.
+In this series of tutorials, we will present different use cases of the SAFE API.
 
 [SAFE Launcher](https://maidsafe.readme.io/docs/launcher) exposes REST APIs that apps can use to interact with the SAFE Network.
 
-**[Download SAFE Launcher](https://maidsafe.net/alpha.html)** to use the SAFE Launcher API.
+**[Download SAFE Launcher](https://maidsafe.net/alpha.html)** to use the SAFE API.
 
-**[Read this API documentation](https://maidsafe.readme.io/docs/introduction)** to learn more about the SAFE Launcher API.
+**[Read the SAFE API Docs](https://api.safedev.org)** to learn more about the SAFE API.
 
 ### What is SAFE Launcher?
 
