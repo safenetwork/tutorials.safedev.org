@@ -4,34 +4,32 @@ In this tutorial, you will learn how to build **an email app that works entirely
 
 Instead of relying on an email service provider such as Gmail, or going through the trouble of running your own mail server, you can use the SAFE Network to build dynamic applications such as email and messaging apps.
 
-![Inbox page](/assets/inbox-page.png)
+#### Contents
 
-## Source code
+<!-- toc -->
 
-**[Click here to view the source code of this example app on GitHub](https://github.com/maidsafe/safe_examples/tree/master/email_app)**
-
-[electron-react-boilerplate](https://github.com/chentsulin/electron-react-boilerplate) was used as a starting point.
+![Inbox page](img/inbox-page.png)
 
 ## Overview
 
 This tutorial will showcase how to:
 
-- Create an email ID
-- Send emails to other users
-- Check for new emails
-- Save emails
-- Delete emails
+- [Create an email ID](create-an-email-id.md)
+- [Send an email](send-an-email.md)
+- [Refresh the inbox folder](refresh-the-inbox-folder.md)
+- [Save an email](save-an-email.md)
+- [Delete an email](delete-an-email.md)
 
-### SAFE Launcher API
+### APIs
 
 You will learn about the following APIs:
 
-- [Authorization](https://maidsafe.readme.io/docs/auth)
-- [Network File System (NFS)](https://maidsafe.readme.io/docs/network-file-system-nfs)
-- [Data Identifier](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/0042-launcher-api-v0.6.md#handle-id)
-- [Structured Data](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md)
-- [Immutable Data](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/immutable_data.md)
-- [Appendable Data](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md)
+- [Authorization API](https://api.safedev.org/auth/)
+- [NFS API](https://api.safedev.org/nfs/)
+- [Structured Data API](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md)
+- [Appendable Data API](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md)
+- [Immutable Data API](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/immutable_data.md)
+- [Data Identifier API](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/data_identifier.md)
 
 ### User interface
 
@@ -41,35 +39,53 @@ The user interface is built using the following front-end libraries:
 - [Redux](http://redux.js.org/)
 - [React Router](https://github.com/reactjs/react-router)
 
-Since it's built using [Electron](http://electron.atom.io/), it can be distributed as a desktop app (Windows, OS X and Linux).
+## Source code
 
-## Setup
+[Browse **the source code of the SAFE Mail Tutorial** on GitHub](https://github.com/maidsafe/safe_examples/tree/master/email_app).
 
-Here are the instructions for running this example app locally.
+[electron-react-boilerplate](https://github.com/chentsulin/electron-react-boilerplate) was used as a starting point.
 
-**Make sure SAFE Launcher is running**
+### Binaries
 
-You need to have [SAFE Launcher v0.9.0](https://github.com/maidsafe/safe_launcher/releases/tag/0.9.0) installed and running to use this example app.
+[Download **SAFE Mail Tutorial v0.1.0** on GitHub](https://github.com/maidsafe/safe_examples/releases/tag/0.7.0).
 
-**Make sure you have [Node.js](https://nodejs.org/en/) installed**
+Since this app is built using [Electron](http://electron.atom.io/), it can be distributed as a desktop app (Windows, OS X and Linux).
+
+### Building from source
+
+#### Requirements
+
+##### 1. SAFE Launcher
+
+Start [SAFE Launcher v0.9.0](https://github.com/maidsafe/safe_launcher/releases/tag/0.9.0) and log in.
+
+##### 2. Node.js
+
+You need to have Node.js v4.6.0 (LTS) or v6.7.0 (Current).
 
 ```
-node -v
+node --version
 ```
 
-**Clone the [GitHub repository](https://github.com/maidsafe/safe_examples)**
+There are many ways to install Node.js. See [nodejs.org](https://nodejs.org/en/download/) for more info.
+
+#### Setup
+
+##### 1. Clone [this GitHub repository](https://github.com/maidsafe/safe_examples)
 
 ```
 git clone https://github.com/maidsafe/safe_examples.git
 ```
 
-**Install the dependencies**
+If you don't have Git installed, you can download it from [git-scm.com](https://git-scm.com/downloads). Another option is to download this zip file instead of using Git: https://github.com/maidsafe/safe_examples/archive/master.zip.
+
+##### 2. Install the dependencies
 
 ```
 cd email_app && npm install
 ```
 
-**Start the app**
+##### 3. Start the app
 
 ```
 npm run dev

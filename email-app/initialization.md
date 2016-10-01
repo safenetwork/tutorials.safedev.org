@@ -6,13 +6,13 @@ There are multiple tasks that the app needs to do during its initialization. Som
 
 <!-- toc -->
 
-![Initialization page](/assets/initialization-page.png)
+![Initialization page](img/initialization-page.png)
 
-## Authorizing the app
+## Authorize the app
 
-The app sends an [authorization request](https://maidsafe.readme.io/docs/auth) to SAFE Launcher.
+The app sends an [authorization request](https://api.safedev.org/auth/) to SAFE Launcher.
 
-#### POST [/auth](https://maidsafe.readme.io/docs/auth)
+#### [POST /auth](https://api.safedev.org/auth/authorize-app.html)
 
 **initializer_actions.js**
 
@@ -83,15 +83,15 @@ The `LOW_LEVEL_API` permission is requested because the app needs to the use the
 
 SAFE Launcher displays a prompt with basic information about the app along with the requested permission (`LOW_LEVEL_API`). You can authorize this request by clicking on "ALLOW".
 
-![Authorization request](/assets/authorization-request.png)
+![Authorization request](img/authorization-request.png)
 
 After you authorize the request, the app receives an authorization token.
 
 > #### info::What is an authorization token?
 >
-> Authorization tokens are used to invoke APIs that require [authorized access](https://maidsafe.readme.io/docs/introduction#section-authorised-access). These tokens are session based and thus will be valid only while SAFE Launcher is running.
+> Authorization tokens are used to invoke APIs that require [authorized access](https://api.safedev.org/auth/#authorized-access). These tokens are session based and thus will be valid only while SAFE Launcher is running.
 
-## Checking for a config file
+## Check for a config file
 
 The app needs a way to store your email data on the SAFE Network. Using the [Structured Data API](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md), we can create a private structured data that will be used by the app to store your email ID and your saved emails. Let's call it the "root structure data".
 
@@ -101,7 +101,7 @@ During the initialization process, if the app detects that you already have a co
 
 The app attempts to retrieve a config file in its root directory:
 
-#### GET [/nfs/file/:rootPath/:filePath](https://maidsafe.readme.io/docs/nfs-get-file)
+#### [GET /nfs/file/:rootPath/:filePath](https://api.safedev.org/nfs/file/get-file.html)
 
 **nfs_actions.js**
 
@@ -148,11 +148,11 @@ The email data can be represented using a simple [JSON](https://en.wikipedia.org
 }
 ```
 
-### Creating a root structured data
+### Create a root structured data
 
 The root structured data is encrypted using symmetric encryption. This means that no one else can read the content of your root structured data. Only you can decrypt it. Also, since we don't need versioning (we only want to show the latest data), we create an [unversioned structured data](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#create) (type 500).
 
-#### POST [/structuredData/:id](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#create)
+#### [POST /structuredData/:id](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#create)
 
 **core_structure_actions.js**
 
@@ -175,13 +175,13 @@ export const createCoreStructure = (token, id, data) => ({
 });
 ```
 
-### Creating a config file
+### Create a config file
 
 After the structured data is successfully created, the app stores its ID in a config file. That way, the app will be able to retrieve your email data in the future.
 
 The config file is stored in the app's root directory, which is private. Therefore, the config file will be automatically encrypted and no one else will be able to read it.
 
-#### POST [/nfs/file/:rootPath/:filePath](https://maidsafe.readme.io/docs/nfsfile)
+#### [POST /nfs/file/:rootPath/:filePath](https://api.safedev.org/nfs/file/create-file.html)
 
 **nfs_actions.js**
 
@@ -206,7 +206,7 @@ export const writeConfigFile = (token, coreId) => {
 
 After the config file is successfully created, the app transitions to the Create Account page.
 
-![Create Account page](/assets/create-account-page.png)
+![Create Account page](img/create-account-page.png)
 
 ## If a config file is found
 
@@ -216,7 +216,7 @@ Before fetching your root structured data, the app needs to obtain a structured 
 
 <!-- *(explain why handles are needed?)* -->
 
-#### GET [/structuredData/handle/:id](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#get-data-identifier-handle)
+#### [GET /structuredData/handle/:id](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#get-data-identifier-handle)
 
 **core_structure_actions.js**
 
@@ -235,11 +235,11 @@ export const fetchCoreStructureHandler = (token, id) => ({
 });
 ```
 
-### Fetching the root structured data
+### Fetch the root structured data
 
 After the structured data handle is successfully retrieved, the app fetches the root structured data that contains your email data.
 
-#### GET [/structuredData/:handleId](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#read-data)
+#### [GET /structuredData/:handleId](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#read-data)
 
 **core_structure_actions.js**
 
@@ -264,10 +264,10 @@ export const fetchCoreStructure = (token, id) => ({
 
 If you hadn't created an email ID yet, the app transitions to the Create Account page.
 
-![Create Account page](/assets/create-account-page.png)
+![Create Account page](img/create-account-page.png)
 
 #### If the structured data contains an email ID
 
 If you had already created an email ID, the app transitions to the Inbox page.
 
-![Inbox page](/assets/inbox-page.png)
+![Inbox page](img/inbox-page.png)

@@ -1,6 +1,6 @@
 # What's next?
 
-Now that you understand how this example app works, feel free to [fork it](https://github.com/maidsafe/safe_examples) and build your own email app! And stay tuned for more tutorials!
+Now that you understand how this example app works, feel free to [fork it](https://github.com/maidsafe/safe_examples) and build your own email app!
 
 ## New features
 

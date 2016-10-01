@@ -1,6 +1,6 @@
 # New concepts
 
-Concepts that are not currently documented on [maidsafe.readme.io](https://maidsafe.readme.io/).
+Concepts that are not currently documented in the [SAFE API Docs](https://api.safedev.org).
 
 ## Data identifier
 
