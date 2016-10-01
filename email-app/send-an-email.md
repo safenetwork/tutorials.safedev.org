@@ -1,4 +1,4 @@
-# Sending an email
+# Send an email
 
 To send emails to other SAFE Network users, you need to know their email ID.
 

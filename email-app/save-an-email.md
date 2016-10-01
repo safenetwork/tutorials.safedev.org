@@ -1,4 +1,4 @@
-# Saving an email
+# Save an email
 
 Your appendable data has a maximum size of 100 KiB. You can save the emails you want to keep by adding them your root structured data (which has no size limit). After you save an email, the app deletes that email from your appendable data. Therefore, it won't show up in your inbox anymore.
 
