@@ -6,8 +6,6 @@ The comments plugin is initialized by the `commentsTutorial.loadComments();` fun
 
 <!-- toc -->
 
-![Initialization](img/initialization.png)
-
 ```js
 loadComments(destId) {
   if (destId) {
@@ -110,6 +108,8 @@ The authorization payload for `blog.example` would look like this:
 }
 ```
 
+![Authorization](img/authorization.png)
+
 After you authorize the request, the plugin receives an authorization token and stores it in the memory of the SAFE Browser.
 
 ```js
@@ -200,7 +200,7 @@ this.dropDataIdHandle(dataIdHandle);
 
 ### Get the structured data
 
-The plugin fetches the content of the structured data and adds it to its internal list of blocked users.
+The plugin fetches the content of the structured data (the list of blocked users for the current page) and adds it to its internal list of blocked users.
 
 #### [GET /structured-data/:handleId](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#read-data)
 

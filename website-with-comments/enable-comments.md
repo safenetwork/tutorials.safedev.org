@@ -6,6 +6,8 @@ You can enable comments on your webpage by clicking on the `Enable Comments` but
 
 <!-- toc -->
 
+![Enable comments](img/enable-comments.png)
+
 ## Check if the user is an admin
 
 The plugin verifies that the current user is an admin by comparing the public name of the current webpage to the public names owned by the user. If the public name of the current webpage is not contained in the list of public names owned by the user, it means that the user is not an admin of that webpage.

@@ -6,6 +6,8 @@ The plugin fetches the comments associated with the current page and adds them t
 
 <!-- toc -->
 
+![Load comments](img/load-comments.png)
+
 ## Get a data identifier handle
 
 The plugin fetches a data identifier handle for the appendable data associated with the current page.

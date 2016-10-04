@@ -6,9 +6,11 @@ You can add a comment to a webpage by creating a structured data and appending i
 
 <!-- toc -->
 
+![Add a comment](img/add-a-comment.png)
+
 ## Create a structured data
 
-The plugin creates a structured data representing your comment.
+The plugin creates a structured data representing your comment. The reason we are choosing to store the comment as a structured data is because the APIs for immutable data haven't been exposed in the SAFE Browser yet. To prevent users from editing their comments, it would be preferable to store comments using immutable data.
 
 #### [POST /structured-data](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#create)
 

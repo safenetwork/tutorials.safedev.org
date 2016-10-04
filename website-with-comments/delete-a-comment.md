@@ -6,6 +6,8 @@ If you are the website owner, you can delete comments by removing them from the 
 
 <!-- toc -->
 
+![Delete a comment](img/block-a-user.png)
+
 ## Delete a comment from the appendable data
 
 The plugin moves the comment you want to delete to the `deleted_data` field of your appendable data.
