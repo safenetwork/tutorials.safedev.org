@@ -52,11 +52,11 @@ Start [SAFE Launcher v0.9.1](https://github.com/maidsafe/safe_launcher/releases/
 
 ##### 2. SAFE Browser
 
-Start [SAFE Browser v0.2.7](https://github.com/krishnaIndia/beaker).
+Start [SAFE Browser v0.2.7](https://forum.safedev.org/t/safe-browser-0-2-11/164).
 
 ##### 3. SAFE Demo App
 
-Start [SAFE Demo App v0.6.1](https://github.com/maidsafe/safe_examples/releases/tag/0.6.1).
+Start [SAFE Demo App v0.6.1](https://github.com/maidsafe/safe_examples/releases/tag/0.8.0).
 
 #### Setup
 
