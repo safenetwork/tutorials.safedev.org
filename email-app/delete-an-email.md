@@ -16,7 +16,7 @@ The emails in your inbox are stored in your appendable data. If you want to dele
 
 The app fetches the data identifier handle corresponding to your appendable data.
 
-#### GET [/appendableData/handle/:id](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#get-data-identifier-handle)
+#### [GET /appendableData/handle/:id](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#get-data-identifier-handle)
 
 **appendable_data_actions.js**
 
@@ -41,7 +41,7 @@ export const fetchAppendableDataHandler = (token, id) => { // id => appendable d
 
 The app deletes the email you just saved from your appendable data. This moves the email to the `deleted_data` field of the appendable data.
 
-#### DELETE [/appendableData/:handleId/:index](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#delete-data-by-index)
+#### [DELETE /appendableData/:handleId/:index](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#delete-data-by-index)
 
 **appendable_data_actions.js**
 
@@ -66,7 +66,7 @@ export const deleteAppendableData = (token, handleId, index) => {
 
 The app clears the `deleted_data` field of your appendable data.
 
-#### DELETE /appendableData/clearDeletedData/:handleId
+#### [DELETE /appendableData/clearDeletedData/:handleId](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#clear-deleted-data-section)
 
 **appendable_data_actions.js**
 
@@ -89,7 +89,7 @@ export const clearDeleteData = (token, handleId) => ({
 
 The app drops the data identifier handle corresponding to your appendable data.
 
-#### DELETE [/dataId/:handleId](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#drop-handle)
+#### [DELETE /dataId/:handleId](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#drop-handle)
 
 **data_handle_actions.js**
 
@@ -116,7 +116,7 @@ The emails in your saved folder are stored in your root structured data. If you 
 
 The app updates the JSON data contained in your root structured data. It will now exclude the email you want to delete.
 
-#### PUT [/structuredData/:handleId](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#update-structured-data)
+#### [PUT /structuredData/:handleId](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#update-structured-data)
 
 **core_structure_actions.js**
 

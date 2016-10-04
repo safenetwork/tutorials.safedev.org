@@ -33,7 +33,7 @@ export const hashEmailId = emailId => {
 };
 ```
 
-#### GET [/appendableData/handle/:id](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#get-data-identifier-handle)
+#### [GET /appendableData/handle/:id](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#get-data-identifier-handle)
 
 **appendable_data_actions.js**
 
@@ -58,7 +58,7 @@ export const fetchAppendableDataHandler = (token, id) => { // id => appendable d
 
 After the appendable data handle is successfully retrieved, the app fetches the public encrytion key of the recipient. By encrypting your email using that encryption key, only the recipient will be able to read it. This is known as asymmetric encryption.
 
-#### GET /appendableData/encryptKey/:handleId
+#### [GET /appendableData/encryptKey/:handleId](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#get-encryption-key)
 
 **appendable_data_actions.js**
 
@@ -80,7 +80,7 @@ export const getEncryptedKey = (token, handleId) => ({
 
 After the public encryption key of the recipient is successfully retrieved, the app saves your email on the SAFE Network using the [Immutable Data API](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/immutable_data.md).
 
-#### POST [/immutableData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/immutable_data.md#write-immutable-data-using-self-encryptor)
+#### [POST /immutableData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/immutable_data.md#write-immutable-data-using-self-encryptor)
 
 **immutable_data_actions.js**
 
@@ -111,7 +111,7 @@ Once the write operation is successful, the API returns a data identifer handle 
 
 The app adds your email (represented by a DataMap handle) to the appendable data of the recipient.
 
-#### PUT [/appendableData/:handleId/:dataIdHandle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#append-data)
+#### [PUT /appendableData/:handleId/:dataIdHandle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#append-data)
 
 **appendable_data_actions.js**
 
@@ -134,7 +134,7 @@ export const appendAppendableData = (token, id, dataId) => ({
 
 After your email is successfully appended to the appendable data of the recipient, the app drops the data identifier handle corresponding to the appendable data of the recipient.
 
-#### DELETE [/dataId/:handleId](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#drop-handle)
+#### [DELETE /dataId/:handleId](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#drop-handle)
 
 **data_handle_actions.js**
 

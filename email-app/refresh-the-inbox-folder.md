@@ -20,7 +20,7 @@ export const hashEmailId = emailId => {
 };
 ```
 
-#### GET [/appendableData/handle/:id](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#get-data-identifier-handle)
+#### [GET /appendableData/handle/:id](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#get-data-identifier-handle)
 
 **appendable_data_actions.js**
 
@@ -45,7 +45,7 @@ export const fetchAppendableDataHandler = (token, id) => { // id => appendable d
 
 The app fetches the metadata of your appendable data. If the data length is 0, it means your inbox is empty.
 
-#### HEAD [/appendableData/:handleId](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#read-appendable-data)
+#### [HEAD /appendableData/:handleId](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#read-appendable-data)
 
 **appendable_data_actions.js**
 
@@ -70,7 +70,7 @@ export const fetchAppendableData = (token, handlerId) => {
 
 If the data length is greater than 0, the app iterates through the appendable data. It starts at index 0 and fetches the data identifier corresponding to the first email.
 
-#### GET [/appendableData/:handleId/:index](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#read-appendable-data)
+#### [GET /appendableData/:handleId/:index](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#read-appendable-data)
 
 **appendable_data_actions.js**
 
@@ -92,7 +92,7 @@ export const fetchDataIdAt = (token, handlerId, index) => ({
 
 The app fetches the immutable data by using the data identifier of the first email.
 
-#### GET [/immutableData/:handleId](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/immutable_data.md#read-using-self-encryptor)
+#### [GET /immutableData/:handleId](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/immutable_data.md#read-using-self-encryptor)
 
 ```js
 export const fetchMail = (token, handleId) => ({
@@ -137,7 +137,7 @@ fetchMail(handlerId) {
 
 To update the amount of space used by the emails in your appendable data, the app fetches the serialized content of your appendable data and measures its length.
 
-#### GET /appendableData/serialise/:handleId
+#### [GET /appendableData/serialise/:handleId](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#serialise-appendabledata)
 
 **appendable_data_actions.js**
 
@@ -160,7 +160,7 @@ export const getAppendableDataLength = (token, handleId) => ({
 
 After refreshing your inbox, the app drops the data identifier handle corresponding to your appendable data.
 
-#### DELETE [/dataId/:handleId](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#drop-handle)
+#### [DELETE /dataId/:handleId](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#drop-handle)
 
 **data_handle_actions.js**
 

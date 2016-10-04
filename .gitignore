@@ -10,3 +10,6 @@ _book
 *.epub
 *.mobi
 *.pdf
+
+# macOS
+.DS_Store

@@ -30,7 +30,7 @@ export const hashEmailId = emailId => {
 };
 ```
 
-#### POST [/appendableData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#create)
+#### [POST /appendableData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#create)
 
 **appendable_data_actions.js**
 
@@ -61,7 +61,7 @@ export const createAppendableData = (token, hashedEmailId) => {
 
 After the appendable data is successfully created, the app saves your email ID in your root structured data. That way, the app will be able to retrieve your appendable data in the future.
 
-#### PUT [/structuredData/:id](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#update-structured-data)
+#### [PUT /structuredData/:id](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#update-structured-data)
 
 **core_structure_actions.js**
 
@@ -99,7 +99,7 @@ If your email ID is **francis**, the JSON data contained in your root structured
 
 After the root structured data is successfully updated, the app drops the data identifier handle corresponding to your appendable data.
 
-#### DELETE [/dataId/:handleId](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#drop-handle)
+#### [DELETE /dataId/:handleId](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#drop-handle)
 
 **data_handle_actions.js**
 

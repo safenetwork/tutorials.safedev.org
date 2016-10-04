@@ -61,7 +61,7 @@ Start [SAFE Launcher v0.9.0](https://github.com/maidsafe/safe_launcher/releases/
 
 ##### 2. Node.js
 
-You need to have Node.js v4.6.0 (LTS) or v6.7.0 (Current).
+Make sure you have Node.js v4.6.0 (LTS) or v6.7.0 (Current).
 
 ```
 node --version
