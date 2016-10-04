@@ -62,10 +62,10 @@ Start [SAFE Demo App v0.6.1](https://github.com/maidsafe/safe_examples/releases/
 
 ##### 1. Add the comments plugin and its dependencies to your website
 
-- [bootstrap-v3.3.7.min.css](https://github.com/maidsafe/safe_examples/blob/master/comments_plugin/bootstrap-v3.3.7.min.css)
-- [comments-tutorial.css](https://github.com/maidsafe/safe_examples/blob/master/comments_plugin/comments-tutorial.css)
-- [jquery-3.1.1.min.js](https://github.com/maidsafe/safe_examples/blob/master/comments_plugin/jquery-3.1.1.min.js)
-- [comments-tutorial.js](https://github.com/maidsafe/safe_examples/blob/master/comments_plugin/comments-tutorial.js)
+- [bootstrap-v3.3.7.min.css](https://raw.githubusercontent.com/maidsafe/safe_examples/master/comments_plugin/bootstrap-v3.3.7.min.css)
+- [comments-tutorial.css](https://raw.githubusercontent.com/maidsafe/safe_examples/master/comments_plugin/comments-tutorial.css)
+- [jquery-3.1.1.min.js](https://raw.githubusercontent.com/maidsafe/safe_examples/master/comments_plugin/jquery-3.1.1.min.js)
+- [comments-tutorial.js](https://raw.githubusercontent.com/maidsafe/safe_examples/master/comments_plugin/comments-tutorial.js)
 
 ##### 2. Use this code snippet to insert the comments plugin
 
