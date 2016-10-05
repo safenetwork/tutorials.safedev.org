@@ -1,6 +1,6 @@
 # Website with comments
 
-In this tutorial, you will learn how to **add comments to your SAFE website**!
+In this tutorial, you will learn how to **enable comments on your SAFE website**!
 
 We built a comments plugin that lets people comment on content using their [public name](https://api.safedev.org/dns/). It can be added to any HTML page. It also enables the website owner to delete comments and block users.
 
