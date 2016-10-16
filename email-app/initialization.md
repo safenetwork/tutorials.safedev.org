@@ -1,6 +1,6 @@
 # Initialization
 
-There are multiple tasks that the app needs to do during its initialization. Some of these tasks are only necessary if it's the first time you are authorizing this app with your SAFE Network account.
+There are multiple tasks that the app needs to do during its initialization. Some of these tasks are only necessary if it's the first time you authorize this app with your SAFE Network account.
 
 #### Contents
 
@@ -12,9 +12,13 @@ There are multiple tasks that the app needs to do during its initialization. Som
 
 The app sends an [authorization request](https://api.safedev.org/auth/) to SAFE Launcher.
 
-#### [POST /auth](https://api.safedev.org/auth/authorize-app.html)
+#### [Authorize app](https://api.safedev.org/auth/authorize-app.html)
 
-**initializer_actions.js**
+```
+POST /auth
+```
+
+##### [initializer_actions.js](https://github.com/maidsafe/safe_examples/blob/3012144cd8f4ab0f5a4891cbbedbdf3de1641755/email_app/app/actions/initializer_actions.js#L8-L19)
 
 ```js
 export const authoriseApplication = (data) => {
@@ -33,7 +37,7 @@ export const authoriseApplication = (data) => {
 
 The `authoriseApplication` function is called using `AUTH_PAYLOAD` as an argument:
 
-**initializer.js**
+##### [constants.js](https://github.com/maidsafe/safe_examples/blob/f1d7510b9a17c05a31da761927e05f17ca9b1c26/email_app/app/constants.js#L44-L52)
 
 ```js
 const AUTH_PAYLOAD = {
@@ -54,7 +58,7 @@ The app uses the information contained in its `package.json` file for the follow
 * app.version
 * app.id
 
-Therefore, the authorization payload for this app looks like this:
+Therefore, the request body looks like this:
 
 ```json
 {
@@ -70,10 +74,11 @@ Therefore, the authorization payload for this app looks like this:
 
 The `LOW_LEVEL_API` permission is requested because the app needs to the use the low-level APIs:
 
-- [Data Identifier](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/0042-launcher-api-v0.6.md#handle-id)
 - [Structured Data](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md)
-- [Immutable Data](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/immutable_data.md)
 - [Appendable Data](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md)
+- [Immutable Data](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/immutable_data.md)
+- [Data Identifier](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/data_identifier.md)
+- [Cipher Options API](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/cipher_opts.md)
 
 > #### info::Why is it necessary to ask for this permission?
 >
@@ -93,17 +98,21 @@ After you authorize the request, the app receives an authorization token.
 
 ## Check for a config file
 
-The app needs a way to store your email data on the SAFE Network. Using the [Structured Data API](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md), we can create a private structured data that will be used by the app to store your email ID and your saved emails. Let's call it the "root structure data".
+The app needs a way to store your email data on the SAFE Network. Using the [Structured Data API](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md), you can create a private structured data that will be used by the app to store your email ID and your saved emails. Let's call it the "root structured data".
 
-The root structured data will be created using a random ID. In order to be able to retrieve the root structured data later, we need to store its ID in a config file. This config file will be stored in the app's root directory.
+Your root structured data is created using a random ID. In order to be able to retrieve your root structured data later, you need to store its ID in a config file. This config file will be stored in the app's root directory.
 
 During the initialization process, if the app detects that you already have a config file, it will try to fetch your root structured data. If you don't have a config file, the app will create one for you.
 
-The app attempts to retrieve a config file in its root directory:
+To check if there's a config file in its root directory, the app attempts to retrieve a file called "config".
 
-#### [GET /nfs/file/:rootPath/:filePath](https://api.safedev.org/nfs/file/get-file.html)
+#### [Get file](https://api.safedev.org/nfs/file/get-file.html)
 
-**nfs_actions.js**
+```
+GET /nfs/file/:rootPath/:filePath
+```
+
+##### [nfs_actions.js](https://github.com/maidsafe/safe_examples/blob/3012144cd8f4ab0f5a4891cbbedbdf3de1641755/email_app/app/actions/nfs_actions.js#L21-L35)
 
 ```js
 export const getConfigFile = token => {
@@ -127,12 +136,12 @@ export const getConfigFile = token => {
 
 ## If a config file is not found
 
-The app creates a root structured data with a random ID. All structured data items need to have an ID that is 32 bytes long. Therefore, the app generates a 32 bytes long random ID:
+The app will create a root structured data with a random ID. All structured data items need to have an ID that is 32 bytes long. Therefore, the app generates a 32 bytes long random ID using this function:
 
-**app_utils.js**
+##### [app_utils.js](https://github.com/maidsafe/safe_examples/blob/f1d7510b9a17c05a31da761927e05f17ca9b1c26/email_app/app/utils/app_utils.js#L31-L33)
 
 ```js
-export const generateCoreStructreId = () => {
+export const generateStructredDataId = () => {
   return base64.encode(crypto.randomBytes(32).toString('base64'));
 };
 ```
@@ -148,28 +157,114 @@ The email data can be represented using a simple [JSON](https://en.wikipedia.org
 }
 ```
 
-### Create a root structured data
+### Get a cipher handle
 
-The root structured data is encrypted using symmetric encryption. This means that no one else can read the content of your root structured data. Only you can decrypt it. Also, since we don't need versioning (we only want to show the latest data), we create an [unversioned structured data](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#create) (type 500).
+First, the app fetches a "cipher options" handle for symmetric encryption.
 
-#### [POST /structuredData/:id](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#create)
+#### [Get Cipher-Opts handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/cipher_opts.md#get-cipher-opts-handle)
 
-**core_structure_actions.js**
+```
+/cipher-opts/:encType/:keyHandle?
+```
+
+##### [cipher-opts_actions.js](https://github.com/maidsafe/safe_examples/blob/f1d7510b9a17c05a31da761927e05f17ca9b1c26/email_app/app/actions/cipher-opts_actions.js#L3-L13)
 
 ```js
-export const createCoreStructure = (token, id, data) => ({
-  type: ACTION_TYPES.CREATE_CORE_STRUCTURE,
+export const getCipherOptsHandle = (token, encType, keyHandle='') => ({
+  type: ACTION_TYPES.GET_CIPHER_OPTS_HANDLE,
+  payload: {
+    request: {
+      url: `/cipher-opts/${encType}/${keyHandle}`,
+      headers: {
+        'Authorization': token,
+      }
+    }
+  }
+});
+```
+
+### Create a root structured data
+
+Your root structured data is encrypted using symmetric encryption. This means that no one else can read its content. Only you can decrypt it. Also, since we don't need versioning (we only want to show the latest data), we create an [unversioned structured data](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#create) (type 500).
+
+#### [Create StructuredData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#create)
+
+```
+POST /structured-data/:id
+```
+
+##### [structured_data_actions.js](https://github.com/maidsafe/safe_examples/blob/f1d7510b9a17c05a31da761927e05f17ca9b1c26/email_app/app/actions/structured_data_actions.js#L4-L21)
+
+```js
+export const createStructuredData = (token, name, data, cipherHandle) => ({
+  type: ACTION_TYPES.CREATE_STRUCTURED_DATA,
   payload: {
     request: {
       method: 'post',
-      url: `/structuredData/${id}`,
+      url: '/structured-data',
       headers: {
-        'Tag-Type': CONSTANTS.TAG_TYPE.DEFAULT,
-        Encryption: CONSTANTS.ENCRYPTION.SYMMETRIC,
-        'Authorization': token,
-        'Content-Type': 'text/plain'
+        'Authorization': token
       },
-      data: new Uint8Array(new Buffer(JSON.stringify(data)))
+      data: {
+        name,
+        typeTag: CONSTANTS.TAG_TYPE.DEFAULT,
+        cipherOpts: cipherHandle,
+        data: new Buffer(JSON.stringify(data)).toString('base64')
+      }
+    }
+  }
+});
+```
+
+### Drop the cipher handle
+
+The app drops the "cipher options" handle for symmetric encryption.
+
+#### [Drop Cipher-Opts handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/cipher_opts.md#drop-handle)
+
+```
+DELETE /cipher-opts/:handleId
+```
+
+##### [cipher-opts_actions.js](https://github.com/maidsafe/safe_examples/blob/f1d7510b9a17c05a31da761927e05f17ca9b1c26/email_app/app/actions/cipher-opts_actions.js#L15-L26)
+
+```js
+export const deleteCipherOptsHandle = (token, handleId) => ({
+  type: ACTION_TYPES.DELETE_CIPHER_OPTS_HANDLE,
+  payload: {
+    request: {
+      method: 'delete',
+      url: `/cipher-opts/${handleId}`,
+      headers: {
+        'Authorization': token,
+      }
+    }
+  }
+});
+```
+
+### Save the root structured data
+
+The app saves your root structured data to the SAFE Network.
+
+#### [Save StructuredData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#save-structured-data)
+
+```
+PUT /structured-data/:handleId
+```
+
+##### [structured_data_actions.js](https://github.com/maidsafe/safe_examples/blob/f1d7510b9a17c05a31da761927e05f17ca9b1c26/email_app/app/actions/structured_data_actions.js#L106-L117)
+
+```js
+export const putStructuredData = (token, handleId) => ({
+  type: ACTION_TYPES.PUT_STRUCTURED_DATA,
+  payload: {
+    request: {
+      method: 'put',
+      url: `/structured-data/${handleId}`,
+      headers: {
+        'Authorization': token
+      }
     }
   }
 });
@@ -177,13 +272,17 @@ export const createCoreStructure = (token, id, data) => ({
 
 ### Create a config file
 
-After the structured data is successfully created, the app stores its ID in a config file. That way, the app will be able to retrieve your email data in the future.
+After your root structured data is successfully created, the app stores its ID in a config file. That way, the app will be able to retrieve your email data in the future.
 
-The config file is stored in the app's root directory, which is private. Therefore, the config file will be automatically encrypted and no one else will be able to read it.
+This config file is stored in the app's root directory, which is private. Therefore, it will automatically be encrypted and no one else will be able to read it.
 
-#### [POST /nfs/file/:rootPath/:filePath](https://api.safedev.org/nfs/file/create-file.html)
+#### [Create file](https://api.safedev.org/nfs/file/create-file.html)
 
-**nfs_actions.js**
+```
+POST /nfs/file/:rootPath/:filePath
+```
+
+##### [nfs_actions.js](https://github.com/maidsafe/safe_examples/blob/3012144cd8f4ab0f5a4891cbbedbdf3de1641755/email_app/app/actions/nfs_actions.js#L4-L19)
 
 ```js
 export const writeConfigFile = (token, coreId) => {
@@ -210,22 +309,59 @@ After the config file is successfully created, the app transitions to the Create
 
 ## If a config file is found
 
-The app fetches your email data (email ID and saved emails) using the ID stored in the config file.
+The app will fetch your email data (email ID and saved emails) using the ID stored in the config file.
 
-Before fetching your root structured data, the app needs to obtain a structured data handle using the Data Identifier API.
+### Get a data identifier handle
+
+First, the app fetches a data identifier handle using the ID of your root structured data.
 
 <!-- *(explain why handles are needed?)* -->
 
-#### [GET /structuredData/handle/:id](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#get-data-identifier-handle)
+#### [Get DataIdentifier handle for StructuredData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/data_identifier.md#get-dataidentifier-for-structureddata)
 
-**core_structure_actions.js**
+```
+POST /data-id/structured-data
+```
+
+##### [data_id_handle_actions.js](https://github.com/maidsafe/safe_examples/blob/f1d7510b9a17c05a31da761927e05f17ca9b1c26/email_app/app/actions/data_id_handle_actions.js#L5-L20)
 
 ```js
-export const fetchCoreStructureHandler = (token, id) => ({
-  type: ACTION_TYPES.FETCH_CORE_STRUCTURE_HANDLER,
+export const getStructuredDataIdHandle = (token, name) => ({
+  type: ACTION_TYPES.GET_STRUCTURED_DATA_ID_HANDLE,
   payload: {
     request: {
-      url: `/structuredData/handle/${id}`,
+      method: 'post',
+      url: '/data-id/structured-data',
+      headers: {
+        'Authorization': token
+      },
+      data: {
+        typeTag: CONSTANTS.TAG_TYPE.DEFAULT,
+        name
+      }
+    }
+  }
+});
+```
+
+### Get a structured data handle
+
+The app fetches a structured data handle using the data identifier handle of your root structured data.
+
+#### [Get StructuredData handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#get-structured-data-handle)
+
+```
+GET /structured-data/handle/:dataIdHandle
+```
+
+##### [structured_data_actions.js](https://github.com/maidsafe/safe_examples/blob/f1d7510b9a17c05a31da761927e05f17ca9b1c26/email_app/app/actions/structured_data_actions.js#L38-L49)
+
+```js
+export const fetchStructuredDataHandle = (token, dataIdHandle) => ({
+  type: ACTION_TYPES.FETCH_STRUCTURE_DATA_HANDLE,
+  payload: {
+    request: {
+      url: `/structured-data/handle/${dataIdHandle}`,
       headers: {
         'Tag-Type': CONSTANTS.TAG_TYPE.DEFAULT,
         'Authorization': token
@@ -237,18 +373,22 @@ export const fetchCoreStructureHandler = (token, id) => ({
 
 ### Fetch the root structured data
 
-After the structured data handle is successfully retrieved, the app fetches the root structured data that contains your email data.
+After the structured data handle is successfully retrieved, the app fetches the structured data that contains your email data.
 
-#### [GET /structuredData/:handleId](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#read-data)
+#### [Read StructuredData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#read-data)
 
-**core_structure_actions.js**
+```
+GET /structured-data/:handleId
+```
+
+##### [structured_data_actions.js](https://github.com/maidsafe/safe_examples/blob/f1d7510b9a17c05a31da761927e05f17ca9b1c26/email_app/app/actions/structured_data_actions.js#L23-L36)
 
 ```js
-export const fetchCoreStructure = (token, id) => ({
-  type: ACTION_TYPES.FETCH_CORE_STRUCTURE,
+export const fetchStructuredData = (token, handleId) => ({
+  type: ACTION_TYPES.FETCH_STRUCTURED_DATA,
   payload: {
     request: {
-      url: `/structuredData/${id}`,
+      url: `/structured-data/${handleId}`,
       headers: {
         'Authorization': token,
         'Tag-Type': CONSTANTS.TAG_TYPE.DEFAULT,

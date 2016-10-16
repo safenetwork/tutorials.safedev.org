@@ -30,6 +30,7 @@ You will learn about the following APIs:
 - [Appendable Data API](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md)
 - [Immutable Data API](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/immutable_data.md)
 - [Data Identifier API](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/data_identifier.md)
+- [Cipher Options API](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/cipher_opts.md)
 
 ### User interface
 
@@ -37,7 +38,7 @@ The user interface is built using the following front-end libraries:
 
 - [React](https://facebook.github.io/react/)
 - [Redux](http://redux.js.org/)
-- [React Router](https://github.com/reactjs/react-router)
+- [React Router](https://github.com/ReactTraining/react-router)
 
 ## Source code
 
@@ -47,7 +48,7 @@ The user interface is built using the following front-end libraries:
 
 ### Binaries
 
-[Download **SAFE Mail Tutorial v0.1.0** on GitHub](https://github.com/maidsafe/safe_examples/releases/tag/0.7.0).
+[Download **SAFE Mail Tutorial v0.1.1** on GitHub](https://github.com/maidsafe/safe_examples/releases/tag/0.8.0).
 
 Since this app is built using [Electron](http://electron.atom.io/), it can be distributed as a desktop app (Windows, OS X and Linux).
 
@@ -57,7 +58,7 @@ Since this app is built using [Electron](http://electron.atom.io/), it can be di
 
 ##### 1. SAFE Launcher
 
-Start [SAFE Launcher v0.9.0](https://github.com/maidsafe/safe_launcher/releases/tag/0.9.0) and log in.
+Start [SAFE Launcher v0.9.1](https://github.com/maidsafe/safe_launcher/releases/tag/0.9.1) and log in.
 
 ##### 2. Node.js
 
@@ -77,12 +78,12 @@ There are many ways to install Node.js. See [nodejs.org](https://nodejs.org/en/d
 git clone https://github.com/maidsafe/safe_examples.git
 ```
 
-If you don't have Git installed, you can download it from [git-scm.com](https://git-scm.com/downloads). Another option is to download this zip file instead of using Git: https://github.com/maidsafe/safe_examples/archive/master.zip.
+If you don't have Git installed, you can download it from [git-scm.com](https://git-scm.com/downloads).
 
 ##### 2. Install the dependencies
 
 ```
-cd email_app && npm install
+cd safe_examples/email_app && npm install
 ```
 
 ##### 3. Start the app

@@ -22,7 +22,9 @@ This appendable data will be used as your inbox. It has a maximum size of 100 Ki
 
 Other users will be able to send you emails by appending them to your appendable data. All emails will be encrypted using your public encryption key, therefore only you will be able to read them.
 
-All appendable data items need to have an ID that is 32 bytes long. Therefore, the app generates a 32 bytes long ID by hashing your email ID:
+All appendable data items need to have an ID that is 32 bytes long. Therefore, the app generates a 32 bytes long ID by hashing your email ID.
+
+##### [app_utils.js](https://github.com/maidsafe/safe_examples/blob/f1d7510b9a17c05a31da761927e05f17ca9b1c26/email_app/app/utils/app_utils.js#L27-L29)
 
 ```js
 export const hashEmailId = emailId => {
@@ -30,23 +32,27 @@ export const hashEmailId = emailId => {
 };
 ```
 
-#### [POST /appendableData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#create)
+#### [Create appendable data](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#create)
 
-**appendable_data_actions.js**
+```
+POST /appendable-data
+```
+
+##### [appendable_data_actions.js](https://github.com/maidsafe/safe_examples/blob/f1d7510b9a17c05a31da761927e05f17ca9b1c26/email_app/app/actions/appendable_data_actions.js#L4-L23)
 
 ```js
-export const createAppendableData = (token, hashedEmailId) => {
+export const createAppendableData = (token, name) => {
   return {
     type: ACTION_TYPES.CREATE_APPENDABLE_DATA,
     payload: {
       request: {
         method: 'post',
-        url: '/appendableData',
+        url: '/appendable-data',
         headers: {
           'Authorization': token
         },
         data: {
-          id: hashedEmailId,
+          name,
           isPrivate: true,
           filterType: CONSTANTS.APPENDABLE_DATA_FILTER_TYPE.BLACK_LIST,
           filterKeys: []
@@ -57,28 +63,116 @@ export const createAppendableData = (token, hashedEmailId) => {
 };
 ```
 
-## Update the root structured data
+### Save the appendable data
 
-After the appendable data is successfully created, the app saves your email ID in your root structured data. That way, the app will be able to retrieve your appendable data in the future.
+The app saves the appendable data to the SAFE Network.
 
-#### [PUT /structuredData/:id](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#update-structured-data)
+#### [Save AppendableData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#save-appendabledata)
 
-**core_structure_actions.js**
+```
+PUT /appendable-data/:handleId
+```
+
+##### [appendable_data_actions.js](https://github.com/maidsafe/safe_examples/blob/f1d7510b9a17c05a31da761927e05f17ca9b1c26/email_app/app/actions/appendable_data_actions.js#L172-L183)
 
 ```js
-export const updateCoreStructure = (token, id, data) => ({
-  type: ACTION_TYPES.UPDATE_CORE_STRUCTURE,
+export const putAppendableData = (token, handleId) => ({
+  type: ACTION_TYPES.PUT_APPENDABLE_DATA,
   payload: {
     request: {
       method: 'put',
-      url: `/structuredData/${id}`,
+      url: `/appendable-data/${handleId}`,
       headers: {
-        'Content-Type': 'text/plain',
-        'Tag-Type': CONSTANTS.TAG_TYPE.DEFAULT,
-        Encryption: CONSTANTS.ENCRYPTION.SYMMETRIC,
+        'Authorization': token
+      }
+    }
+  }
+});
+```
+
+### Drop the appendable data handle
+
+After the root structured data is successfully updated, the app drops the appendable data handle.
+
+#### [Drop AppendableData handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#drop-handle)
+
+```
+DELETE /appendable-data/handle/:handleId
+```
+
+##### [appendable_data_actions.js](https://github.com/maidsafe/safe_examples/blob/f1d7510b9a17c05a31da761927e05f17ca9b1c26/email_app/app/actions/appendable_data_actions.js#L145-L156)
+
+```js
+export const dropAppendableDataHandle = (token, handleId) => ({
+  type: ACTION_TYPES.DROP_APPENDABLE_DATA_HANDLE,
+  payload: {
+    request: {
+      method: 'delete',
+      url: `/appendable-data/handle/${handleId}`,
+      headers: {
+        'Authorization': token
+      }
+    }
+  }
+});
+```
+
+## Save the email ID
+
+After the appendable data is successfully created, the app saves your email ID in your root structured data. That way, the app will be able to retrieve your appendable data in the future.
+
+### Get cipher handle
+
+First, the app fetches a "cipher options" handle for symmetric encryption.
+
+#### [Get Cipher-Opts handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/cipher_opts.md#get-cipher-opts-handle)
+
+```
+/cipher-opts/:encType/:keyHandle?
+```
+
+##### [cipher-opts_actions.js](https://github.com/maidsafe/safe_examples/blob/f1d7510b9a17c05a31da761927e05f17ca9b1c26/email_app/app/actions/cipher-opts_actions.js#L3-L13)
+
+```js
+export const getCipherOptsHandle = (token, encType, keyHandle='') => ({
+  type: ACTION_TYPES.GET_CIPHER_OPTS_HANDLE,
+  payload: {
+    request: {
+      url: `/cipher-opts/${encType}/${keyHandle}`,
+      headers: {
+        'Authorization': token,
+      }
+    }
+  }
+});
+```
+
+### Update the root structured data
+
+The app adds your email ID to your root structured data and encrypts it using symmetric encryption.
+
+#### [Update StructuredData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#update-data)
+
+```
+PATCH /structured-data/:handleId
+```
+
+##### [structured_data_actions.js](https://github.com/maidsafe/safe_examples/blob/f1d7510b9a17c05a31da761927e05f17ca9b1c26/email_app/app/actions/structured_data_actions.js#L63-L78)
+
+```js
+export const updateStructuredData = (token, handleId, data, cipherOpts) => ({
+  type: ACTION_TYPES.UPDATE_STRUCTURED_DATA,
+  payload: {
+    request: {
+      method: 'patch',
+      url: `/structured-data/${handleId}`,
+      headers: {
         'Authorization': token
       },
-      data: new Uint8Array(new Buffer(JSON.stringify(data)))
+      data: {
+        cipherOpts,
+        data: new Buffer(JSON.stringify(data)).toString('base64')
+      }
     }
   }
 });
@@ -95,21 +189,52 @@ If your email ID is **francis**, the JSON data contained in your root structured
 }
 ```
 
-## Drop the appendable data handle
+### Drop the cipher handle
 
-After the root structured data is successfully updated, the app drops the data identifier handle corresponding to your appendable data.
+The app drops the "cipher options" handle for symmetric encryption.
 
-#### [DELETE /dataId/:handleId](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#drop-handle)
+#### [Drop Cipher-Opts handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/cipher_opts.md#drop-handle)
 
-**data_handle_actions.js**
+```
+DELETE /cipher-opts/:handleId
+```
+
+##### [cipher-opts_actions.js](https://github.com/maidsafe/safe_examples/blob/f1d7510b9a17c05a31da761927e05f17ca9b1c26/email_app/app/actions/cipher-opts_actions.js#L15-L26)
 
 ```js
-export const dropHandler = (token, handleId) => ({
-  type: ACTION_TYPES.DROP_HANDLER,
+export const deleteCipherOptsHandle = (token, handleId) => ({
+  type: ACTION_TYPES.DELETE_CIPHER_OPTS_HANDLE,
   payload: {
     request: {
       method: 'delete',
-      url: `/dataId/${handleId}`,
+      url: `/cipher-opts/${handleId}`,
+      headers: {
+        'Authorization': token,
+      }
+    }
+  }
+});
+```
+
+### Save the root structured data
+
+The app saves your root structured data to the SAFE Network.
+
+#### [Save StructuredData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#save-structured-data)
+
+```
+POST /structured-data/:handleId
+```
+
+##### [structured_data_actions.js](https://github.com/maidsafe/safe_examples/blob/f1d7510b9a17c05a31da761927e05f17ca9b1c26/email_app/app/actions/structured_data_actions.js#L93-L104)
+
+```js
+export const postStructuredData = (token, handleId) => ({
+  type: ACTION_TYPES.POST_STRUCTURED_DATA,
+  payload: {
+    request: {
+      method: 'post',
+      url: `/structured-data/${handleId}`,
       headers: {
         'Authorization': token
       }
@@ -118,6 +243,6 @@ export const dropHandler = (token, handleId) => ({
 });
 ```
 
-After the appendable data handle is successfully dropped, the app transitions to the Inbox page.
+After your root structured data has been successfully saved, the app transitions to the Inbox page.
 
 ![Inbox page](img/inbox-page.png)

@@ -2,7 +2,7 @@
 
 In this series of tutorials, we will present different use cases of the SAFE API.
 
-[SAFE Launcher](https://maidsafe.readme.io/docs/launcher) exposes REST APIs that apps can use to interact with the SAFE Network.
+[SAFE Launcher](https://maidsafe.readme.io/docs/launcher) exposes a REST API that apps can use to interact with the SAFE Network.
 
 **[Download SAFE Launcher](https://maidsafe.net/alpha.html)** to use the SAFE API.
 
@@ -16,4 +16,6 @@ SAFE Launcher enables you to build SAFE Network apps that don't require users to
 
 The SAFE Network is a decentralized data storage and communications network that provides a secure, efficient and no-cost infrastructure for app developers.
 
-Rather than using data centers and servers which are prone to data theft and surveillance, the SAFE Network uses advanced peer-to-peer technology that joins together the spare computing capacity of all SAFE users, creating a global network.
+Rather than using data centers and servers which are prone to data theft and surveillance, the SAFE Network uses advanced peer-to-peer technology that joins together the unused hard drive space, CPU power and Internet connections of all SAFE users, creating a global network.
+
+Users of the SAFE Network have full control over their data, while app developers can focus their time building on top of a secure infrastructure.
