@@ -26,7 +26,7 @@ window.safeDataId.getAppendableDataHandle(this._authToken, this._getLocation())
 
 The name of the appendable data is based on the URL of the current page.
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L311-L316)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L312-L317)
 
 ```js
 _getLocation () {
@@ -95,7 +95,7 @@ The plugin fetches a data identifier handle from the appendable data based on th
 GET /appendable-data/:handleId/:index
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L390-L391)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L391-L392)
 
 ```js
 window.safeAppendableData.getDataIdAt(
@@ -116,7 +116,7 @@ The plugin fetches the data map of the comment using the data identifier handle 
 GET /immutable-data/reader/:handleId
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L378)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L379)
 
 ```js
 window.safeImmutableData.getReaderHandle(this._authToken, address)
@@ -134,7 +134,7 @@ The plugin reads the immutable data representing the comment using the immutable
 GET /immutable-data/:handleId
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L380)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L381)
 
 ```js
 window.safeImmutableData.read(this._authToken, handleId)
@@ -150,7 +150,7 @@ The plugin drops the immutable data reader handle.
 DELETE /immutable-data/reader/:handleId
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L382)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L383)
 
 ```js
 window.safeImmutableData.dropReader(this._authToken, hId)
@@ -170,7 +170,7 @@ The plugin fetches a structured data handle using the data identifier handle of 
 GET /structured-data/handle/:dataIdHandle
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/editable_comments_plugin/comments/src/controller.js#L458)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/editable_comments_plugin/comments/src/controller.js#L461)
 
 ```js
 window.safeStructuredData.getHandle(this._authToken, address)
@@ -186,7 +186,7 @@ The plugin fetches the content of the structured data using the structured data 
 GET /structured-data/:handleId
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/editable_comments_plugin/comments/src/controller.js#L460)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/editable_comments_plugin/comments/src/controller.js#L463)
 
 ```js
 window.safeStructuredData.readData(this._authToken, payload.handleId)
@@ -202,7 +202,7 @@ The plugin drops the structured data handle of the current comment.
 DELETE /structured-data/handle/:handleId
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/editable_comments_plugin/comments/src/controller.js#L466)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/editable_comments_plugin/comments/src/controller.js#L469)
 
 ```js
 window.safeStructuredData.dropHandle(this._authToken, hId)
@@ -218,7 +218,7 @@ The plugin drops the data identifier handle of the current comment.
 DELETE /data-id/:handleId
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L395)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L396)
 
 ```js
 window.safeDataId.dropHandle(this._authToken, dataIdHandle)

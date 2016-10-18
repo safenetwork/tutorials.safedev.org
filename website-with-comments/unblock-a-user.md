@@ -20,7 +20,7 @@ The plugin deserializes the signing key of the user you want to unblock.
 POST /sign-key/deserialise
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L272)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L271)
 
 ```js
 window.safeSignKey.deserialise(this._authToken, new Buffer(this._data.blockedUsers[userName], 'base64'))
@@ -38,7 +38,7 @@ The plugin removes the signing key of the user you want to unblock from the appe
 DELETE /appendable-data/filter/:handleId
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L274-L277)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L273-L276)
 
 ```js
 window.safeAppendableData.removeFromFilter(
@@ -57,7 +57,7 @@ The plugin updates the appendable data associated with the current page by sendi
 POST /appendable-data/:handleId
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L278-L279)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L277-L278)
 
 ```js
 window.safeAppendableData.post(
@@ -68,7 +68,7 @@ window.safeAppendableData.post(
 
 The plugin removes the serialized signing key of the user you just unblocked from the list of blocked users for the current page.
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L281-L282)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L280-L281)
 
 ```js
 delete this._data.blockedUsers[userName]
@@ -85,7 +85,7 @@ The plugin updates the structured data with the new list of blocked users.
 PATCH /structured-data/:handleId
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L283-L286)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L282-L285)
 
 ```js
 window.safeStructuredData.updateData(
@@ -104,7 +104,7 @@ The plugin saves the structured data by sending a POST request to the SAFE Netwo
 POST /structured-data/:handleId
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L287-L288)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L286-L287)
 
 ```js
 window.safeStructuredData.post(
@@ -121,7 +121,7 @@ The plugin drops the handle that represents the signing key of the user you just
 DELETE /sign-key/:handleId
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L294)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L295)
 
 ```js
 window.safeSignKey.dropHandle(this._authToken, signKeyHandle)

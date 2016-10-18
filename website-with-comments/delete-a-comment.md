@@ -34,7 +34,7 @@ The plugin updates the appendable data associated with the current page by sendi
 POST /appendable-data/:handleId
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L244)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L242)
 
 ```js
 window.safeAppendableData.post(this._authToken, this._currentPostHandleId)
@@ -50,7 +50,7 @@ The plugin clears the `deleted_data` field of the appendable data associated wit
 DELETE /appendable-data/clear-deleted-data/:handleId
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L247)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L245)
 
 ```js
 window.safeAppendableData.clearAll(this._authToken, this._currentPostHandleId, true)
@@ -66,7 +66,7 @@ The plugin updates the appendable data associated with the current page by sendi
 POST /appendable-data/:handleId
 ```
 
-##### controller.js
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L246)
 
 ```js
 window.safeAppendableData.post(this._authToken, this._currentPostHandleId)

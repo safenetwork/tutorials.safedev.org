@@ -26,7 +26,7 @@ window.safeAppendableData.create(this._authToken, this._getLocation(), false)
 
 The name of the appendable data is based on the URL of the current page.
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L311-L316)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L312-L317)
 
 ```js
 _getLocation () {
