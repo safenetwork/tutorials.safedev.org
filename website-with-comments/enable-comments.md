@@ -18,7 +18,7 @@ When you click on the `Enable Comments` button, the plugin creates an appendable
 POST /appendable-data
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L108)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L108)
 
 ```js
 window.safeAppendableData.create(this._authToken, this._getLocation(), false)
@@ -26,7 +26,7 @@ window.safeAppendableData.create(this._authToken, this._getLocation(), false)
 
 The name of the appendable data is based on the URL of the current page.
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L311-L316)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L311-L316)
 
 ```js
 _getLocation () {
@@ -55,7 +55,7 @@ The plugin saves the appendable data to the SAFE Network.
 PUT /appendable-data/:handleId
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L113)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L113)
 
 ```js
 window.safeAppendableData.put(this._authToken, handleId)

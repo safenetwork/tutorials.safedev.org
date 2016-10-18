@@ -22,7 +22,7 @@ The plugin fetches a data identifier handle for the comment you want to edit.
 GET /appendable-data/:handleId/:index
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/1c190c6246c35f2efb0608606219c3310b950bb2/editable_comments_plugin/comments/src/controller.js#L288-L289)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/editable_comments_plugin/comments/src/controller.js#L288-L289)
 
 ```js
 window.safeAppendableData.getDataIdAt(
@@ -39,7 +39,7 @@ The plugin fetches a structured data handle using the data identifier handle pre
 GET /structured-data/handle/:dataIdHandle
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/1c190c6246c35f2efb0608606219c3310b950bb2/editable_comments_plugin/comments/src/controller.js#L293)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/editable_comments_plugin/comments/src/controller.js#L293)
 
 ```js
 window.safeStructuredData.getHandle(this._authToken, address)
@@ -49,7 +49,7 @@ window.safeStructuredData.getHandle(this._authToken, address)
 
 The plugin updates the structured data handle with the new version of the comment.
 
-##### [controller.js](https://github.com/maidsafe/safe_examples_private/blob/1c190c6246c35f2efb0608606219c3310b950bb2/editable_comments_plugin/comments/src/controller.js#L279-L284)
+##### [controller.js](https://github.com/maidsafe/safe_examples_private/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/editable_comments_plugin/comments/src/controller.js#L279-L284)
 
 ```js
 const payload = new Buffer(JSON.stringify({
@@ -66,7 +66,7 @@ const payload = new Buffer(JSON.stringify({
 PATCH /structured-data/:handleId
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/1c190c6246c35f2efb0608606219c3310b950bb2/editable_comments_plugin/comments/src/controller.js#L295)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/editable_comments_plugin/comments/src/controller.js#L295)
 
 ```js
 window.safeStructuredData.updateData(this._authToken, handleId, payload)
@@ -82,7 +82,7 @@ The plugin saves the new version of the comment by sending a POST request to the
 POST /structured-data/:handleId
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/1c190c6246c35f2efb0608606219c3310b950bb2/editable_comments_plugin/comments/src/controller.js#L296)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/editable_comments_plugin/comments/src/controller.js#L296)
 
 ```js
 window.safeStructuredData.post(this._authToken, handleId)
@@ -98,7 +98,7 @@ The plugin drops the structured data handle of the comment.
 DELETE /structured-data/handle/:handleId
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/1c190c6246c35f2efb0608606219c3310b950bb2/editable_comments_plugin/comments/src/controller.js#L298)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/editable_comments_plugin/comments/src/controller.js#L298)
 
 ```js
 window.safeStructuredData.dropHandle(this._authToken, dataIdHandle)
@@ -114,7 +114,7 @@ The plugin drops the data identifer handle of the comment.
 DELETE /data-id/:handleId
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/1c190c6246c35f2efb0608606219c3310b950bb2/editable_comments_plugin/comments/src/controller.js#L300)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/editable_comments_plugin/comments/src/controller.js#L300)
 
 ```js
 window.safeDataId.dropHandle(this._authToken, dataIdHandle)

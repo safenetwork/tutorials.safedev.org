@@ -22,7 +22,7 @@ The plugin fetches an immutable data writer handle.
 GET /immutable-data/writer
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L214)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L214)
 
 ```js
 window.safeImmutableData.getWriterHandle(this._authToken)
@@ -38,7 +38,7 @@ The plugin stores the comment as immutable data using the immutable data writer 
 POST /immutable-data/:handleId
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L216)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L216)
 
 ```js
 window.safeImmutableData.write(this._authToken, writerHandle, payload)
@@ -46,7 +46,7 @@ window.safeImmutableData.write(this._authToken, writerHandle, payload)
 
 The payload parameter contains the public name you selected, your comment and the current timestamp in JSON format.
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L206-L210)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L206-L210)
 
 ```js
 const payload = new Buffer(JSON.stringify({
@@ -76,7 +76,7 @@ The plugin saves the data map of the comment as immutable data on the SAFE Netwo
 PUT /immutable-data/:handleId/:cipherOptsHandle
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L220)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L220)
 
 ```js
 window.safeImmutableData.closeWriter(this._authToken, writerHandle)
@@ -96,7 +96,7 @@ The plugin fetches a structured data handle for the comment you want to add.
 POST /structured-data
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/67a5620e722b5d47a0cacb436b2d43c92e959aa8/editable_comments_plugin/comments/src/controller.js#L254)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/editable_comments_plugin/comments/src/controller.js#L254)
 
 ```js
 window.safeStructuredData.create(this._authToken, name, 501, payload)
@@ -110,7 +110,7 @@ window.safeStructuredData.create(this._authToken, name, 501, payload)
 
 3. The payload parameter will contain the public name you selected, your comment and the current timestamp in JSON format (stored as a base64 string).
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/67a5620e722b5d47a0cacb436b2d43c92e959aa8/editable_comments_plugin/comments/src/controller.js#L243-L249)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/editable_comments_plugin/comments/src/controller.js#L243-L249)
 
 ```js
 const timeStamp = (new Date()).getTime()
@@ -142,7 +142,7 @@ The plugin saves the structured data representing your comment to the SAFE Netwo
 PUT /structured-data/:handleId
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/67a5620e722b5d47a0cacb436b2d43c92e959aa8/editable_comments_plugin/comments/src/controller.js#L256)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/editable_comments_plugin/comments/src/controller.js#L256)
 
 ```js
 window.safeStructuredData.put(this._authToken, currentSDHandleId)
@@ -158,7 +158,7 @@ The plugin fetches a data identifier handle using the structured data handle rep
 GET /structured-data/data-id/:handleId
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/67a5620e722b5d47a0cacb436b2d43c92e959aa8/editable_comments_plugin/comments/src/controller.js#L260)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/editable_comments_plugin/comments/src/controller.js#L260)
 
 ```js
 window.safeStructuredData.getDataIdHandle(this._authToken, currentSDHandleId)
@@ -174,7 +174,7 @@ The plugin appends the data identifier handle representing your comment to the a
 PUT /appendable-data/:handleId/:dataIdHandle
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L222)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L222)
 
 ```js
 window.safeAppendableData.append(this._authToken, this._currentPostHandleId, dataIdHandle)
@@ -190,7 +190,7 @@ The plugin drops the data identifier handle representing your comment.
 DELETE /data-id/:handleId
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L224)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L224)
 
 ```js
 window.safeDataId.dropHandle(this._authToken, dataIdHandle)
@@ -206,7 +206,7 @@ If the current page is using the [Permanent Comments Plugin](https://github.com/
 DELETE /immutable-data/writer/:handleId
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L230)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L230)
 
 ```js
 window.safeImmutableData.dropWriter(this._authToken, writerHandle)
@@ -222,7 +222,7 @@ If the current page is using the [Editable Comments Plugin](https://github.com/m
 DELETE /structured-data/handle/:handleId
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/67a5620e722b5d47a0cacb436b2d43c92e959aa8/editable_comments_plugin/comments/src/controller.js#L267)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/editable_comments_plugin/comments/src/controller.js#L267)
 
 ```js
 window.safeStructuredData.dropHandle(this._authToken, currentSDHandleId)

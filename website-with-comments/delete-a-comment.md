@@ -18,7 +18,7 @@ The plugin moves the comment you want to delete to the `deleted_data` field of t
 DELETE /appendable-data/:handleId/:index
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L241)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L241)
 
 ```js
 window.safeAppendableData.removeAt(this._authToken, this._currentPostHandleId, index)
@@ -34,7 +34,7 @@ The plugin updates the appendable data associated with the current page by sendi
 POST /appendable-data/:handleId
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L244)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L244)
 
 ```js
 window.safeAppendableData.post(this._authToken, this._currentPostHandleId)
@@ -50,7 +50,7 @@ The plugin clears the `deleted_data` field of the appendable data associated wit
 DELETE /appendable-data/clear-deleted-data/:handleId
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L247)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L247)
 
 ```js
 window.safeAppendableData.clearAll(this._authToken, this._currentPostHandleId, true)

@@ -18,7 +18,7 @@ The plugin fetches the signing key of the user you want to block.
 GET /appendable-data/sign-key/:handleId/:index
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L259)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L259)
 
 ```js
 window.safeAppendableData.getSignKeyAt(this._authToken, this._currentPostHandleId, index)
@@ -34,7 +34,7 @@ The plugin adds the signing key of the user you want to block to the filter of t
 PUT /appendable-data/filter/:handleId
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L261)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L261)
 
 ```js
 window.safeAppendableData.addToFilter(this._authToken, this._currentPostHandleId, [signKeyHandleId])
@@ -50,7 +50,7 @@ The plugin updates the appendable data associated with the current page by sendi
 POST /appendable-data/:handleId
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L262)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L262)
 
 ```js
 window.safeAppendableData.post(this._authToken, this._currentPostHandleId)
@@ -58,7 +58,7 @@ window.safeAppendableData.post(this._authToken, this._currentPostHandleId)
 
 Whenever you block a user, the plugin adds their public name and their signing key to a structured data associated with the current page. Using this list of blocked users, you can [unblock a user](unblock-a-user.md) based on their public name.
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L263)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L263)
 
 ```js
 this._saveBlockedUser(userName, signKeyHandleId)
@@ -74,7 +74,7 @@ The plugins serializes the signing key of the user you want to block.
 GET /sign-key/serialise/:handleId
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L368)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L368)
 
 ```js
 window.safeSignKey.serialise(this._authToken, signKeyHandle)
@@ -86,7 +86,7 @@ The API returns a handle ID for the serialized signing key.
 
 The plugin adds the serialized signing key of the user you want to block to the list of block users for the current page.
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L425)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L425)
 
 ```js
 this._data.blockedUsers[userName] = serialisedSignKey
@@ -102,7 +102,7 @@ The plugin updates the structured data with the new list of block users.
 PATCH /structured-data/:handleId
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L426-L429)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L426-L429)
 
 ```js
 window.safeStructuredData.updateData(
@@ -121,7 +121,7 @@ The plugin saves the structured data by sending a POST request to the SAFE Netwo
 POST /structured-data/:handleId
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L430-L432)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L430-L432)
 
 ```js
 window.safeStructuredData.post(
@@ -145,7 +145,7 @@ The plugin creates a new structured data that contains the public name and the s
 POST /structured-data
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L441-L445)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L441-L445)
 
 ```js
 window.safeStructuredData.create(
@@ -165,7 +165,7 @@ The plugin saves this new structured data by sending a PUT request to the SAFE N
 PUT /structured-data/:handleId
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L447-L449)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L447-L449)
 
 ```js
 window.safeStructuredData.put(
@@ -185,7 +185,7 @@ The plugin drops the handle that represents the signing key of the user you just
 DELETE /sign-key/:handleId
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L265)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L265)
 
 ```js
 window.safeSignKey.dropHandle(this._authToken, signKeyHandleId)

@@ -18,7 +18,7 @@ The plugin fetches your [public names](https://api.safedev.org/dns/) and adds th
 GET /dns
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L459)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L459)
 
 ```js
 window.safeDNS.listLongNames(this._authToken)
@@ -28,7 +28,7 @@ window.safeDNS.listLongNames(this._authToken)
 
 The plugin verifies that the current user is the website owner by comparing the public name of the current webpage to the public names owned by the user. If the public name of the current webpage is not contained in the list of public names owned by the user, it means that the user is not the owner of that webpage.
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L81-L91)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L81-L91)
 
 ```js
 isAdmin () {
@@ -60,7 +60,7 @@ The plugin fetches a cipher options handle for [symmetric encryption](/email-app
 GET /cipher-opts/:encType/:keyHandle?
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L324-L326)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L324-L326)
 
 ```js
 window.safeCipherOpts.getHandle(
@@ -78,7 +78,7 @@ The plugin fetches a data identifier handle for the structured data that contain
 POST /data-id/structured-data
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L349-L350)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L349-L350)
 
 ```js
 window.safeDataId.getStructuredDataHandle(
@@ -95,7 +95,7 @@ The plugin fetches a structured data handle using the data identifier handle of 
 GET /structured-data/handle/:dataIdHandle
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L352)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L352)
 
 ```js
 window.safeStructuredData.getHandle(this._authToken, dataHandle)
@@ -111,7 +111,7 @@ The plugin drops the data identifier handle that represents the structured data 
 DELETE /data-id/:handleId
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L354)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L354)
 
 ```js
 window.safeDataId.dropHandle(this._authToken, dataHandle)
@@ -127,7 +127,7 @@ The plugin fetches the content of the structured data (the list of blocked users
 GET /structured-data/:handleId
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L360-L362)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L360-L362)
 
 ```js
 window.safeStructuredData.readData(

@@ -10,7 +10,7 @@ If you are the website owner and you want to enable comments, you need to author
 
 First, the plugin checks if an authorization token is stored in the memory of the SAFE Browser.
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L64)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L64)
 
 ```js
 window.safeAuth.getAuthToken(this._LOCAL_STORAGE_TOKEN_KEY)
@@ -18,7 +18,7 @@ window.safeAuth.getAuthToken(this._LOCAL_STORAGE_TOKEN_KEY)
 
 A different `_LOCAL_STORAGE_TOKEN_KEY` is used for each website (in order to avoid collisions).
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L24-L25)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L24-L25)
 
 ```js
 this._hostName = window.location.host.replace(/.safenet$/g, '')
@@ -47,7 +47,7 @@ The plugin sends an [authorization request](https://api.safedev.org/auth/) to SA
 POST /auth
 ```
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L484)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L484)
 
 ```js
 window.safeAuth.authorise(this._data.appInfo, this._LOCAL_STORAGE_TOKEN_KEY)
@@ -55,7 +55,7 @@ window.safeAuth.authorise(this._data.appInfo, this._LOCAL_STORAGE_TOKEN_KEY)
 
 `this._data.appInfo` represents this object:
 
-##### [model.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/model.js#L12-L20)
+##### [model.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/model.js#L12-L20)
 
 ```js
 {
@@ -89,7 +89,7 @@ The authorization payload for `blog.example` would look like this:
 
 After you authorize the request, the plugin receives an authorization token and stores it in the memory of the SAFE Browser.
 
-##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L498)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L498)
 
 ```js
 window.safeAuth.setAuthToken(this._LOCAL_STORAGE_TOKEN_KEY, token)
