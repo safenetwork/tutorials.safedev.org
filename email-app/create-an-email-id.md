@@ -32,7 +32,7 @@ export const hashEmailId = emailId => {
 };
 ```
 
-#### [Create appendable data](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#create)
+#### [Create AppendableData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#create)
 
 ```
 POST /appendable-data
@@ -123,7 +123,7 @@ After the appendable data is successfully created, the app saves your email ID i
 
 ### Get cipher handle
 
-First, the app fetches a "cipher options" handle for symmetric encryption.
+First, the app fetches a cipher options handle for symmetric encryption.
 
 #### [Get Cipher-Opts handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/cipher_opts.md#get-cipher-opts-handle)
 

@@ -72,7 +72,7 @@ Therefore, the request body looks like this:
 }
 ```
 
-The `LOW_LEVEL_API` permission is requested because the app needs to the use the low-level APIs:
+The `LOW_LEVEL_API` permission is requested because the app needs to use the low-level APIs:
 
 - [Structured Data](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md)
 - [Appendable Data](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md)
@@ -157,9 +157,9 @@ The email data can be represented using a simple [JSON](https://en.wikipedia.org
 }
 ```
 
-### Get a cipher handle
+### Get a cipher options handle
 
-First, the app fetches a "cipher options" handle for symmetric encryption.
+First, the app fetches a cipher options handle for symmetric encryption.
 
 #### [Get Cipher-Opts handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/cipher_opts.md#get-cipher-opts-handle)
 
@@ -190,7 +190,7 @@ Your root structured data is encrypted using symmetric encryption. This means th
 #### [Create StructuredData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#create)
 
 ```
-POST /structured-data/:id
+POST /structured-data
 ```
 
 ##### [structured_data_actions.js](https://github.com/maidsafe/safe_examples/blob/f1d7510b9a17c05a31da761927e05f17ca9b1c26/email_app/app/actions/structured_data_actions.js#L4-L21)
@@ -375,7 +375,7 @@ export const fetchStructuredDataHandle = (token, dataIdHandle) => ({
 
 After the structured data handle is successfully retrieved, the app fetches the structured data that contains your email data.
 
-#### [Read StructuredData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#read-data)
+#### [Read data](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#read-data)
 
 ```
 GET /structured-data/:handleId

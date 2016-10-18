@@ -86,7 +86,7 @@ export const fetchAppendableDataHandle = (token, dataIdHandle) => { // id => app
 
 The app drops the data identifier handle for the appendable data representing your inbox folder.
 
-#### [Drop DataIdentifier handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/data_identifier.md#drop-handle)
+#### [Drop handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/data_identifier.md#drop-handle)
 
 ```
 DELETE /data-id/:handleId
@@ -226,7 +226,7 @@ export const readImmutableData = (token, handleId) => ({
 });
 ```
 
-### Close the immutable data reader
+### Drop the immutable data reader
 
 The app drops the immutable data reader handle.
 
@@ -255,9 +255,9 @@ export const closeImmutableDataReader = (token, handleId) => ({
 
 The app adds the content of the email to your inbox and then repeats this process for the next email (if there is one). It continues iterating through the appendable data until all your emails have been fetched.
 
-## Get the length of the appendable data
+## Get the size of the appendable data
 
-Your appendable data has a maximum size of 100 KiB. To update the amount of space used by the emails in your appendable data, the app fetches the serialized content of your appendable data and measures its length.
+Your appendable data has a maximum size of 100 KiB. To update the amount of space used by the emails in your appendable data, the app fetches the serialized content of your appendable data and measures its size.
 
 #### [Serialize AppendableData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#serialise-appendabledata)
 

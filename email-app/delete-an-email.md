@@ -86,7 +86,7 @@ export const fetchAppendableDataHandle = (token, dataIdHandle) => { // id => app
 
 The app drops the data identifier handle for the appendable data representing your inbox folder.
 
-#### [Drop DataIdentifier handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/data_identifier.md#drop-handle)
+#### [Drop handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/data_identifier.md#drop-handle)
 
 ```
 DELETE /data-id/:handleId
@@ -252,9 +252,9 @@ The emails in your saved folder are stored in your root structured data. If you 
 
 When you click on the "Delete" button, the app removes the email you want to delete from your saved folder.
 
-### Get a cipher handle
+### Get a cipher options handle
 
-First, the app fetches a "cipher options" handle for symmetric encryption.
+First, the app fetches a cipher options handle for symmetric encryption.
 
 #### [Get Cipher-Opts handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/cipher_opts.md#get-cipher-opts-handle)
 
@@ -367,7 +367,7 @@ export const deleteCipherOptsHandle = (token, handleId) => ({
 
 To refresh your saved folder, the app fetches your root structured data.
 
-#### [Read StructuredData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#read-data)
+#### [Read data](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#read-data)
 
 ```
 GET /structured-data/:handleId

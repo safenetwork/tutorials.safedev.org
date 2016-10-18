@@ -99,7 +99,7 @@ export const fetchAppendableDataHandle = (token, dataIdHandle) => { // id => app
 
 The app drops the data identifier handle for the appendable data of the recipient.
 
-#### [Drop DataIdentifier handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/data_identifier.md#drop-handle)
+#### [Drop handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/data_identifier.md#drop-handle)
 
 ```
 /data-id/:handleId
@@ -148,9 +148,9 @@ export const getEncryptedKey = (token, handleId) => ({
 });
 ```
 
-### Get a cipher handle
+### Get a cipher options handle
 
-The app fetches a "cipher options" handle for asymmetric encryption using the encryption key handle of the recipient.
+The app fetches a cipher options handle for asymmetric encryption using the encryption key handle of the recipient.
 
 #### [Get Cipher-Opts Handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/cipher_opts.md#get-cipher-opts-handle)
 
@@ -205,11 +205,11 @@ export const deleteEncryptedKey = (token, handleId) => ({
 
 The app creates an email using the cipher handle that contains the encryption key of the recipient.
 
-### Create an immutable data writer handle
+### Get an immutable data writer handle
 
-First, the app creates an immutable data writer handle.
+First, the app fetches an immutable data writer handle.
 
-#### [Create ImmutableDataWriter handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/immutable_data.md#get-immutabledata-writer)
+#### [Get ImmutableDataWriter handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/immutable_data.md#get-immutabledata-writer)
 
 ```
 GET /immutable-data/writer
@@ -263,7 +263,7 @@ export const writeImmutableData = (token, handleId, data) => {
 };
 ```
 
-### Save the immutable data
+### Close the immutable data writer
 
 The app encrypts the data map of the email using the cipher handle that contains the encryption key handle of the recipient. The data map is stored as immutable data on the SAFE Network.
 
@@ -294,11 +294,11 @@ Once the write operation is successful, the API returns a data identifer handle 
 
 <!-- *(explain what is a DataMap)* -->
 
-### Close the immutable data writer handle
+### Drop the immutable data writer handle
 
 The app drops the immutable data writer handle.
 
-#### [Close ImmutableDataWriter handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/immutable_data.md#drop-immutable-data-writer)
+#### [Drop handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/immutable_data.md#drop-immutable-data-writer)
 
 ```
 DELETE /immutable-data/writer/:handleId
