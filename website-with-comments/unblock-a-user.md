@@ -8,16 +8,22 @@ If you are the website owner, you can unblock users by removing their signing ke
 
 ![Unblock a user](img/unblock-a-user.png)
 
-When you select a user to unblock, the plugin is able to retrieve the serialized signing key of that user from [the list of blocked users](authorization.md#fetch-the-list-of-blocked-users).
+When you select a user to unblock, the plugin is able to retrieve the serialized signing key of that user from [the list of blocked users](fetch-public-names.md#fetch-the-list-of-blocked-users).
 
 ## Deserialize the signing key
 
 The plugin deserializes the signing key of the user you want to unblock.
 
-#### POST /sign-key/deserialise
+#### Deserialize signing key
+
+```
+POST /sign-key/deserialise
+```
+
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L272)
 
 ```js
-window.safeSignKey.deserialise(this.authToken, new Buffer(this.blockedUsers[userName], 'base64'))
+window.safeSignKey.deserialise(this._authToken, new Buffer(this._data.blockedUsers[userName], 'base64'))
 ```
 
 The API returns the handle ID for the signing key.
@@ -26,56 +32,99 @@ The API returns the handle ID for the signing key.
 
 The plugin removes the signing key of the user you want to unblock from the appendable data associated with the current page.
 
-#### [DELETE /appendable-data/filter/:handleId](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#delete-sign-keys-from-filter)
+#### [Remove signing key from filter](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#delete-sign-keys-from-filter)
 
-```js
-const signKeyHandle = res.__parsedResponseBody__.handleId;
-window.safeAppendableData.removeFromFilter(this.authToken, this.currentPostHandleId,
-  [signKeyHandle])
+```
+DELETE /appendable-data/filter/:handleId
 ```
 
-## Update the appendable data
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L274-L277)
+
+```js
+window.safeAppendableData.removeFromFilter(
+    this._authToken,
+    this._currentPostHandleId,
+    [signKeyHandle])
+```
+
+## Save the appendable data
 
 The plugin updates the appendable data associated with the current page by sending a POST request to the SAFE Network.
 
-#### [POST /appendable-data/:handleId](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#save-appendabledata)
+#### [Save AppendableData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#save-appendabledata)
+
+```
+POST /appendable-data/:handleId
+```
+
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L278-L279)
 
 ```js
-window.safeAppendableData.post(this.authToken, this.currentPostHandleId)
+window.safeAppendableData.post(
+    this._authToken, this._currentPostHandleId)
 ```
 
 ## Update the structured data for blocked users
 
-The plugin removes the user you just unblocked from the list of block users for the current page.
+The plugin removes the serialized signing key of the user you just unblocked from the list of blocked users for the current page.
 
-#### [PATCH /structured-data/:handleId](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#update-data)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L281-L282)
 
 ```js
-delete this.blockedUsers[userName];
-const data = new Buffer(JSON.stringify(this.blockedUsers)).toString('base64');
-window.safeStructuredData.updateData(this.authToken, this.blockedUserStructureDataHandle,
-  data, this.symmetricCipherOptsHandle)
+delete this._data.blockedUsers[userName]
+const data = new Buffer(JSON.stringify(this._data.blockedUsers)).toString('base64')
 ```
 
-The plugin updates the structured data that contains the list of blocked users for the current page by sending a POST request to the SAFE Network.
+### Update the structured data
 
-#### [POST /structured-data/:handleId](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#save-structured-data)
+The plugin updates the structured data with the new list of blocked users.
+
+#### [Update StructuredData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#update-data)
+
+```
+PATCH /structured-data/:handleId
+```
+
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L283-L286)
 
 ```js
-console.info('Updated data of blocked user Structured Data');
-window.safeStructuredData.post(this.authToken, this.blockedUserStructureDataHandle)
+window.safeStructuredData.updateData(
+    this._authToken,
+    this._blockedUserStructureDataHandle,
+    data, this._symmetricCipherOptsHandle)
+```
+
+### Save the structured data
+
+The plugin saves the structured data by sending a POST request to the SAFE Network.
+
+#### [Save StructuredData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#save-structured-data)
+
+```
+POST /structured-data/:handleId
+```
+
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L287-L288)
+
+```js
+window.safeStructuredData.post(
+    this._authToken, this._blockedUserStructureDataHandle)
 ```
 
 ## Drop the handle for the signing key
 
 The plugin drops the handle that represents the signing key of the user you just unblocked.
 
-#### [DELETE /sign-key/:handleId](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#drop-sign-key-handle)
+#### Drop handle
 
-```js
-window.safeSignKey.dropHandle(this.authToken, signKeyHandle);
-alert('User has been unblocked');
-this.fetchComments();
+```
+DELETE /sign-key/:handleId
 ```
 
-After the user has been unblocked, the plugin [reloads the comments](load-comments.md).
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L294)
+
+```js
+window.safeSignKey.dropHandle(this._authToken, signKeyHandle)
+```
+
+After the user has been unblocked, the plugin [reloads the comments](fetch-comments.md).

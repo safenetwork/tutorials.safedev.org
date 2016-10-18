@@ -10,83 +10,66 @@ If you are the website owner, you can delete comments by removing them from the 
 
 ## Delete a comment from the appendable data
 
-The plugin moves the comment you want to delete to the `deleted_data` field of your appendable data.
+The plugin moves the comment you want to delete to the `deleted_data` field of the appendable data associated with the current page.
 
-#### [DELETE /appendable-data/:handleId/:index](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#remove-from-data-by-index)
+#### [Remove from data by index](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#remove-from-data-by-index)
+
+```
+DELETE /appendable-data/:handleId/:index
+```
+
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L241)
 
 ```js
-this.log('Remove appendable data at :: ' + index);
-window.safeAppendableData.removeAt(this.authToken, this.currentPostHandleId, index)
-  .then((res) => {
-    this.postAppendableData(this.currentPostHandleId)
-      .then((res) => {
-        console.log(res);
-        clearAllDeletedData();
-      }, (err) => {
-        console.error(err);
-      });
-  }, (err) => {
-    console.error(err);
-    this.errorHandler(err);
-  });
+window.safeAppendableData.removeAt(this._authToken, this._currentPostHandleId, index)
 ```
 
 ## Update the appendable data
 
-The plugin updates your appendable data on the SAFE Network.
+The plugin updates the appendable data associated with the current page by sending a POST request to the SAFE Network.
 
-#### [POST /appendable-data/:handleId](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#save-appendabledata)
+#### [Save AppendableData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#save-appendabledata)
+
+```
+POST /appendable-data/:handleId
+```
+
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L244)
 
 ```js
-postAppendableData(handleId) {
-  return window.safeAppendableData.post(this.authToken, handleId);
-}
+window.safeAppendableData.post(this._authToken, this._currentPostHandleId)
 ```
 
 ## Clear all deleted data from the appendable data
 
-The plugin clears the `deleted_data` field of your appendable data.
+The plugin clears the `deleted_data` field of the appendable data associated with the current page.
 
-#### [DELETE /appendable-data/clear-deleted-data/:handleId](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#clear-deleted-data-section)
+#### [Clear deleted data section](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#clear-deleted-data-section)
 
-```js
-const clearAllDeletedData = () => {
-  this.log('Clear appendable deleted data');
-  window.safeAppendableData.clearAll(this.authToken, this.currentPostHandleId, true)
-    .then((res) => {
-      post();
-      console.log(res);
-    }, (err) => {
-      console.error(err);
-      this.errorHandler(err);
-    });
-};
+```
+DELETE /appendable-data/clear-deleted-data/:handleId
 ```
 
-## Reupdate the appendable data
-
-The plugin updates your appendable data on the SAFE Network and [reloads the comments](load-comments.md).
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L247)
 
 ```js
-const post = () => {
-  this.log('Post appendable data');
-  this.postAppendableData(this.currentPostHandleId)
-    .then((res) => {
-      console.log(res);
-      this.clearComments();
-      this.toggleSpinner(false);
-      this.fetchComments();
-    }, (err) => {
-      console.error(err);
-      this.errorHandler(err);
-    });
-};
+window.safeAppendableData.clearAll(this._authToken, this._currentPostHandleId, true)
 ```
 
-#### [POST /appendable-data/:handleId](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#save-appendabledata)
+## Update the appendable data (again)
+
+The plugin updates the appendable data associated with the current page by sending a POST request to the SAFE Network.
+
+#### [Save AppendableData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#save-appendabledata)
+
+```
+POST /appendable-data/:handleId
+```
+
+##### controller.js
 
 ```js
-postAppendableData(handleId) {
-  return window.safeAppendableData.post(this.authToken, handleId);
-}
+window.safeAppendableData.post(this._authToken, this._currentPostHandleId)
 ```
+
+The plugin then [reloads the comments](fetch-comments.md).

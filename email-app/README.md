@@ -48,7 +48,7 @@ The user interface is built using the following front-end libraries:
 
 ### Binaries
 
-[Download **SAFE Mail Tutorial v0.1.1** on GitHub](https://github.com/maidsafe/safe_examples/releases/tag/0.8.0).
+[Download **SAFE Mail Tutorial v0.1.2** on GitHub](https://github.com/maidsafe/safe_examples/releases/tag/0.9.0).
 
 Since this app is built using [Electron](http://electron.atom.io/), it can be distributed as a desktop app (Windows, OS X and Linux).
 
@@ -58,7 +58,7 @@ Since this app is built using [Electron](http://electron.atom.io/), it can be di
 
 ##### 1. SAFE Launcher
 
-Start [SAFE Launcher v0.9.1](https://github.com/maidsafe/safe_launcher/releases/tag/0.9.1) and log in.
+Start [SAFE Launcher v0.9.2](https://github.com/maidsafe/safe_launcher/releases/tag/0.9.2) and log in.
 
 ##### 2. Node.js
 

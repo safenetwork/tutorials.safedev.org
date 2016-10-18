@@ -1,0 +1,243 @@
+# Fetch comments
+
+The plugin fetches the comments associated with the current page and adds them to the UI.
+
+#### Contents
+
+<!-- toc -->
+
+![Fetch comments](img/comments-plugin.png)
+
+## Get a data identifier handle
+
+The plugin fetches a data identifier handle for the appendable data associated with the current page.
+
+#### [Get DataIdentifier for AppendableData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/data_identifier.md#get-dataidentifier-for-appendabledata)
+
+```
+POST /data-id/appendable-data
+```
+
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L190)
+
+```js
+window.safeDataId.getAppendableDataHandle(this._authToken, this._getLocation())
+```
+
+The name of the appendable data is based on the URL of the current page.
+
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L311-L316)
+
+```js
+_getLocation () {
+  if (this._isDevMode() && this._data.user.dns) {
+    return `comments-dev-${this._data.user.dns}/${window.location.pathname}`
+  }
+  return `${this._hostName}/${window.location.pathname}`
+}
+```
+
+#### Example
+
+```
+blog.example//post.html
+```
+
+The actual name of the appendable data is the hash of `_getLocation()`.
+
+## Get an appendable data handle
+
+The plugin fetches an appendable data handle using the data identifier handle previously obtained.
+
+#### [Get AppendableData handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#get-appendabledata-handle-from-dataidentifier-handle)
+
+```
+GET /appendable-data/handle/:dataIdHandle
+```
+
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L163-L164)
+
+```js
+window.safeAppendableData.getHandle(
+    this._authToken, dataHandleId)
+```
+
+## Get the metadata of the appendable data
+
+The plugin fetches the metadata of the appendable data using the appendable data handle. The length of the appendable data represents the number of comments for the current page.
+
+#### [Get metadata](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#get-metadata)
+
+```
+GET /structured-data/metadata/:handleId
+```
+
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L155-L156)
+
+```js
+window.safeAppendableData.getMetadata(
+    this._authToken, this._currentPostHandleId)
+```
+
+If the data length is 0, it means that the current page doesn't have any comments.
+
+## Iterate through the appendable data
+
+If the data length is greater than 0, the plugin fetches all the comments contained inside the appendable data.
+
+## Get a data identifier handle from the appendable data
+
+The plugin fetches a data identifier handle from the appendable data based on the current index.
+
+#### [Get DataIdentifier at a specific index](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#get-data-id-of-a-data-at-appendable-data)
+
+```
+GET /appendable-data/:handleId/:index
+```
+
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L390-L391)
+
+```js
+window.safeAppendableData.getDataIdAt(
+    this._authToken, this._currentPostHandleId, index)
+```
+
+## Permanent comments
+
+If the current page is using the [Permanent Comments Plugin](https://github.com/maidsafe/safe_examples/tree/master/permanent_comments_plugin), the plugin will expect the comments inside the appendable data to be stored as immutable data.
+
+### Get an immutable data reader handle
+
+The plugin fetches the data map of the comment using the data identifier handle of the current comment.
+
+#### [Get ImmutableDataReader handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/immutable_data.md#get-immutabledata-reader)
+
+```
+GET /immutable-data/reader/:handleId
+```
+
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L378)
+
+```js
+window.safeImmutableData.getReaderHandle(this._authToken, address)
+```
+
+The API returns an immutable data reader handle.
+
+### Read the immutable data
+
+The plugin reads the immutable data representing the comment using the immutable data reader handle.
+
+#### [Read ImmutableData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/immutable_data.md#read-immutable-data-using-reader)
+
+```
+GET /immutable-data/:handleId
+```
+
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L380)
+
+```js
+window.safeImmutableData.read(this._authToken, handleId)
+```
+
+### Drop the immutable data reader handle
+
+The plugin drops the immutable data reader handle.
+
+#### [Drop ImmutableDataReader handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/immutable_data.md#drop-immutable-data-reader)
+
+```
+DELETE /immutable-data/reader/:handleId
+```
+
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L382)
+
+```js
+window.safeImmutableData.dropReader(this._authToken, hId)
+```
+
+## Editable comments
+
+If the current page is using the [Editable Comments Plugin](https://github.com/maidsafe/safe_examples/tree/master/editable_comments_plugin), the plugin will expect the comments inside the appendable data to be stored as structured data.
+
+### Get a structured data handle
+
+The plugin fetches a structured data handle using the data identifier handle of the current comment.
+
+#### [Get StructuredData handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#get-structured-data-handle)
+
+```
+GET /structured-data/handle/:dataIdHandle
+```
+
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/editable_comments_plugin/comments/src/controller.js#L458)
+
+```js
+window.safeStructuredData.getHandle(this._authToken, address)
+```
+
+### Fetch the structured data
+
+The plugin fetches the content of the structured data using the structured data handle.
+
+#### [Read data](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#read-data)
+
+```
+GET /structured-data/:handleId
+```
+
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/editable_comments_plugin/comments/src/controller.js#L460)
+
+```js
+window.safeStructuredData.readData(this._authToken, payload.handleId)
+```
+
+### Drop the structured data handle
+
+The plugin drops the structured data handle of the current comment.
+
+#### [Drop handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#drop-handle)
+
+```
+DELETE /structured-data/handle/:handleId
+```
+
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/editable_comments_plugin/comments/src/controller.js#L466)
+
+```js
+window.safeStructuredData.dropHandle(this._authToken, hId)
+```
+
+## Drop the data identifier handle
+
+The plugin drops the data identifier handle of the current comment.
+
+#### [Drop handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/data_identifier.md#drop-handle)
+
+```
+DELETE /data-id/:handleId
+```
+
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L395)
+
+```js
+window.safeDataId.dropHandle(this._authToken, dataIdHandle)
+```
+
+The plugin continues iterating through the appendable data until all the comments it contains have been fetched. The plugin then sorts them by time and adds them to the UI.
+
+## Drop the data identifier handle for appendable data
+
+The plugin drops the data identifier handle of the appendable data associated with the current page.
+
+#### [Drop handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/data_identifier.md#drop-handle)
+
+```
+DELETE /data-id/:handleId
+```
+
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/3e44e154ae1ba3b019561f02afd9888429a8c574/permanent_comments_plugin/comments/src/controller.js#L194)
+
+```js
+window.safeDataId.dropHandle(this._authToken, dataIdHandle)
+```

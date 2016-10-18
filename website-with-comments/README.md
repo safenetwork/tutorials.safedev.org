@@ -2,7 +2,9 @@
 
 In this tutorial, you will learn how to **enable comments on your SAFE website**!
 
-We built a comments plugin that lets people comment on content using their [public name](https://api.safedev.org/dns/). It can be added to any HTML page. It also enables the website owner to delete comments and block users.
+We built two comments plugin: one for **permanent comments** and the other for **editable comments**.
+
+Both plugins let people comment on content using their [public name](https://api.safedev.org/dns/). They also enable the website owner to delete comments and block users.
 
 #### Contents
 
@@ -14,9 +16,12 @@ We built a comments plugin that lets people comment on content using their [publ
 
 This tutorial will showcase how to:
 
-- [Load comments](load-comments.md)
+- [Fetch public names](fetch-public-names.md)
+- [Fetch comments](fetch-comments.md)
 - [Enable comments](enable-comments.md)
 - [Add a comment](add-a-comment.md)
+- [Edit a comment](edit-a-comment.md)
+- [Fetch comment history](fetch-comment-history.md)
 - [Delete a comment](delete-a-comment.md)
 - [Block a user](block-a-user.md)
 - [Unblock a user](unblock-a-user.md)
@@ -28,8 +33,10 @@ You will learn about the following APIs:
 - [Authorization API](https://api.safedev.org/auth/)
 - [DNS API](https://api.safedev.org/dns/)
 - [Appendable Data API](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md)
-- [Structured Data API](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md)
 - [Data Identifer API](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/data_identifier.md)
+- [Immutable Data API](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/immutable_data.md) (for permanent comments)
+- [Structured Data API](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md) (for editable comments)
+- [Cipher Options API](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/cipher_opts.md)
 
 ### User interface
 
@@ -40,7 +47,10 @@ The user interface is built using the following front-end libraries:
 
 ## Source code
 
-[Browse **the source code of the Comments Plugin Tutorial** on GitHub](https://github.com/maidsafe/safe_examples/tree/master/comments_plugin).
+Browse the source code on GitHub:
+
+- [Permanent Comments Plugin](https://github.com/maidsafe/safe_examples/tree/master/permanent_comments_plugin)
+- [Editable Comments Plugin](https://github.com/maidsafe/safe_examples/tree/master/editable_comments_plugin)
 
 ### Usage instructions
 
@@ -48,11 +58,11 @@ The user interface is built using the following front-end libraries:
 
 ##### 1. SAFE Launcher
 
-Start [SAFE Launcher v0.9.1](https://github.com/maidsafe/safe_launcher/releases/tag/0.9.1) and log in.
+Start [SAFE Launcher v0.9.2](https://github.com/maidsafe/safe_launcher/releases/tag/0.9.2) and log in.
 
 ##### 2. SAFE Browser
 
-Start [SAFE Browser v0.2.7](https://forum.safedev.org/t/safe-browser-0-2-11/164).
+Start [SAFE Browser v0.3.5](https://github.com/joshuef/beaker/releases/tag/v0.3.5).
 
 ##### 3. SAFE Demo App
 
@@ -60,27 +70,42 @@ Start [SAFE Demo App v0.6.1](https://github.com/maidsafe/safe_examples/releases/
 
 #### Setup
 
-##### 1. Add the comments plugin and its dependencies to your website
+##### 1. Clone [this GitHub repository](https://github.com/maidsafe/safe_examples)
 
-- [bootstrap-v3.3.7.min.css](https://raw.githubusercontent.com/maidsafe/safe_examples/master/comments_plugin/bootstrap-v3.3.7.min.css)
-- [comments-tutorial.css](https://raw.githubusercontent.com/maidsafe/safe_examples/master/comments_plugin/comments-tutorial.css)
-- [jquery-3.1.1.min.js](https://raw.githubusercontent.com/maidsafe/safe_examples/master/comments_plugin/jquery-3.1.1.min.js)
-- [comments-tutorial.js](https://raw.githubusercontent.com/maidsafe/safe_examples/master/comments_plugin/comments-tutorial.js)
-
-##### 2. Use this code snippet to insert the comments plugin
-
-```html
-<script>
-  commentsTutorial.loadComments();
-</script>
+```
+git clone https://github.com/maidsafe/safe_examples.git
 ```
 
-By default, the comments plugin will be added to the `#comments` element. It can also be added to
-a specific DOM element by passing a selector to the `commentsTutorial.loadComments();` function.
+If you don't have Git installed, you can download it from [git-scm.com](https://git-scm.com/downloads).
+
+##### 2. Add this folder to your website
+
+Permanent comments:
+
+```
+cd safe_examples/permanent_comments_plugin/comments
+```
+
+Editable comments:
+
+```
+cd safe_examples/editable_comments_plugin/comments
+```
+
+##### 2. Add this code snippet to your SAFE website
 
 ```html
 <script>
-  commentsTutorial.loadComments('#myComments');
+window.__COMMENTS_ID = "#comments"
+</script>
+<script type="application/javascript" id="comments-loader" src="./comments/main.js"/>
+```
+
+If you specify the `__COMMENTS_ID` as shown above, the library will automatically initialize at startup and add the comments UI to the specified element. Omitting that reference, comments won't be loaded automatically but need to be invoked directly via:
+
+```html
+<script>
+  window.safeComments.init('#myCommentsId');
 </script>
 ```
 
@@ -100,9 +125,8 @@ Go to the URL of your website (e.g. `safe://blog.sample`). Select a page where y
 <head>
     <meta charset="UTF-8">
     <title>Tutorial Blog</title>
-    <link type="text/css" rel="stylesheet" href="./css/bootstrap-v3.3.7.min.css"/>
-    <link type="text/css" rel="stylesheet" href="./css/style.css"/>
-    <link type="text/css" rel="stylesheet" href="./css/comments-tutorial.css"/>
+    <!-- Comment plugin resources -->
+    <link type="text/css" rel="stylesheet" href="./style.css"/>
 </head>
 <body>
     <header>SAFE Blog</header>
@@ -115,21 +139,28 @@ Go to the URL of your website (e.g. `safe://blog.sample`). Select a page where y
                 This is a sample tutorial to show case how the comments plugin can be
                 integrated to any static page.
             </div>
+            <p class="context">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                has been the industry's standard dummy text ever since the 1500s, when an unknown printer
+                took a galley of type and scrambled it to make a type specimen book. It has survived not
+                only five centuries, but also the leap into electronic typesetting, remaining essentially
+                unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
+                Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
+                including versions of Lorem Ipsum.
+            </p>
         </div>
         <div id="comments"></div>
     </div>
-    <script type="application/javascript" src="./js/jquery-3.1.1.min.js"></script>
-    <script type="application/javascript" src="./js/comments-tutorial.js"></script>
     <script>
-        commentsTutorial.loadComments();
+    window.__COMMENTS_ID = "#comments"
     </script>
+    <script type="application/javascript" id="comments-loader" src="./comments/main.js"></script>
 </body>
 </html>
 ```
 
 ### Limitations
 
-This plugin has a few limitations:
-
-- You can't edit comments
 - `AppendableData` has a size limitation of 100 KiB. New comments can't be added if the appendable data has reached its maximum size.
+
+<!-- are there other limitations? -->
