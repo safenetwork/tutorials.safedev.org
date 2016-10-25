@@ -323,10 +323,10 @@ First, the app fetches a data identifier handle using the ID of your root struct
 POST /data-id/structured-data
 ```
 
-##### [data_id_handle_actions.js](https://github.com/maidsafe/safe_examples/blob/f1d7510b9a17c05a31da761927e05f17ca9b1c26/email_app/app/actions/data_id_handle_actions.js#L5-L20)
+##### [data_id_handle_actions.js](https://github.com/maidsafe/safe_examples/blob/b74eb5f4f1181ecfc4a5e69a01fa3f2b6f54ecd6/email_app/app/actions/data_id_handle_actions.js#L4-L19)
 
 ```js
-export const getStructuredDataIdHandle = (token, name) => ({
+export const getStructuredDataIdHandle = (token, name, typeTag) => ({
   type: ACTION_TYPES.GET_STRUCTURED_DATA_ID_HANDLE,
   payload: {
     request: {
@@ -336,7 +336,7 @@ export const getStructuredDataIdHandle = (token, name) => ({
         'Authorization': token
       },
       data: {
-        typeTag: CONSTANTS.TAG_TYPE.DEFAULT,
+        typeTag,
         name
       }
     }
@@ -354,7 +354,7 @@ The app fetches a structured data handle using the data identifier handle of you
 GET /structured-data/handle/:dataIdHandle
 ```
 
-##### [structured_data_actions.js](https://github.com/maidsafe/safe_examples/blob/f1d7510b9a17c05a31da761927e05f17ca9b1c26/email_app/app/actions/structured_data_actions.js#L38-L49)
+##### [structured_data_actions.js](https://github.com/maidsafe/safe_examples/blob/6eefee1328dabd485558bf7ed318ef1386374889/email_app/app/actions/structured_data_actions.js#L36-L46)
 
 ```js
 export const fetchStructuredDataHandle = (token, dataIdHandle) => ({
@@ -363,7 +363,6 @@ export const fetchStructuredDataHandle = (token, dataIdHandle) => ({
     request: {
       url: `/structured-data/handle/${dataIdHandle}`,
       headers: {
-        'Tag-Type': CONSTANTS.TAG_TYPE.DEFAULT,
         'Authorization': token
       }
     }
@@ -381,7 +380,7 @@ After the structured data handle is successfully retrieved, the app fetches the 
 GET /structured-data/:handleId
 ```
 
-##### [structured_data_actions.js](https://github.com/maidsafe/safe_examples/blob/f1d7510b9a17c05a31da761927e05f17ca9b1c26/email_app/app/actions/structured_data_actions.js#L23-L36)
+##### [structured_data_actions.js](https://github.com/maidsafe/safe_examples/blob/6eefee1328dabd485558bf7ed318ef1386374889/email_app/app/actions/structured_data_actions.js#L23-L34)
 
 ```js
 export const fetchStructuredData = (token, handleId) => ({
@@ -391,8 +390,6 @@ export const fetchStructuredData = (token, handleId) => ({
       url: `/structured-data/${handleId}`,
       headers: {
         'Authorization': token,
-        'Tag-Type': CONSTANTS.TAG_TYPE.DEFAULT,
-        Encryption: CONSTANTS.ENCRYPTION.SYMMETRIC,
         'Content-Type': 'text/plain'
       }
     }

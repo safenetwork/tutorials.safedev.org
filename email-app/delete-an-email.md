@@ -373,7 +373,7 @@ To refresh your saved folder, the app fetches your root structured data.
 GET /structured-data/:handleId
 ```
 
-##### [structured_data_actions.js](https://github.com/maidsafe/safe_examples/blob/f1d7510b9a17c05a31da761927e05f17ca9b1c26/email_app/app/actions/structured_data_actions.js#L23-L36)
+##### [structured_data_actions.js](https://github.com/maidsafe/safe_examples/blob/6eefee1328dabd485558bf7ed318ef1386374889/email_app/app/actions/structured_data_actions.js#L23-L34)
 
 ```js
 export const fetchStructuredData = (token, handleId) => ({
@@ -383,8 +383,6 @@ export const fetchStructuredData = (token, handleId) => ({
       url: `/structured-data/${handleId}`,
       headers: {
         'Authorization': token,
-        'Tag-Type': CONSTANTS.TAG_TYPE.DEFAULT,
-        Encryption: CONSTANTS.ENCRYPTION.SYMMETRIC,
         'Content-Type': 'text/plain'
       }
     }
