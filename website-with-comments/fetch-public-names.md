@@ -36,7 +36,7 @@ isAdmin () {
     return true
   }
 
-  let currentDns = this._hostName.replace(/(^\w+\.|.safenet$)/g, '')
+  let currentDns = this._hostName.split('.').slice(-1)[0]
   if (!this._data.user.dns) {
     return
   }
