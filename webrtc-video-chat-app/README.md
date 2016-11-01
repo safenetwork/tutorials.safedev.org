@@ -57,7 +57,7 @@ Start [SAFE Launcher v0.9.3](https://github.com/maidsafe/safe_launcher/releases/
 
 ##### 2. SAFE Browser
 
-Start [SAFE Browser v0.3.6-2](https://github.com/joshuef/beaker/releases/tag/v0.3.6-2).
+Start [SAFE Browser v0.3.6-2](https://github.com/joshuef/beaker/releases/tag/0.3.6-2).
 
 ##### 3. Node.js
 
