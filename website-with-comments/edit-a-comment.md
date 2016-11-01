@@ -49,7 +49,7 @@ window.safeStructuredData.getHandle(this._authToken, address)
 
 The plugin updates the structured data handle with the new version of the comment.
 
-##### [controller.js](https://github.com/maidsafe/safe_examples_private/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/editable_comments_plugin/comments/src/controller.js#L279-L284)
+##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/editable_comments_plugin/comments/src/controller.js#L279-L284)
 
 ```js
 const payload = new Buffer(JSON.stringify({
@@ -106,7 +106,7 @@ window.safeStructuredData.dropHandle(this._authToken, dataIdHandle)
 
 ## Drop the data identifier handle
 
-The plugin drops the data identifer handle of the comment.
+The plugin drops the data identifier handle of the comment.
 
 #### [Drop handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/data_identifier.md#drop-handle)
 

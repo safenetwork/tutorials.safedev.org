@@ -290,7 +290,7 @@ export const putImmutableData = (token, handleId, cipherOptsHandle) => ({
 });
 ```
 
-Once the write operation is successful, the API returns a data identifer handle for the data map of the email.
+Once the write operation is successful, the API returns a data identifier handle for the data map of the email.
 
 <!-- *(explain what is a DataMap)* -->
 

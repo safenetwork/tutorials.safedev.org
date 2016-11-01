@@ -96,7 +96,7 @@ After you authorize the request, the app receives an authorization token.
 >
 > Authorization tokens are used to invoke APIs that require [authorized access](https://api.safedev.org/auth/#authorized-access). These tokens are session based and thus will be valid only while SAFE Launcher is running.
 
-## Check for a config file
+## Check if a config file is present
 
 The app needs a way to store your email data on the SAFE Network. Using the [Structured Data API](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md), you can create a private structured data that will be used by the app to store your email ID and your saved emails. Let's call it the "root structured data".
 
