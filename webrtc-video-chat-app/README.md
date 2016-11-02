@@ -23,19 +23,22 @@ This tutorial will showcase how to:
 - [Create an answer](create-an-answer.md)
 - [Receive an answer](receive-an-answer.md)
 
-### APIs
+### SAFE APIs
 
 You will learn about the following APIs:
 
-- [Authorization API](https://api.safedev.org/auth/)
-- [Data Identifier API](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/data_identifier.md)
-- [Structured Data API](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md)
+- [Authorization](https://api.safedev.org/auth/)
+- [Data Identifier](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/data_identifier.md)
+- [Structured Data](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md)
 
-### External libraries and APIs
+#### Web APIs
+
+- [MediaDevices.getUserMedia()](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia)
+
+#### External libraries
 
 - [React](https://facebook.github.io/react/) (for the user inteface)
 - [simple-peer](https://github.com/feross/simple-peer) (simple WebRTC video/voice and data channels)
-- [MediaDevices.getUserMedia()](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia)
 
 ## Source code
 

@@ -20,21 +20,19 @@ This tutorial will showcase how to:
 - [Save an email](save-an-email.md)
 - [Delete an email](delete-an-email.md)
 
-### APIs
+### SAFE APIs
 
 You will learn about the following APIs:
 
-- [Authorization API](https://api.safedev.org/auth/)
-- [NFS API](https://api.safedev.org/nfs/)
-- [Structured Data API](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md)
-- [Appendable Data API](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md)
-- [Data Identifier API](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/data_identifier.md)
-- [Immutable Data API](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/immutable_data.md)
-- [Cipher Options API](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/cipher_opts.md)
+- [Authorization](https://api.safedev.org/auth/)
+- [NFS](https://api.safedev.org/nfs/)
+- [Structured Data](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md)
+- [Appendable Data](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md)
+- [Data Identifier](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/data_identifier.md)
+- [Immutable Data](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/immutable_data.md)
+- [Cipher Options](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/cipher_opts.md)
 
-### User interface
-
-The user interface is built using the following front-end libraries:
+#### External libraries
 
 - [React](https://facebook.github.io/react/)
 - [Redux](http://redux.js.org/)

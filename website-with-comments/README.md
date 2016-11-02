@@ -26,21 +26,19 @@ This tutorial will showcase how to:
 - [Block a user](block-a-user.md)
 - [Unblock a user](unblock-a-user.md)
 
-### APIs
+### SAFE APIs
 
 You will learn about the following APIs:
 
-- [Authorization API](https://api.safedev.org/auth/)
-- [DNS API](https://api.safedev.org/dns/)
-- [Appendable Data API](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md)
-- [Data Identifier API](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/data_identifier.md)
-- [Immutable Data API](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/immutable_data.md) (for permanent comments)
-- [Structured Data API](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md) (for editable comments)
-- [Cipher Options API](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/cipher_opts.md)
+- [Authorization](https://api.safedev.org/auth/)
+- [DNS](https://api.safedev.org/dns/)
+- [Appendable Data](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md)
+- [Data Identifier](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/data_identifier.md)
+- [Immutable Data](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/immutable_data.md) (for permanent comments)
+- [Structured Data](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md) (for editable comments)
+- [Cipher Options](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/cipher_opts.md)
 
-### User interface
-
-The user interface is built using the following front-end libraries:
+#### External libraries
 
 - [Bootstrap](https://getbootstrap.com/)
 - [jQuery](https://jquery.com/)
