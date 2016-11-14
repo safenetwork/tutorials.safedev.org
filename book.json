@@ -1,3 +1,9 @@
 {
-  "plugins": ["prism", "-highlight", "bootstrap-callout", "simple-page-toc", "back-to-top-button"]
+  "plugins": ["prism", "-highlight", "collapsible-menu", "edit-link", "simple-page-toc", "bootstrap-callout", "back-to-top-button"],
+  "pluginsConfig": {
+    "edit-link": {
+      "base": "https://github.com/safenetwork/tutorials.safedev.org/tree/master",
+      "label": ""
+    }
+  }
 }

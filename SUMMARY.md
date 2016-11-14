@@ -2,7 +2,6 @@
 
 * [Introduction](README.md)
 * [Email app](email-app/README.md)
-  * [New concepts](email-app/new-concepts.md)
   * [Initialization](email-app/initialization.md)
   * [Create an email ID](email-app/create-an-email-id.md)
   * [Send an email](email-app/send-an-email.md)
@@ -28,3 +27,10 @@
   * [Receive an offer](webrtc-video-chat-app/receive-an-offer.md)
   * [Create an answer](webrtc-video-chat-app/create-an-answer.md)
   * [Receive an answer](webrtc-video-chat-app/receive-an-answer.md)
+* [Markdown editor](markdown-editor/README.md)
+  * [Initialization](markdown-editor/initialization.md)
+  * [Load file index](markdown-editor/load-file-index.md)
+  * [Create a file](markdown-editor/create-a-file.md)
+  * [Edit a file](markdown-editor/edit-a-file.md)
+  * [Save a new version](markdown-editor/save-a-new-version.md)
+  * [Load file versions](markdown-editor/load-file-versions.md)

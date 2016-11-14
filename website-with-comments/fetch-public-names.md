@@ -52,7 +52,7 @@ If you haven't blocked any user yet, that structured data won't exist.
 
 ### Get a cipher options handle
 
-The plugin fetches a cipher options handle for [symmetric encryption](/email-app/new-concepts.md#symmetric). The structured data that contains the list of blocked users is encrypted using symmetric encryption because it only needs to be accessible by the website owner.
+The plugin fetches a cipher options handle for symmetric encryption. The structured data that contains the list of blocked users is encrypted using symmetric encryption because it only needs to be accessible by the website owner.
 
 #### [Get Cipher-Opts Handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/cipher_opts.md#get-cipher-opts-handle)
 

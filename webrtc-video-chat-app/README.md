@@ -37,8 +37,8 @@ You will learn about the following APIs:
 
 #### External libraries
 
-- [React](https://facebook.github.io/react/) (for the user inteface)
-- [simple-peer](https://github.com/feross/simple-peer) (simple WebRTC video/voice and data channels)
+- [React](https://facebook.github.io/react/)
+- [simple-peer](https://github.com/feross/simple-peer)
 
 ## Source code
 
