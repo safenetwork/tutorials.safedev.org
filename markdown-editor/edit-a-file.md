@@ -18,7 +18,7 @@ The app obtains a data ID handle for the versioned structured data (type tag 501
 POST /data-id/structured-data
 ```
 
-##### [store.js](https://github.com/shankar2105/safe_examples_private/blob/ben_versioning_editor/versioning_editor/src/store.js#L55)
+##### [store.js](https://github.com/maidsafe/safe_examples/blob/6f740f79ce30349c2b94252d6856927375bf3dbe/markdown_editor/src/store.js#L55)
 
 ```js
 safeDataId.getStructuredDataHandle(ACCESS_TOKEN, btoa(`${USER_PREFIX}:${filename}`), 501)
@@ -34,7 +34,7 @@ The app obtains a structured data handle using the data ID handle of the file yo
 GET /structured-data/handle/:dataIdHandle
 ```
 
-##### [store.js](https://github.com/shankar2105/safe_examples_private/blob/ben_versioning_editor/versioning_editor/src/store.js#L58)
+##### [store.js](https://github.com/maidsafe/safe_examples/blob/6f740f79ce30349c2b94252d6856927375bf3dbe/markdown_editor/src/store.js#L58)
 
 ```js
 safeStructuredData.getHandle(ACCESS_TOKEN, dataIdHandle)
@@ -48,7 +48,7 @@ After obtaining a structured data handle, the app drops the data ID handle of th
 DELETE /data-id/:handleId
 ```
 
-##### [store.js](https://github.com/shankar2105/safe_examples_private/blob/ben_versioning_editor/versioning_editor/src/store.js#L61)
+##### [store.js](https://github.com/maidsafe/safe_examples/blob/6f740f79ce30349c2b94252d6856927375bf3dbe/markdown_editor/src/store.js#L61)
 
 ```js
 safeDataId.dropHandle(ACCESS_TOKEN, dataIdHandle)
@@ -64,7 +64,7 @@ The app reads the latest version of the structured data using the structured dat
 GET /structured-data/:handleId/:version?
 ```
 
-##### [store.js](https://github.com/shankar2105/safe_examples_private/blob/ben_versioning_editor/versioning_editor/src/store.js#L183)
+##### [store.js](https://github.com/maidsafe/safe_examples/blob/6f740f79ce30349c2b94252d6856927375bf3dbe/markdown_editor/src/store.js#L183)
 
 ```js
 safeStructuredData.readData(ACCESS_TOKEN, handleId, version)

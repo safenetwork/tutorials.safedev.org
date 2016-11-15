@@ -18,7 +18,7 @@ The app obtains a data ID handle for the versioned structured data (type tag 501
 POST /data-id/structured-data
 ```
 
-##### [store.js](https://github.com/shankar2105/safe_examples_private/blob/ben_versioning_editor/versioning_editor/src/store.js#L55)
+##### [store.js](https://github.com/maidsafe/safe_examples/blob/6f740f79ce30349c2b94252d6856927375bf3dbe/markdown_editor/src/store.js#L55)
 
 ```js
 safeDataId.getStructuredDataHandle(ACCESS_TOKEN, btoa(`${USER_PREFIX}:${filename}`), 501)
@@ -34,7 +34,7 @@ The app obtains a structured data handle using the data ID handle of the file yo
 GET /structured-data/handle/:dataIdHandle
 ```
 
-##### [store.js](https://github.com/shankar2105/safe_examples_private/blob/ben_versioning_editor/versioning_editor/src/store.js#L58)
+##### [store.js](https://github.com/maidsafe/safe_examples/blob/6f740f79ce30349c2b94252d6856927375bf3dbe/markdown_editor/src/store.js#L58)
 
 ```js
 safeStructuredData.getHandle(ACCESS_TOKEN, dataIdHandle)
@@ -48,7 +48,7 @@ After obtaining a structured data handle, the app drops the data ID handle of th
 DELETE /data-id/:handleId
 ```
 
-##### [store.js](https://github.com/shankar2105/safe_examples_private/blob/ben_versioning_editor/versioning_editor/src/store.js#L61)
+##### [store.js](https://github.com/maidsafe/safe_examples/blob/6f740f79ce30349c2b94252d6856927375bf3dbe/markdown_editor/src/store.js#L61)
 
 ```js
 safeDataId.dropHandle(ACCESS_TOKEN, dataIdHandle)
@@ -64,7 +64,7 @@ The app stores a new version inside the structured data associated with the file
 PATCH /structured-data/:handleId
 ```
 
-##### [store.js](https://github.com/shankar2105/safe_examples_private/blob/ben_versioning_editor/versioning_editor/src/store.js#L70)
+##### [store.js](https://github.com/maidsafe/safe_examples/blob/6f740f79ce30349c2b94252d6856927375bf3dbe/markdown_editor/src/store.js#L70)
 
 ```js
 safeStructuredData.updateData(ACCESS_TOKEN, handleId, payload, SYMETRIC_CYPHER_HANDLE)
@@ -72,7 +72,7 @@ safeStructuredData.updateData(ACCESS_TOKEN, handleId, payload, SYMETRIC_CYPHER_H
 
 This new version includes the Markdown content and the current time (encoded as a base 64 string).
 
-##### [store.js](https://github.com/shankar2105/safe_examples_private/blob/ben_versioning_editor/versioning_editor/src/store.js#L111-L114)
+##### [store.js](https://github.com/maidsafe/safe_examples/blob/6f740f79ce30349c2b94252d6856927375bf3dbe/markdown_editor/src/store.js#L111-L114)
 
 ```js
 const payload = new Buffer(JSON.stringify({
@@ -89,7 +89,7 @@ The app saves the new version of your file by sending a POST request to the SAFE
 POST /structured-data/:handleId
 ```
 
-##### [store.js](https://github.com/shankar2105/safe_examples_private/blob/ben_versioning_editor/versioning_editor/src/store.js#L71)
+##### [store.js](https://github.com/maidsafe/safe_examples/blob/6f740f79ce30349c2b94252d6856927375bf3dbe/markdown_editor/src/store.js#L71)
 
 ```js
 safeStructuredData.post(ACCESS_TOKEN, handleId)

@@ -18,7 +18,7 @@ The app sends an [authorization request](https://api.safedev.org/auth/) to SAFE 
 POST /auth
 ```
 
-##### [store.js](https://github.com/shankar2105/safe_examples_private/blob/ben_versioning_editor/versioning_editor/src/store.js#L77-L84)
+##### [store.js](https://github.com/maidsafe/safe_examples/blob/6f740f79ce30349c2b94252d6856927375bf3dbe/markdown_editor/src/store.js#L77-L84)
 
 ```js
 safeAuth.authorise({
@@ -33,12 +33,12 @@ APP_ID)
 
 For this example app, `APP_NAME`, `APP_ID` and `APP_VERSION` have been set to the following values:
 
-##### [config.js](https://github.com/shankar2105/safe_examples_private/blob/ben_versioning_editor/versioning_editor/src/config.js#L10-L12)
+##### [config.js](https://github.com/maidsafe/safe_examples/blob/6f740f79ce30349c2b94252d6856927375bf3dbe/markdown_editor/src/config.js#L10-L12)
 
 ```js
-export const APP_NAME = "SAFE Editor Example";
+export const APP_NAME = "SAFE Markdown Editor";
 export const APP_VERSION = '0.1';
-export const APP_ID = 'net.maidsafe.examples.versioning-editor';
+export const APP_ID = 'net.maidsafe.examples.markdown-editor';
 ```
 
 SAFE Launcher displays a prompt with basic information about the app along with the requested permission (`LOW_LEVEL_API`). You can authorize this request by clicking on "ALLOW".
@@ -47,7 +47,7 @@ SAFE Launcher displays a prompt with basic information about the app along with 
 
 After you authorize the request, the app receives an authorization token and stores it in a global variable.
 
-##### [store.js](https://github.com/shankar2105/safe_examples_private/blob/ben_versioning_editor/versioning_editor/src/store.js#L92)
+##### [store.js](https://github.com/maidsafe/safe_examples/blob/6f740f79ce30349c2b94252d6856927375bf3dbe/markdown_editor/src/store.js#L92)
 
 ```js
 ACCESS_TOKEN = token;
@@ -63,7 +63,7 @@ The app fetches a cipher options handle for symmetric encryption. It will be use
 GET /cipher-opts/:encType/:keyHandle?
 ```
 
-##### [store.js](https://github.com/shankar2105/safe_examples_private/blob/ben_versioning_editor/versioning_editor/src/store.js#L31-L32)
+##### [store.js](https://github.com/maidsafe/safe_examples/blob/6f740f79ce30349c2b94252d6856927375bf3dbe/markdown_editor/src/store.js#L31-L32)
 
 ```js
 safeCipherOpts.getHandle(ACCESS_TOKEN,
@@ -72,7 +72,7 @@ safeCipherOpts.getHandle(ACCESS_TOKEN,
 
 The app stores the cipher options handle in a global variable.
 
-##### [store.js](https://github.com/shankar2105/safe_examples_private/blob/ben_versioning_editor/versioning_editor/src/store.js#L34)
+##### [store.js](https://github.com/maidsafe/safe_examples/blob/6f740f79ce30349c2b94252d6856927375bf3dbe/markdown_editor/src/store.js#L34)
 
 ```
 SYMETRIC_CYPHER_HANDLE = extractHandle(res);
@@ -92,7 +92,7 @@ Therefore, the app is able to retrieve all your files simply by retrieving your 
 
 The app generates a random "user prefix" that will be used to assign IDs to the files you create.
 
-##### [store.js](https://github.com/shankar2105/safe_examples_private/blob/ben_versioning_editor/versioning_editor/src/store.js#L21-L28)
+##### [store.js](https://github.com/maidsafe/safe_examples/blob/6f740f79ce30349c2b94252d6856927375bf3dbe/markdown_editor/src/store.js#L21-L28)
 
 ```js
 const _createRandomUserPrefix = () => {
@@ -115,7 +115,7 @@ The app tries to create a config file in its root directory. This config file is
 POST /nfs/file/:rootPath/:filePath
 ```
 
-##### [store.js](https://github.com/shankar2105/safe_examples_private/blob/ben_versioning_editor/versioning_editor/src/store.js#L43-L46)
+##### [store.js](https://github.com/maidsafe/safe_examples/blob/6f740f79ce30349c2b94252d6856927375bf3dbe/markdown_editor/src/store.js#L43-L46)
 
 ```js
 safeNFS.createFile(ACCESS_TOKEN,
@@ -125,7 +125,7 @@ safeNFS.createFile(ACCESS_TOKEN,
 
 For this example app, `FILE_NAME` has been set to `app_config.json`.
 
-##### [store.js](https://github.com/shankar2105/safe_examples_private/blob/ben_versioning_editor/versioning_editor/src/store.js#L42)
+##### [store.js](https://github.com/maidsafe/safe_examples/blob/6f740f79ce30349c2b94252d6856927375bf3dbe/markdown_editor/src/store.js#L42)
 
 ```js
 const FILE_NAME = 'app_config.json';
@@ -143,7 +143,7 @@ The app reads the content of the config file.
 GET /nfs/file/:rootPath/:filePath
 ```
 
-##### [store.js](https://github.com/shankar2105/safe_examples_private/blob/ben_versioning_editor/versioning_editor/src/store.js#L48)
+##### [store.js](https://github.com/maidsafe/safe_examples/blob/6f740f79ce30349c2b94252d6856927375bf3dbe/markdown_editor/src/store.js#L48)
 
 ```js
 safeNFS.getFile(ACCESS_TOKEN, FILE_NAME)
@@ -151,7 +151,7 @@ safeNFS.getFile(ACCESS_TOKEN, FILE_NAME)
 
 The app then stores your user prefix – which was contained inside the config file – in a global variable.
 
-##### [store.js](https://github.com/shankar2105/safe_examples_private/blob/ben_versioning_editor/versioning_editor/src/store.js#L50)
+##### [store.js](https://github.com/maidsafe/safe_examples/blob/6f740f79ce30349c2b94252d6856927375bf3dbe/markdown_editor/src/store.js#L50)
 
 ```js
 USER_PREFIX = config.user_prefix

@@ -18,7 +18,7 @@ The app creates a versioned structured data (type tag 501) with an ID based on y
 POST /structured-data
 ```
 
-##### [store.js](https://github.com/shankar2105/safe_examples_private/blob/ben_versioning_editor/versioning_editor/src/store.js#L122-L126)
+##### [store.js](https://github.com/maidsafe/safe_examples/blob/6f740f79ce30349c2b94252d6856927375bf3dbe/markdown_editor/src/store.js#L122-L126)
 
 ```js
 safeStructuredData.create(ACCESS_TOKEN,
@@ -30,7 +30,7 @@ safeStructuredData.create(ACCESS_TOKEN,
 
 Each version includes the Markdown content and the current time (encoded as a base 64 string).
 
-##### [store.js](https://github.com/shankar2105/safe_examples_private/blob/ben_versioning_editor/versioning_editor/src/store.js#L111-L114)
+##### [store.js](https://github.com/maidsafe/safe_examples/blob/6f740f79ce30349c2b94252d6856927375bf3dbe/markdown_editor/src/store.js#L111-L114)
 
 ```js
 const payload = new Buffer(JSON.stringify({
@@ -47,7 +47,7 @@ The app saves the first version of your file by sending a PUT request to the SAF
 PUT /structured-data/:handleId
 ```
 
-##### [store.js](https://github.com/shankar2105/safe_examples_private/blob/ben_versioning_editor/versioning_editor/src/store.js#L129)
+##### [store.js](https://github.com/maidsafe/safe_examples/blob/6f740f79ce30349c2b94252d6856927375bf3dbe/markdown_editor/src/store.js#L129)
 
 ```js
 safeStructuredData.put(ACCESS_TOKEN, handle)
@@ -63,7 +63,7 @@ The app obtains a data ID handle for the versioned structured data that contains
 GET /structured-data/data-id/:handleId
 ```
 
-##### [store.js](https://github.com/shankar2105/safe_examples_private/blob/ben_versioning_editor/versioning_editor/src/store.js#L131)
+##### [store.js](https://github.com/maidsafe/safe_examples/blob/6f740f79ce30349c2b94252d6856927375bf3dbe/markdown_editor/src/store.js#L131)
 
 ```js
 safeStructuredData.getDataIdHandle(ACCESS_TOKEN, handle)
@@ -71,7 +71,7 @@ safeStructuredData.getDataIdHandle(ACCESS_TOKEN, handle)
 
 The app adds the filename and the data ID handle to the global variable representing your file index.
 
-##### [store.js](https://github.com/shankar2105/safe_examples_private/blob/ben_versioning_editor/versioning_editor/src/store.js#L134)
+##### [store.js](https://github.com/maidsafe/safe_examples/blob/6f740f79ce30349c2b94252d6856927375bf3dbe/markdown_editor/src/store.js#L134)
 
 ```js
 FILE_INDEX[filename] = dataHandleId;
@@ -87,7 +87,7 @@ The app updates the structured data that contains your file index. The updated f
 PATCH /structured-data/:handleId
 ```
 
-##### [store.js](https://github.com/shankar2105/safe_examples_private/blob/ben_versioning_editor/versioning_editor/src/store.js#L103-L106)
+##### [store.js](https://github.com/maidsafe/safe_examples/blob/6f740f79ce30349c2b94252d6856927375bf3dbe/markdown_editor/src/store.js#L103-L106)
 
 ```js
 safeStructuredData.updateData(ACCESS_TOKEN,
@@ -104,7 +104,7 @@ The app saves your file index by sending a POST request to the SAFE Network.
 POST /structured-data/:handleId
 ```
 
-##### [store.js](https://github.com/shankar2105/safe_examples_private/blob/ben_versioning_editor/versioning_editor/src/store.js#L107)
+##### [store.js](https://github.com/maidsafe/safe_examples/blob/6f740f79ce30349c2b94252d6856927375bf3dbe/markdown_editor/src/store.js#L107)
 
 ```js
 safeStructuredData.post(ACCESS_TOKEN, INDEX_HANDLE)

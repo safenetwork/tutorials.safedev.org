@@ -18,7 +18,7 @@ The app obtains a data ID handle for the unversioned structured data (type tag 5
 POST /data-id/structured-data
 ```
 
-##### [store.js](https://github.com/shankar2105/safe_examples_private/blob/ben_versioning_editor/versioning_editor/src/store.js#L145)
+##### [store.js](https://github.com/maidsafe/safe_examples/blob/6f740f79ce30349c2b94252d6856927375bf3dbe/markdown_editor/src/store.js#L145)
 
 ```js
 safeDataId.getStructuredDataHandle(ACCESS_TOKEN, INDEX_FILE_NAME, 500)
@@ -26,7 +26,7 @@ safeDataId.getStructuredDataHandle(ACCESS_TOKEN, INDEX_FILE_NAME, 500)
 
 The name of your file index is based on your user prefix and the string "#index".
 
-##### [store.js](https://github.com/shankar2105/safe_examples_private/blob/ben_versioning_editor/versioning_editor/src/store.js#L143)
+##### [store.js](https://github.com/maidsafe/safe_examples/blob/6f740f79ce30349c2b94252d6856927375bf3dbe/markdown_editor/src/store.js#L143)
 
 ```js
 const INDEX_FILE_NAME = btoa(`${USER_PREFIX}#index`);
@@ -42,7 +42,7 @@ The app tries to obtain a structured data handle using the data ID handle of you
 GET /structured-data/handle/:dataIdHandle
 ```
 
-##### [store.js](https://github.com/shankar2105/safe_examples_private/blob/ben_versioning_editor/versioning_editor/src/store.js#L147)
+##### [store.js](https://github.com/maidsafe/safe_examples/blob/6f740f79ce30349c2b94252d6856927375bf3dbe/markdown_editor/src/store.js#L147)
 
 ```js
 safeStructuredData.getHandle(ACCESS_TOKEN, handle)
@@ -50,7 +50,7 @@ safeStructuredData.getHandle(ACCESS_TOKEN, handle)
 
 The app stores the structured data handle in a global variable.
 
-##### [store.js](https://github.com/shankar2105/safe_examples_private/blob/ben_versioning_editor/versioning_editor/src/store.js#L153)
+##### [store.js](https://github.com/maidsafe/safe_examples/blob/6f740f79ce30349c2b94252d6856927375bf3dbe/markdown_editor/src/store.js#L153)
 
 ```js
 INDEX_HANDLE = sdHandle;
@@ -66,7 +66,7 @@ The app tries to read the structured data that contains your file index using th
 GET /structured-data/:handleId/:version?
 ```
 
-##### [store.js](https://github.com/shankar2105/safe_examples_private/blob/ben_versioning_editor/versioning_editor/src/store.js#L155-L155)
+##### [store.js](https://github.com/maidsafe/safe_examples/blob/6f740f79ce30349c2b94252d6856927375bf3dbe/markdown_editor/src/store.js#L155-L155)
 
 ```js
 safeStructuredData.readData(ACCESS_TOKEN, sdHandle, '')
@@ -74,7 +74,7 @@ safeStructuredData.readData(ACCESS_TOKEN, sdHandle, '')
 
 If the app is able to read the structured data, it parses your file index and stores it in a global variable.
 
-##### [store.js](https://github.com/shankar2105/safe_examples_private/blob/ben_versioning_editor/versioning_editor/src/store.js#L176)
+##### [store.js](https://github.com/maidsafe/safe_examples/blob/6f740f79ce30349c2b94252d6856927375bf3dbe/markdown_editor/src/store.js#L176)
 
 ```js
 FILE_INDEX = payload;
@@ -90,7 +90,7 @@ If the app is unable to read the structured data, it means that your file index 
 POST /structured-data
 ```
 
-##### [store.js](https://github.com/shankar2105/safe_examples_private/blob/ben_versioning_editor/versioning_editor/src/store.js#L161-L162)
+##### [store.js](https://github.com/maidsafe/safe_examples/blob/6f740f79ce30349c2b94252d6856927375bf3dbe/markdown_editor/src/store.js#L161-L162)
 
 ```js
 safeStructuredData.create(ACCESS_TOKEN, INDEX_FILE_NAME, 500,
@@ -105,7 +105,7 @@ The app saves your file index by sending a PUT request to the SAFE Network.
 PUT /structured-data/:handleId
 ```
 
-##### [store.js](https://github.com/shankar2105/safe_examples_private/blob/ben_versioning_editor/versioning_editor/src/store.js#L165)
+##### [store.js](https://github.com/maidsafe/safe_examples/blob/6f740f79ce30349c2b94252d6856927375bf3dbe/markdown_editor/src/store.js#L165)
 
 ```js
 safeStructuredData.put(ACCESS_TOKEN, INDEX_HANDLE)
@@ -113,7 +113,7 @@ safeStructuredData.put(ACCESS_TOKEN, INDEX_HANDLE)
 
 Finally, the app stores your file index in a global variable.
 
-##### [store.js](https://github.com/shankar2105/safe_examples_private/blob/ben_versioning_editor/versioning_editor/src/store.js#L176)
+##### [store.js](https://github.com/maidsafe/safe_examples/blob/6f740f79ce30349c2b94252d6856927375bf3dbe/markdown_editor/src/store.js#L176)
 
 ```js
 FILE_INDEX = payload;
