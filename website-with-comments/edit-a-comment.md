@@ -33,7 +33,7 @@ window.safeAppendableData.getDataIdAt(
 
 The plugin fetches a structured data handle using the data identifier handle previously obtained.
 
-#### [Get StructuredData handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#get-structured-data-handle)
+#### [Get structured data handle](https://api.safedev.org/low-level-api/structured-data/get-structured-data-handle.html)
 
 ```
 GET /structured-data/handle/:dataIdHandle
@@ -76,7 +76,7 @@ window.safeStructuredData.updateData(this._authToken, handleId, payload)
 
 The plugin saves the new version of the comment by sending a POST request to the SAFE Network.
 
-#### [Save StructuredData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#save-structured-data)
+#### [Save structured data](https://api.safedev.org/low-level-api/structured-data/save-structured-data.html#put-endpoint)
 
 ```
 POST /structured-data/:handleId

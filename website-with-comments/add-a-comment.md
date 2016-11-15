@@ -10,7 +10,7 @@ You can add comments by appending them to the appendable data associated with th
 
 ## Permanent comments
 
-If the current page is using the [Permanent Comments Plugin](https://github.com/maidsafe/safe_examples/tree/master/permanent_comments_plugin), the plugin will store your new comment using the [Immutable Data API](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/immutable_data.md). This means that once a comment is posted, it can't be edited (immutable data doesn't have any owner).
+If the current page is using the [Permanent Comments Plugin](https://github.com/maidsafe/safe_examples/tree/master/permanent_comments_plugin), the plugin will store your new comment using the [Immutable Data API](https://api.safedev.org/low-level-api/immutable-data/). This means that once a comment is posted, it can't be edited (immutable data doesn't have any owner).
 
 ### Get an immutable data writer handle
 
@@ -84,13 +84,13 @@ window.safeImmutableData.closeWriter(this._authToken, writerHandle)
 
 ## Editable comments
 
-If the current page is using the [Editable Comments Plugin](https://github.com/maidsafe/safe_examples/tree/master/editable_comments_plugin), the plugin will store your new comment using the [Structured Data API](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md). This means that users will be able to edit their own comments.
+If the current page is using the [Editable Comments Plugin](https://github.com/maidsafe/safe_examples/tree/master/editable_comments_plugin), the plugin will store your new comment using the [Structured Data API](https://api.safedev.org/low-level-api/structured-data/). This means that users will be able to edit their own comments.
 
 ### Create a structured data
 
 The plugin fetches a structured data handle for the comment you want to add.
 
-#### [Create StructuredData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#create)
+#### [Create structured data](https://api.safedev.org/low-level-api/structured-data/create-structured-data.html)
 
 ```
 POST /structured-data
@@ -136,7 +136,7 @@ const payload = new Buffer(JSON.stringify({
 
 The plugin saves the structured data representing your comment to the SAFE Network.
 
-#### [Save StructuredData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#save-structured-data)
+#### [Save structured data](https://api.safedev.org/low-level-api/structured-data/save-structured-data.html#put-endpoint)
 
 ```
 PUT /structured-data/:handleId

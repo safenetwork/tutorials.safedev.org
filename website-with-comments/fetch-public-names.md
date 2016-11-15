@@ -54,7 +54,7 @@ If you haven't blocked any user yet, that structured data won't exist.
 
 The plugin fetches a cipher options handle for symmetric encryption. The structured data that contains the list of blocked users is encrypted using symmetric encryption because it only needs to be accessible by the website owner.
 
-#### [Get Cipher-Opts Handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/cipher_opts.md#get-cipher-opts-handle)
+#### [Get cipher options handle](https://api.safedev.org/low-level-api/cipher-options/get-cipher-options-handle.html)
 
 ```
 GET /cipher-opts/:encType/:keyHandle?
@@ -72,7 +72,7 @@ window.safeCipherOpts.getHandle(
 
 The plugin fetches a data identifier handle for the structured data that contains the list of blocked users for the current page.
 
-#### [Get DataIdentifier for StructuredData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/data_identifier.md#get-dataidentifier-for-structureddata)
+#### [Get data ID handle for structured data](https://api.safedev.org/low-level-api/data-id/get-data-id-handle.html#for-structured-data)
 
 ```
 POST /data-id/structured-data
@@ -89,7 +89,7 @@ window.safeDataId.getStructuredDataHandle(
 
 The plugin fetches a structured data handle using the data identifier handle of the structured data for blocked users.
 
-#### [Get StructuredData handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#get-structured-data-handle)
+#### [Get structured data handle](https://api.safedev.org/low-level-api/structured-data/get-structured-data-handle.html)
 
 ```
 GET /structured-data/handle/:dataIdHandle
@@ -121,10 +121,10 @@ window.safeDataId.dropHandle(this._authToken, dataHandle)
 
 The plugin fetches the content of the structured data (the list of blocked users for the current page).
 
-#### [Read data](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#read-data)
+#### [Read structured data](https://api.safedev.org/low-level-api/structured-data/read-structured-data.html)
 
 ```
-GET /structured-data/:handleId
+GET /structured-data/:handleId/:version?
 ```
 
 ##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L361-L363)

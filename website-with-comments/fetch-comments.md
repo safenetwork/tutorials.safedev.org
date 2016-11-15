@@ -164,7 +164,7 @@ If the current page is using the [Editable Comments Plugin](https://github.com/m
 
 The plugin fetches a structured data handle using the data identifier handle of the current comment.
 
-#### [Get StructuredData handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#get-structured-data-handle)
+#### [Get structured data handle](https://api.safedev.org/low-level-api/structured-data/get-structured-data-handle.html)
 
 ```
 GET /structured-data/handle/:dataIdHandle
@@ -180,10 +180,10 @@ window.safeStructuredData.getHandle(this._authToken, address)
 
 The plugin fetches the content of the structured data using the structured data handle.
 
-#### [Read data](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#read-data)
+#### [Read structured data](https://api.safedev.org/low-level-api/structured-data/read-structured-data.html)
 
 ```
-GET /structured-data/:handleId
+GET /structured-data/:handleId/:version?
 ```
 
 ##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/editable_comments_plugin/comments/src/controller.js#L463)

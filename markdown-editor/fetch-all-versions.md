@@ -1,10 +1,10 @@
-# Load file versions
+# Fetch all versions
 
 #### Contents
 
 <!-- toc -->
 
-![Load file versions](img/load-file-versions.png)
+![Fetch all versions](img/fetch-all-versions.png)
 
 ##### [store.js](https://github.com/shankar2105/safe_examples_private/blob/ben_versioning_editor/versioning_editor/src/store.js#L55)
 

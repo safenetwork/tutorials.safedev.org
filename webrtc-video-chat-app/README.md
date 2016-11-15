@@ -28,8 +28,8 @@ This tutorial will showcase how to:
 You will learn about the following APIs:
 
 - [Authorization](https://api.safedev.org/auth/)
-- [Data Identifier](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/data_identifier.md)
-- [Structured Data](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md)
+- [Data ID](https://api.safedev.org/low-level-api/data-id/)
+- [Structured Data](https://api.safedev.org/low-level-api/structured-data/)
 
 #### Web APIs
 

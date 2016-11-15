@@ -115,7 +115,7 @@ window.safeStructuredData.updateData(
 
 The plugin saves the structured data by sending a POST request to the SAFE Network.
 
-#### [Save StructuredData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#save-structured-data)
+#### [Save structured data](https://api.safedev.org/low-level-api/structured-data/save-structured-data.html#put-endpoint)
 
 ```
 POST /structured-data/:handleId
@@ -146,7 +146,7 @@ this._data.blockedUsers = {}
 this._data.blockedUsers[userName] = serialisedSignKey
 ```
 
-#### [Create StructuredData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#create)
+#### [Create structured data](https://api.safedev.org/low-level-api/structured-data/create-structured-data.html)
 
 ```
 POST /structured-data
@@ -166,7 +166,7 @@ window.safeStructuredData.create(
 
 The plugin saves this new structured data by sending a PUT request to the SAFE Network.
 
-#### [Save StructuredData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#save-structured-data)
+#### [Save structured data](https://api.safedev.org/low-level-api/structured-data/save-structured-data.html#put-endpoint)
 
 ```
 PUT /structured-data/:handleId

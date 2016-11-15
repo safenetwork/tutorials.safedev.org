@@ -152,7 +152,7 @@ export const getEncryptedKey = (token, handleId) => ({
 
 The app fetches a cipher options handle for asymmetric encryption using the encryption key handle of the recipient.
 
-#### [Get Cipher-Opts Handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/cipher_opts.md#get-cipher-opts-handle)
+#### [Get cipher options handle](https://api.safedev.org/low-level-api/cipher-options/get-cipher-options-handle.html)
 
 ```
 GET /cipher-opts/:encType/:keyHandle?

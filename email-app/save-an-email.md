@@ -47,7 +47,7 @@ export const updateStructuredData = (token, handleId, data, cipherOpts) => ({
 
 The app saves your root structured data to the SAFE Network.
 
-#### [Save StructuredData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#save-structured-data)
+#### [Save structured data](https://api.safedev.org/low-level-api/structured-data/save-structured-data.html#put-endpoint)
 
 ```
 POST /structured-data/:handleId

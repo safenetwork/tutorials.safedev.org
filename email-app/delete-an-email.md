@@ -256,7 +256,7 @@ When you click on the "Delete" button, the app removes the email you want to del
 
 First, the app fetches a cipher options handle for symmetric encryption.
 
-#### [Get Cipher-Opts handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/cipher_opts.md#get-cipher-opts-handle)
+#### [Get cipher options handle](https://api.safedev.org/low-level-api/cipher-options/get-cipher-options-handle.html)
 
 ```
 /cipher-opts/:encType/:keyHandle?
@@ -313,7 +313,7 @@ export const updateStructuredData = (token, handleId, data, cipherOpts) => ({
 
 The app saves your root structured data to the SAFE Network.
 
-#### [Save StructuredData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#save-structured-data)
+#### [Save structured data](https://api.safedev.org/low-level-api/structured-data/save-structured-data.html#put-endpoint)
 
 ```
 POST /structured-data/:handleId
@@ -367,10 +367,10 @@ export const deleteCipherOptsHandle = (token, handleId) => ({
 
 To refresh your saved folder, the app fetches your root structured data.
 
-#### [Read data](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#read-data)
+#### [Read structured data](https://api.safedev.org/low-level-api/structured-data/read-structured-data.html)
 
 ```
-GET /structured-data/:handleId
+GET /structured-data/:handleId/:version?
 ```
 
 ##### [structured_data_actions.js](https://github.com/maidsafe/safe_examples/blob/b74eb5f4f1181ecfc4a5e69a01fa3f2b6f54ecd6/email_app/app/actions/structured_data_actions.js#L23-L34)

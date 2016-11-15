@@ -20,7 +20,7 @@ You could also add the ability to forward an email to other users.
 
 ### File attachments
 
-You could add the ability to upload file attachments using the [Immutable Data API](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/immutable_data.md).
+You could add the ability to upload file attachments using the [Immutable Data API](https://api.safedev.org/low-level-api/immutable-data/).
 
 ### Multiple recipients
 

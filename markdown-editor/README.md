@@ -2,7 +2,7 @@
 
 In this tutorial, you will learn how to build **a text editor that stores its data on the SAFE Network**.
 
-The **SAFE Editor Example** lets you create and edit Markdown files. The files are encrypted using a symmetric key, which means that only you can read them. Each time you save a file, a new version is stored on the SAFE Network. You can browse through previous versions of your files and compare the difference across versions. This example demonstrates the usage of [versioned structured data](https://api.safedev.org/v/0.6/low-level-api/structured-data/).
+The **SAFE Editor Example** lets you create and edit Markdown files. The files are encrypted using a symmetric key, which means that only you can read them. Each time you save a file, a new version is stored on the SAFE Network. You can browse through previous versions of your files and compare the difference across versions. This example demonstrates the usage of [versioned structured data](https://api.safedev.org/low-level-api/structured-data/).
 
 #### Contents
 
@@ -14,11 +14,11 @@ The **SAFE Editor Example** lets you create and edit Markdown files. The files a
 
 This tutorial will showcase how to:
 
-- [Load file index](load-file-index.md)
+- [Fetch file index](fetch-file-index.md)
 - [Create a file](create-a-file.md)
 - [Edit a file](edit-a-file.md)
 - [Save a new version](save-a-new-version.md)
-- [Load file versions](load-file-versions.md)
+- [Fetch all versions](fetch-all-versions.md)
 
 ### SAFE APIs
 
@@ -26,9 +26,9 @@ You will learn about the following APIs:
 
 - [Authorization](https://api.safedev.org/auth/)
 - [NFS](https://api.safedev.org/nfs/)
-- [Structured Data](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md)
-- [Data ID](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/data_identifier.md)
-- [Cipher Options](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/cipher_opts.md)
+- [Structured Data](https://api.safedev.org/low-level-api/structured-data/)
+- [Data ID](https://api.safedev.org/low-level-api/data-id/)
+- [Cipher Options](https://api.safedev.org/low-level-api/cipher-options/)
 
 #### External libraries
 

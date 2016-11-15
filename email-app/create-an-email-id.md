@@ -125,7 +125,7 @@ After the appendable data is successfully created, the app saves your email ID i
 
 First, the app fetches a cipher options handle for symmetric encryption.
 
-#### [Get Cipher-Opts handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/cipher_opts.md#get-cipher-opts-handle)
+#### [Get cipher options handle](https://api.safedev.org/low-level-api/cipher-options/get-cipher-options-handle.html)
 
 ```
 /cipher-opts/:encType/:keyHandle?
@@ -220,7 +220,7 @@ export const deleteCipherOptsHandle = (token, handleId) => ({
 
 The app saves your root structured data to the SAFE Network.
 
-#### [Save StructuredData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#save-structured-data)
+#### [Save structured data](https://api.safedev.org/low-level-api/structured-data/save-structured-data.html#put-endpoint)
 
 ```
 POST /structured-data/:handleId

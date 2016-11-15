@@ -26,11 +26,11 @@ You will learn about the following APIs:
 
 - [Authorization](https://api.safedev.org/auth/)
 - [NFS](https://api.safedev.org/nfs/)
-- [Structured Data](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md)
-- [Appendable Data](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md)
-- [Data Identifier](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/data_identifier.md)
-- [Immutable Data](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/immutable_data.md)
-- [Cipher Options](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/cipher_opts.md)
+- [Structured Data](https://api.safedev.org/low-level-api/structured-data/)
+- [Appendable Data](https://api.safedev.org/low-level-api/appendable-data/)
+- [Data Identifier](https://api.safedev.org/low-level-api/data-id/)
+- [Immutable Data](https://api.safedev.org/low-level-api/immutable-data/)
+- [Cipher Options](https://api.safedev.org/low-level-api/cipher-options/)
 
 #### External libraries
 

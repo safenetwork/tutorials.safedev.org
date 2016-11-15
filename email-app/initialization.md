@@ -74,17 +74,15 @@ Therefore, the request body looks like this:
 
 The `LOW_LEVEL_API` permission is requested because the app needs to use the low-level APIs:
 
-- [Structured Data](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md)
-- [Appendable Data](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md)
-- [Data Identifier](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/data_identifier.md)
-- [Immutable Data](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/immutable_data.md)
-- [Cipher Options](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/cipher_opts.md)
+- [Structured Data](https://api.safedev.org/low-level-api/structured-data/)
+- [Appendable Data](https://api.safedev.org/low-level-api/appendable-data/)
+- [Data Identifier](https://api.safedev.org/low-level-api/data-id/)
+- [Immutable Data](https://api.safedev.org/low-level-api/immutable-data/)
+- [Cipher Options](https://api.safedev.org/low-level-api/cipher-options/)
 
 > #### info::Why is it necessary to ask for this permission?
 >
-> Since low-level APIs can be used to create data in the network, it might be possible where the data created by the apps cannot be deleted by the user again to retrieve the lost space. Thus, it makes it important to request user for the permission to access low-level APIs.
->
-> Source: [RFC 42 – SAFE Launcher API v0.6](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/0042-launcher-api-v0.6.md#permission)
+> By providing the `LOW_LEVEL_API` permission, the user should be aware that the app can now store data outside of SAFE Launcher's sandboxing. If the app doesn't properly keep track of the data it creates, the user might be unable to retrieve and delete data stored by the app. For example, it might be possible that some of the data created by the app cannot be deleted by the user. It's the responsibility of the app to keep track of the data it creates using the low-level API.
 
 SAFE Launcher displays a prompt with basic information about the app along with the requested permission (`LOW_LEVEL_API`). You can authorize this request by clicking on "ALLOW".
 
@@ -98,7 +96,7 @@ After you authorize the request, the app receives an authorization token.
 
 ## Check if a config file is present
 
-The app needs a way to store your email data on the SAFE Network. Using the [Structured Data API](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md), you can create a private structured data that will be used by the app to store your email ID and your saved emails. Let's call it the "root structured data".
+The app needs a way to store your email data on the SAFE Network. Using the [Structured Data API](https://api.safedev.org/low-level-api/structured-data/), you can create a private structured data that will be used by the app to store your email ID and your saved emails. Let's call it the "root structured data".
 
 Your root structured data is created using a random ID. In order to be able to retrieve your root structured data later, you need to store its ID in a config file. This config file will be stored in the app's root directory.
 
@@ -161,7 +159,7 @@ The email data can be represented using a simple [JSON](https://en.wikipedia.org
 
 First, the app fetches a cipher options handle for symmetric encryption.
 
-#### [Get Cipher-Opts handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/cipher_opts.md#get-cipher-opts-handle)
+#### [Get cipher options handle](https://api.safedev.org/low-level-api/cipher-options/get-cipher-options-handle.html)
 
 ```
 /cipher-opts/:encType/:keyHandle?
@@ -187,7 +185,7 @@ export const getCipherOptsHandle = (token, encType, keyHandle='') => ({
 
 Your root structured data is encrypted using symmetric encryption. This means that no one else can read its content. Only you can decrypt it. Also, since we don't need versioning (we only want to show the latest data), we create an [unversioned structured data](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#create) (type 500).
 
-#### [Create StructuredData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#create)
+#### [Create structured data](https://api.safedev.org/low-level-api/structured-data/create-structured-data.html)
 
 ```
 POST /structured-data
@@ -247,7 +245,7 @@ export const deleteCipherOptsHandle = (token, handleId) => ({
 
 The app saves your root structured data to the SAFE Network.
 
-#### [Save StructuredData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#save-structured-data)
+#### [Save structured data](https://api.safedev.org/low-level-api/structured-data/save-structured-data.html#put-endpoint)
 
 ```
 PUT /structured-data/:handleId
@@ -348,7 +346,7 @@ export const getStructuredDataIdHandle = (token, name, typeTag) => ({
 
 The app fetches a structured data handle using the data identifier handle of your root structured data.
 
-#### [Get StructuredData handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#get-structured-data-handle)
+#### [Get structured data handle](https://api.safedev.org/low-level-api/structured-data/get-structured-data-handle.html)
 
 ```
 GET /structured-data/handle/:dataIdHandle
@@ -374,10 +372,10 @@ export const fetchStructuredDataHandle = (token, dataIdHandle) => ({
 
 After the structured data handle is successfully retrieved, the app fetches the structured data that contains your email data.
 
-#### [Read data](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#read-data)
+#### [Read structured data](https://api.safedev.org/low-level-api/structured-data/read-structured-data.html)
 
 ```
-GET /structured-data/:handleId
+GET /structured-data/:handleId/:version?
 ```
 
 ##### [structured_data_actions.js](https://github.com/maidsafe/safe_examples/blob/b74eb5f4f1181ecfc4a5e69a01fa3f2b6f54ecd6/email_app/app/actions/structured_data_actions.js#L23-L34)
