@@ -152,7 +152,7 @@ window.safeStructuredData.put(this._authToken, currentSDHandleId)
 
 The plugin fetches a data identifier handle using the structured data handle representing your comment.
 
-#### [Get DataIdentifier for StructuredData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#get-dataidentifier-handle-for-structured-data)
+#### [Get data ID handle](https://api.safedev.org/low-level-api/structured-data/get-data-id-handle.html)
 
 ```
 GET /structured-data/data-id/:handleId
@@ -184,7 +184,7 @@ window.safeAppendableData.append(this._authToken, this._currentPostHandleId, dat
 
 The plugin drops the data identifier handle representing your comment.
 
-#### [Drop handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/data_identifier.md#drop-handle)
+#### [Drop data ID handle](https://api.safedev.org/low-level-api/data-id/drop-data-id-handle.html)
 
 ```
 DELETE /data-id/:handleId

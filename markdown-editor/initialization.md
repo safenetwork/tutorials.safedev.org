@@ -31,11 +31,13 @@ safeAuth.authorise({
 APP_ID)
 ```
 
-For this example app, `APP_ID` has been set to `net.maidsafe.examples.versioning-editor`.
+For this example app, `APP_NAME`, `APP_ID` and `APP_VERSION` have been set to the following values:
 
-##### [store.js](https://github.com/shankar2105/safe_examples_private/blob/ben_versioning_editor/versioning_editor/src/config.js#L12)
+##### [config.js](https://github.com/shankar2105/safe_examples_private/blob/ben_versioning_editor/versioning_editor/src/config.js#L10-L12)
 
 ```js
+export const APP_NAME = "SAFE Editor Example";
+export const APP_VERSION = '0.1';
 export const APP_ID = 'net.maidsafe.examples.versioning-editor';
 ```
 
@@ -68,15 +70,23 @@ safeCipherOpts.getHandle(ACCESS_TOKEN,
   window.safeCipherOpts.getEncryptionTypes().SYMMETRIC)
 ```
 
+The app stores the cipher options handle in a global variable.
+
+##### [store.js](https://github.com/shankar2105/safe_examples_private/blob/ben_versioning_editor/versioning_editor/src/store.js#L34)
+
+```
+SYMETRIC_CYPHER_HANDLE = extractHandle(res);
+```
+
 ## Fetch the config file
 
-Each Markdown file you create will be stored inside a new [structured data](https://api.safedev.org/low-level-api/structured-data/). The app needs a way to retrieve your files on the SAFE Network. If the app doesn't properly keep track of the data it creates using the [low-level API](https://api.safedev.org/low-level-api/), the user might be unable to retrieve and delete data stored by the app.
+Each Markdown file you create will be stored inside a new versioned [structured data](https://api.safedev.org/low-level-api/structured-data/). The app needs a way to retrieve your files on the SAFE Network. If the app doesn't properly keep track of the data it creates using the [low-level API](https://api.safedev.org/low-level-api/), the user might be unable to retrieve and delete data stored by the app.
 
 The solution is to generate a random "user prefix" and store it inside a config file located in the app's root directory. This random user prefix will be used to assign IDs to the files you create. The ID of each file will be based on your user prefix and the filename. That way, the app can reuse the same random user prefix instead of creating a new one for each file.
 
-In order to keep track of the filenames, the app creates a file index that will be used to store the names of all your files. This file index will be stored inside a structured data with an ID based on your user prefix.
+In order to keep track of the filenames, the app creates a file index that will be used to store the names of all your files. This file index will be stored inside an unversioned structured data with an ID based on your user prefix.
 
-Therefore, the app is able to retrieve all your files simply by retrieving your user prefix, which will be stored inside a config file located in the app's root directory. Using your user prefix, the app can fetch the file index, which contains the names of all your files. Individual files can be fetched using your user prefix and the filename.
+Therefore, the app is able to retrieve all your files simply by retrieving your user prefix, which will be stored inside a config file located in the app's root directory. Using your user prefix, the app can fetch your file index, which contains the names of all your files. Individual files can be fetched using your user prefix and the filename.
 
 ### Generate a user prefix
 
@@ -149,4 +159,4 @@ USER_PREFIX = config.user_prefix
 
 ## Fetch the file index
 
-Finally, the app needs to [fetch the file index](fetch-file-index.md) associated with your user prefix. The file index contains the name of all your files.
+Finally, the app needs to [fetch the file index](fetch-file-index.md) associated with your user prefix. Your file index contains the name of all your files.

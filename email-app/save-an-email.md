@@ -16,7 +16,7 @@ When you click on the "Save" button, the app adds the email you want to save to 
 
 The app updates your root structured data (which now contains the email you just saved) and encrypts it using symmetric encryption.
 
-#### [Update StructuredData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#update-data)
+#### [Update structured data](https://api.safedev.org/low-level-api/structured-data/update-structured-data.html)
 
 ```
 PATCH /structured-data/:handleId
@@ -47,7 +47,7 @@ export const updateStructuredData = (token, handleId, data, cipherOpts) => ({
 
 The app saves your root structured data to the SAFE Network.
 
-#### [Save structured data](https://api.safedev.org/low-level-api/structured-data/save-structured-data.html#put-endpoint)
+#### [Save structured data](https://api.safedev.org/low-level-api/structured-data/save-structured-data.html#post-endpoint)
 
 ```
 POST /structured-data/:handleId
@@ -148,7 +148,7 @@ export const fetchAppendableDataHandle = (token, dataIdHandle) => { // id => app
 
 The app drops the data identifier handle for the appendable data representing your inbox folder.
 
-#### [Drop handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/data_identifier.md#drop-handle)
+#### [Drop data ID handle](https://api.safedev.org/low-level-api/data-id/drop-data-id-handle.html)
 
 ```
 DELETE /data-id/:handleId

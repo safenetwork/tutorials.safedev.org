@@ -69,7 +69,7 @@ The plugin fetches the metadata of the appendable data using the appendable data
 #### [Get metadata](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#get-metadata)
 
 ```
-GET /structured-data/metadata/:handleId
+GET /appendable-data/metadata/:handleId
 ```
 
 ##### [controller.js](https://github.com/maidsafe/safe_examples/blob/19cb638c3f02a4b9b9492e44f1527f6010c8e9ba/permanent_comments_plugin/comments/src/controller.js#L155-L156)
@@ -212,7 +212,7 @@ window.safeStructuredData.dropHandle(this._authToken, hId)
 
 The plugin drops the data identifier handle of the current comment.
 
-#### [Drop handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/data_identifier.md#drop-handle)
+#### [Drop data ID handle](https://api.safedev.org/low-level-api/data-id/drop-data-id-handle.html)
 
 ```
 DELETE /data-id/:handleId
@@ -230,7 +230,7 @@ The plugin continues iterating through the appendable data until all the comment
 
 The plugin drops the data identifier handle of the appendable data associated with the current page.
 
-#### [Drop handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/data_identifier.md#drop-handle)
+#### [Drop data ID handle](https://api.safedev.org/low-level-api/data-id/drop-data-id-handle.html)
 
 ```
 DELETE /data-id/:handleId

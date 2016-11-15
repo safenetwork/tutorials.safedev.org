@@ -79,7 +79,7 @@ const data = new Buffer(JSON.stringify(this._data.blockedUsers)).toString('base6
 
 The plugin updates the structured data with the new list of blocked users.
 
-#### [Update StructuredData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#update-data)
+#### [Update structured data](https://api.safedev.org/low-level-api/structured-data/update-structured-data.html)
 
 ```
 PATCH /structured-data/:handleId
@@ -98,7 +98,7 @@ window.safeStructuredData.updateData(
 
 The plugin saves the structured data by sending a POST request to the SAFE Network.
 
-#### [Save structured data](https://api.safedev.org/low-level-api/structured-data/save-structured-data.html#put-endpoint)
+#### [Save structured data](https://api.safedev.org/low-level-api/structured-data/save-structured-data.html#post-endpoint)
 
 ```
 POST /structured-data/:handleId

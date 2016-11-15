@@ -144,7 +144,7 @@ export const generateStructredDataId = () => {
 };
 ```
 
-The root structured data will be used to store your email ID and your saved emails. Since we use an unversioned structured data, you can store as many emails as you want.
+The root structured data will be used to store your email ID and your saved emails. Since we use an  structured data, you can store as many emails as you want.
 
 The email data can be represented using a simple [JSON](https://en.wikipedia.org/wiki/JSON) format:
 
@@ -183,7 +183,7 @@ export const getCipherOptsHandle = (token, encType, keyHandle='') => ({
 
 ### Create a root structured data
 
-Your root structured data is encrypted using symmetric encryption. This means that no one else can read its content. Only you can decrypt it. Also, since we don't need versioning (we only want to show the latest data), we create an [unversioned structured data](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#create) (type 500).
+Your root structured data is encrypted using symmetric encryption. This means that no one else can read its content. Only you can decrypt it. Also, since we don't need versioning (we only want to show the latest data), we create an [unversioned structured data](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#create) (type tag 500).
 
 #### [Create structured data](https://api.safedev.org/low-level-api/structured-data/create-structured-data.html)
 

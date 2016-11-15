@@ -60,7 +60,7 @@ const payload = new Buffer(JSON.stringify({
 })).toString('base64')
 ```
 
-#### [Update StructuredData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#update-data)
+#### [Update structured data](https://api.safedev.org/low-level-api/structured-data/update-structured-data.html)
 
 ```
 PATCH /structured-data/:handleId
@@ -76,7 +76,7 @@ window.safeStructuredData.updateData(this._authToken, handleId, payload)
 
 The plugin saves the new version of the comment by sending a POST request to the SAFE Network.
 
-#### [Save structured data](https://api.safedev.org/low-level-api/structured-data/save-structured-data.html#put-endpoint)
+#### [Save structured data](https://api.safedev.org/low-level-api/structured-data/save-structured-data.html#post-endpoint)
 
 ```
 POST /structured-data/:handleId
@@ -108,7 +108,7 @@ window.safeStructuredData.dropHandle(this._authToken, dataIdHandle)
 
 The plugin drops the data identifier handle of the comment.
 
-#### [Drop handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/data_identifier.md#drop-handle)
+#### [Drop data ID handle](https://api.safedev.org/low-level-api/data-id/drop-data-id-handle.html)
 
 ```
 DELETE /data-id/:handleId

@@ -99,7 +99,7 @@ export const fetchAppendableDataHandle = (token, dataIdHandle) => { // id => app
 
 The app drops the data identifier handle for the appendable data of the recipient.
 
-#### [Drop handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/data_identifier.md#drop-handle)
+#### [Drop data ID handle](https://api.safedev.org/low-level-api/data-id/drop-data-id-handle.html)
 
 ```
 /data-id/:handleId
