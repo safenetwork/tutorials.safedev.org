@@ -30,9 +30,7 @@ You could add the ability to send an email to multiple recipients. The email wou
 
 Using the `filter` field of the appendable data, you could let the user specify a blacklist of a whitelist.
 
-> Owner(s) can set `filter` to either blacklist or whitelist. In case it is set to `Filter::BlackList`, the vaults shall enforce the rule of allowing everyone but the blacklisted keys to add to `data` on subsequent updates following the change to `filter`, i.e. existing data in `data` field will not be dealt by the vaults. Similarly, if set to `Filter::WhiteList`, no one but the the whitelisted keys will be allowed to add data.
-
-Source: [RFC 38 – Appendable Data](https://github.com/maidsafe/rfcs/blob/master/text/0038-appendable-data/0038-appendable-data.md)
+See the [Filter API](https://api.safedev.org/low-level-api/appendable-data/filter/) for more info.
 
 ### Custom templates
 

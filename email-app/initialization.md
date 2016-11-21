@@ -183,7 +183,7 @@ export const getCipherOptsHandle = (token, encType, keyHandle='') => ({
 
 ### Create a root structured data
 
-Your root structured data is encrypted using symmetric encryption. This means that no one else can read its content. Only you can decrypt it. Also, since we don't need versioning (we only want to show the latest data), we create an [unversioned structured data](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#create) (type tag 500).
+Your root structured data is encrypted using symmetric encryption. This means that no one else can read its content. Only you can decrypt it. Also, since we don't need versioning (we only want to show the latest data), we create an [unversioned structured data](https://api.safedev.org/low-level-api/structured-data/) (type tag 500).
 
 #### [Create structured data](https://api.safedev.org/low-level-api/structured-data/create-structured-data.html)
 
@@ -218,7 +218,7 @@ export const createStructuredData = (token, name, data, cipherHandle) => ({
 
 The app drops the "cipher options" handle for symmetric encryption.
 
-#### [Drop Cipher-Opts handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/cipher_opts.md#drop-handle)
+#### [Drop cipher options handle](https://api.safedev.org/low-level-api/cipher-options/drop-cipher-options-handle.html)
 
 ```
 DELETE /cipher-opts/:handleId
@@ -315,7 +315,7 @@ First, the app fetches a data identifier handle using the ID of your root struct
 
 <!-- *(explain why handles are needed?)* -->
 
-#### [Get DataIdentifier handle for StructuredData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/data_identifier.md#get-dataidentifier-for-structureddata)
+#### [Get data ID handle](https://api.safedev.org/low-level-api/data-id/get-data-id-handle.html#for-structured-data)
 
 ```
 POST /data-id/structured-data

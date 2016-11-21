@@ -1,6 +1,6 @@
 # Create a file
 
-Each Markdown file you create will be stored inside a new versioned [structured data](https://api.safedev.org/low-level-api/structured-data/). In order for you to be able to retrieve your files, the app needs to add the filename of each file you create to your file index.
+Each Markdown file you create will be stored inside a new [versioned structured data](https://api.safedev.org/low-level-api/structured-data/). In order for you to be able to retrieve your files, the app needs to add the filename of each file you create to your file index.
 
 #### Contents
 

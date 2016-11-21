@@ -29,7 +29,7 @@ Before fetching the encryption key of the recipient, the app needs to obtain an 
 
 First, the app fetches a data identifier handle for the appendable data of the recipient.
 
-#### [Get DataIdentifier for AppendableData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/data_identifier.md#get-dataidentifier-for-appendabledata)
+#### [Get data ID handle](https://api.safedev.org/low-level-api/data-id/get-data-id-handle.html#for-appendable-data)
 
 ```
 POST /data-id/appendable-data
@@ -70,7 +70,7 @@ export const hashEmailId = emailId => {
 
 The app fetches an appendable data handle using the data identifier handle previously obtained.
 
-#### [Get AppendableData handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#get-appendabledata-handle-from-dataidentifier-handle)
+#### [Get appendable data handle](https://api.safedev.org/low-level-api/appendable-data/get-appendable-data-handle.html)
 
 ```
 GET /appendable-data/handle/:dataIdHandle
@@ -102,7 +102,7 @@ The app drops the data identifier handle for the appendable data of the recipien
 #### [Drop data ID handle](https://api.safedev.org/low-level-api/data-id/drop-data-id-handle.html)
 
 ```
-/data-id/:handleId
+DELETE /data-id/:handleId
 ```
 
 ##### [data_id_handle_actions.js](https://github.com/maidsafe/safe_examples/blob/f1d7510b9a17c05a31da761927e05f17ca9b1c26/email_app/app/actions/data_id_handle_actions.js#L67-L78)
@@ -126,7 +126,7 @@ export const dropHandler = (token, handleId) => ({
 
 After the appendable data handle is successfully obtained, the app fetches an handle for the public encryption key of the recipient. By encrypting your email using that encryption key, only the recipient will be able to read it. This is known as asymmetric encryption.
 
-#### [Get encryption key handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#get-encryption-key)
+#### [Get encryption key handle](https://api.safedev.org/low-level-api/appendable-data/encryption-key/get-encryption-key-handle.html)
 
 ```
 GET /appendable-data/encrypt-key/:handleId
@@ -178,7 +178,7 @@ export const getCipherOptsHandle = (token, encType, keyHandle='') => ({
 
 The app drops the encryption key handle of the recipient.
 
-#### [Drop handle](#)
+#### [Drop encryption key handle](https://api.safedev.org/low-level-api/appendable-data/encryption-key/drop-encryption-key-handle.html)
 
 ```
 DELETE /appendable-data/encrypt-key/:handleId
@@ -209,7 +209,7 @@ The app creates an email using the cipher handle that contains the encryption ke
 
 First, the app fetches an immutable data writer handle.
 
-#### [Get ImmutableDataWriter handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/immutable_data.md#get-immutabledata-writer)
+#### [Get immutable data writer handle](https://api.safedev.org/low-level-api/immutable-data/get-immutable-data-handle.html#get-immutable-data-writer-handle)
 
 ```
 GET /immutable-data/writer
@@ -235,7 +235,7 @@ export const createImmutableDataWriterHandle = (token) => ({
 
 The app stores the email as immutable data using the immutable data writer handle.
 
-#### [Write ImmutableData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/immutable_data.md#write-immutable-data)
+#### [Write immutable data](https://api.safedev.org/low-level-api/immutable-data/write-immutable-data.html)
 
 ```
 POST /immutable-data/:handleId
@@ -267,7 +267,7 @@ export const writeImmutableData = (token, handleId, data) => {
 
 The app encrypts the data map of the email using the cipher handle that contains the encryption key handle of the recipient. The data map is stored as immutable data on the SAFE Network.
 
-#### [Close ImmutableDataWriter](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/immutable_data.md#close-immutable-data-writer)
+#### [Close immutable data writer](https://api.safedev.org/low-level-api/immutable-data/close-immutable-data-writer.html)
 
 ```
 PUT /immutable-data/:handleId/:cipherOptsHandle
@@ -298,7 +298,7 @@ Once the write operation is successful, the API returns a data identifier handle
 
 The app drops the immutable data writer handle.
 
-#### [Drop handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/immutable_data.md#drop-immutable-data-writer)
+#### [Drop immutable data writer handle](https://api.safedev.org/low-level-api/immutable-data/drop-immutable-data-handle.html#drop-immutable-data-writer-handle)
 
 ```
 DELETE /immutable-data/writer/:handleId
@@ -325,7 +325,7 @@ export const closeImmutableDataWriter = (token, handleId) => ({
 
 The app adds the data identifier handle representing your email to the appendable data of the recipient.
 
-#### [Append DataIdentifier](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#append-data)
+#### [Append data](https://api.safedev.org/low-level-api/appendable-data/append-data.html)
 
 ```
 PUT /appendable-data/:handleId/:dataIdHandle
@@ -352,7 +352,7 @@ export const appendAppendableData = (token, handleId, dataIdHandle) => ({
 
 After your email is successfully appended to the appendable data of the recipient, the app drops the appendable data handle.
 
-#### [Drop AppendableData handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#drop-handle)
+#### [Drop appendable data handle](https://api.safedev.org/low-level-api/appendable-data/drop-appendable-data-handle.html)
 
 ```
 DELETE /appendable-data/handle/:handleId

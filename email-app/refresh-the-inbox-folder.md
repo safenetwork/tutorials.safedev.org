@@ -16,7 +16,7 @@ The app needs to obtain an appendable data handle.
 
 First, the app fetches a data identifier handle for the appendable data representing your inbox folder.
 
-#### [Get DataIdentifier for AppendableData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/data_identifier.md#get-dataidentifier-for-appendabledata)
+#### [Get data ID handle](https://api.safedev.org/low-level-api/data-id/get-data-id-handle.html#for-appendable-data)
 
 ```
 POST /data-id/appendable-data
@@ -57,7 +57,7 @@ export const hashEmailId = emailId => {
 
 The app fetches an appendable data handle using the data identifier handle representing your inbox folder.
 
-#### [Get AppendableData handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#get-appendabledata-handle-from-dataidentifier-handle)
+#### [Get appendable data handle](https://api.safedev.org/low-level-api/appendable-data/get-appendable-data-handle.html)
 
 ```
 GET /appendable-data/handle/:dataIdHandle
@@ -113,7 +113,7 @@ export const dropHandler = (token, handleId) => ({
 
 The app fetches the metadata of your appendable data.
 
-#### [Get metadata](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#get-metadata)
+#### [Get appendable data metadata](https://api.safedev.org/low-level-api/appendable-data/get-appendable-data-metadata.html)
 
 ```
 GET /appendable-data/metadata/:handleId
@@ -145,7 +145,7 @@ If the data length is 0, it means your inbox is empty.
 
 If the data length is greater than 0, the app iterates through the appendable data. It starts at index 0 and fetches the data identifier corresponding to the first email.
 
-#### [Get DataIdentifier at a specific index](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#get-data-id-of-a-data-at-appendable-data)
+#### [Get data ID handle at index](https://api.safedev.org/low-level-api/appendable-data/get-data-id-handle-at-index.html#for-a-data-item)
 
 ```
 GET /appendable-data/:handleId/:index
@@ -175,7 +175,7 @@ For each email in the appendable data, the app needs to retrieve the correspondi
 
 The app fetches the data map of the email using the data identifier handle previously obtained. The data map is decrypted using the asymmetric keys of the app.
 
-#### [Get ImmutableDataReader handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/immutable_data.md#get-immutabledata-reader)
+#### [Get immutable data reader handle](https://api.safedev.org/low-level-api/immutable-data/get-immutable-data-handle.html#get-immutable-data-reader-handle)
 
 ```
 GET /immutable-data/reader/:handleId
@@ -203,7 +203,7 @@ The API returns an immutable data reader handle.
 
 The app reads the immutable data representing the email using the immutable data reader handle.
 
-#### [Read ImmutableData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/immutable_data.md#read-immutable-data-using-reader)
+#### [Read immutable data](https://api.safedev.org/low-level-api/immutable-data/read-immutable-data.html)
 
 ```
 GET /immutable-data/:handleId
@@ -230,7 +230,7 @@ export const readImmutableData = (token, handleId) => ({
 
 The app drops the immutable data reader handle.
 
-#### [Drop ImmutableDataReader handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/immutable_data.md#drop-immutable-data-reader)
+#### [Drop immutable data reader handle](https://api.safedev.org/low-level-api/immutable-data/drop-immutable-data-handle.html#drop-immutable-data-reader-handle)
 
 ```
 DELETE /immutable-data/reader/:handleId
@@ -259,7 +259,7 @@ The app adds the content of the email to your inbox and then repeats this proces
 
 Your appendable data has a maximum size of 100 KiB. To update the amount of space used by the emails in your appendable data, the app fetches the serialized content of your appendable data and measures its size.
 
-#### [Serialize AppendableData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#serialise-appendabledata)
+#### [Serialize appendable data](https://api.safedev.org/low-level-api/appendable-data/serialize-appendable-data.html)
 
 ```
 GET /appendable-data/serialise/:handleId
@@ -286,7 +286,7 @@ export const getAppendableDataLength = (token, handleId) => ({
 
 After refreshing your inbox folder, the app drops the appendable data handle.
 
-#### [Drop AppendableData handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#drop-handle)
+#### [Drop appendable data handle](https://api.safedev.org/low-level-api/appendable-data/drop-appendable-data-handle.html)
 
 ```
 DELETE /appendable-data/handle/:handleId

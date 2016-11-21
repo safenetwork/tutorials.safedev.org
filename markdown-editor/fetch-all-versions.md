@@ -12,7 +12,7 @@ The app fetches all the versions of the file you opened.
 
 The app obtains a data ID handle for the versioned structured data (type tag 501) that contains the file you opened. The ID of this structured data is based on your user prefix and the name of the file.
 
-#### [Get data ID handle for structured data](https://api.safedev.org/low-level-api/data-id/get-data-id-handle.html#for-structured-data)
+#### [Get data ID handle](https://api.safedev.org/low-level-api/data-id/get-data-id-handle.html#for-structured-data)
 
 ```
 POST /data-id/structured-data

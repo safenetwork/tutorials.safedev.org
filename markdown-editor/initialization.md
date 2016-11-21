@@ -80,7 +80,7 @@ SYMETRIC_CYPHER_HANDLE = extractHandle(res);
 
 ## Fetch the config file
 
-Each Markdown file you create will be stored inside a new versioned [structured data](https://api.safedev.org/low-level-api/structured-data/). The app needs a way to retrieve your files on the SAFE Network. If the app doesn't properly keep track of the data it creates using the [low-level API](https://api.safedev.org/low-level-api/), the user might be unable to retrieve and delete data stored by the app.
+Each Markdown file you create will be stored inside a new [versioned structured data](https://api.safedev.org/low-level-api/structured-data/). The app needs a way to retrieve your files on the SAFE Network. If the app doesn't properly keep track of the data it creates using the [low-level API](https://api.safedev.org/low-level-api/), the user might be unable to retrieve and delete data stored by the app.
 
 The solution is to generate a random "user prefix" and store it inside a config file located in the app's root directory. This random user prefix will be used to assign IDs to the files you create. The ID of each file will be based on your user prefix and the filename. That way, the app can reuse the same random user prefix instead of creating a new one for each file.
 

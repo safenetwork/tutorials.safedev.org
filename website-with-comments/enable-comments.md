@@ -12,7 +12,7 @@ You can enable comments for the current page by clicking on the `Enable Comments
 
 When you click on the `Enable Comments` button, the plugin creates an appendable data for the current page. By default, the filter of the appendable data will be a blacklist (as opposed to a whitelist). Everyone except the keys listed in the filter will be allowed to append data.
 
-#### [Create AppendableData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#create)
+#### [Create appendable data](https://api.safedev.org/low-level-api/appendable-data/create-appendable-data.html)
 
 ```
 POST /appendable-data
@@ -49,7 +49,7 @@ The actual name of the appendable data is the hash of `_getLocation()`.
 
 The plugin saves the appendable data to the SAFE Network.
 
-#### [Save AppendableData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#save-appendabledata)
+#### [Save appendable data](https://api.safedev.org/low-level-api/appendable-data/save-appendable-data.html#put-endpoint)
 
 ```
 PUT /appendable-data/:handleId

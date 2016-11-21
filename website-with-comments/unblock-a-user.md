@@ -14,7 +14,7 @@ When you select a user to unblock, the plugin is able to retrieve the serialized
 
 The plugin deserializes the signing key of the user you want to unblock.
 
-#### Deserialize signing key
+#### [Deserialize signing key](https://api.safedev.org/low-level-api/appendable-data/signing-key/deserialize-signing-key.html)
 
 ```
 POST /sign-key/deserialise
@@ -32,7 +32,7 @@ The API returns the handle ID for the signing key.
 
 The plugin removes the signing key of the user you want to unblock from the appendable data associated with the current page.
 
-#### [Remove signing key from filter](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#delete-sign-keys-from-filter)
+#### [Remove signing keys](https://api.safedev.org/low-level-api/appendable-data/filter/remove-signing-keys.html)
 
 ```
 DELETE /appendable-data/filter/:handleId
@@ -51,7 +51,7 @@ window.safeAppendableData.removeFromFilter(
 
 The plugin updates the appendable data associated with the current page by sending a POST request to the SAFE Network.
 
-#### [Save AppendableData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#save-appendabledata)
+#### [Save appendable data](https://api.safedev.org/low-level-api/appendable-data/save-appendable-data.html#post-endpoint)
 
 ```
 POST /appendable-data/:handleId
@@ -115,7 +115,7 @@ window.safeStructuredData.post(
 
 The plugin drops the handle that represents the signing key of the user you just unblocked.
 
-#### Drop handle
+#### [Drop signing key handle](https://api.safedev.org/low-level-api/appendable-data/signing-key/drop-signing-key-handle.html)
 
 ```
 DELETE /sign-key/:handleId

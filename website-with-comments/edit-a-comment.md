@@ -16,7 +16,7 @@ Since comments are saved using versioned structured data (type 501), everyone wi
 
 The plugin fetches a data identifier handle for the comment you want to edit.
 
-#### [Get DataIdentifier at a specific index](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#get-data-id-of-a-data-at-appendable-data)
+#### [Get data ID handle at index](https://api.safedev.org/low-level-api/appendable-data/get-data-id-handle-at-index.html#for-a-data-item)
 
 ```
 GET /appendable-data/:handleId/:index
@@ -92,7 +92,7 @@ window.safeStructuredData.post(this._authToken, handleId)
 
 The plugin drops the structured data handle of the comment.
 
-#### [Drop handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#drop-handle)
+#### [Drop structured data handle](https://api.safedev.org/low-level-api/structured-data/drop-structured-data-handle.html)
 
 ```
 DELETE /structured-data/handle/:handleId

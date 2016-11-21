@@ -16,7 +16,7 @@ If the current page is using the [Permanent Comments Plugin](https://github.com/
 
 The plugin fetches an immutable data writer handle.
 
-#### [Get ImmutableDataWriter handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/immutable_data.md#get-immutabledata-writer)
+#### [Get immutable data writer handle](https://api.safedev.org/low-level-api/immutable-data/get-immutable-data-handle.html#get-immutable-data-writer-handle)
 
 ```
 GET /immutable-data/writer
@@ -32,7 +32,7 @@ window.safeImmutableData.getWriterHandle(this._authToken)
 
 The plugin stores the comment as immutable data using the immutable data writer handle.
 
-#### [Write ImmutableData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/immutable_data.md#write-immutable-data)
+#### [Write immutable data](https://api.safedev.org/low-level-api/immutable-data/write-immutable-data.html)
 
 ```
 POST /immutable-data/:handleId
@@ -70,7 +70,7 @@ const payload = new Buffer(JSON.stringify({
 
 The plugin saves the data map of the comment as immutable data on the SAFE Network.
 
-#### [Close ImmutableDataWriter](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/immutable_data.md#close-immutable-data-writer)
+#### [Close immutable data writer](https://api.safedev.org/low-level-api/immutable-data/close-immutable-data-writer.html)
 
 ```
 PUT /immutable-data/:handleId/:cipherOptsHandle
@@ -168,7 +168,7 @@ window.safeStructuredData.getDataIdHandle(this._authToken, currentSDHandleId)
 
 The plugin appends the data identifier handle representing your comment to the appendable data of the current page.
 
-#### [Append DataIdentifier](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#append-data)
+#### [Append data](https://api.safedev.org/low-level-api/appendable-data/append-data.html)
 
 ```
 PUT /appendable-data/:handleId/:dataIdHandle
@@ -200,7 +200,7 @@ window.safeDataId.dropHandle(this._authToken, dataIdHandle)
 
 If the current page is using the [Permanent Comments Plugin](https://github.com/maidsafe/safe_examples/tree/master/permanent_comments_plugin), the plugin drops the immutable data writer handle.
 
-#### [Drop handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/immutable_data.md#drop-immutable-data-writer)
+#### [Drop immutable data writer handle](https://api.safedev.org/low-level-api/immutable-data/drop-immutable-data-handle.html#drop-immutable-data-writer-handle)
 
 ```
 DELETE /immutable-data/writer/:handleId
@@ -216,7 +216,7 @@ window.safeImmutableData.dropWriter(this._authToken, writerHandle)
 
 If the current page is using the [Editable Comments Plugin](https://github.com/maidsafe/safe_examples/tree/master/editable_comments_plugin), the plugin drops the structured data handle.
 
-#### [Drop handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#drop-handle)
+#### [Drop structured data handle](https://api.safedev.org/low-level-api/structured-data/drop-structured-data-handle.html)
 
 ```
 DELETE /structured-data/handle/:handleId

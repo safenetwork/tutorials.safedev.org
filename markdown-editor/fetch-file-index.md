@@ -1,6 +1,6 @@
 # Fetch file index
 
-The app fetches the file index associated with your user prefix. Each Markdown file you create is stored inside a new unversioned [structured data](https://api.safedev.org/low-level-api/structured-data/). The ID of each file is based on your user prefix and the filename. Your file index contains the names of all your files. Individual files can be fetched using your user prefix and the filename.
+The app fetches the file index associated with your user prefix. Each Markdown file you create is stored inside a new [unversioned structured data](https://api.safedev.org/low-level-api/structured-data/). The ID of each file is based on your user prefix and the filename. Your file index contains the names of all your files. Individual files can be fetched using your user prefix and the filename.
 
 #### Contents
 
@@ -12,7 +12,7 @@ The app fetches the file index associated with your user prefix. Each Markdown f
 
 The app obtains a data ID handle for the unversioned structured data (type tag 500) that contains your file index.
 
-#### [Get data ID handle for structured data](https://api.safedev.org/low-level-api/data-id/get-data-id-handle.html#for-structured-data)
+#### [Get data ID handle](https://api.safedev.org/low-level-api/data-id/get-data-id-handle.html#for-structured-data)
 
 ```
 POST /data-id/structured-data

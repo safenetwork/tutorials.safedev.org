@@ -16,7 +16,7 @@ The emails in your inbox folder are stored in your appendable data. If you want 
 
 First, the app fetches a data identifier handle for the appendable data representing your inbox folder.
 
-#### [Get DataIdentifier for AppendableData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/data_identifier.md#get-dataidentifier-for-appendabledata)
+#### [Get data ID handle](https://api.safedev.org/low-level-api/data-id/get-data-id-handle.html#for-appendable-data)
 
 ```
 POST /data-id/appendable-data
@@ -57,7 +57,7 @@ export const hashEmailId = emailId => {
 
 The app fetches an appendable data handle using the data identifier handle representing your inbox folder.
 
-#### [Get AppendableData handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#get-appendabledata-handle-from-dataidentifier-handle)
+#### [Get appendable data handle](https://api.safedev.org/low-level-api/appendable-data/get-appendable-data-handle.html)
 
 ```
 GET /appendable-data/handle/:dataIdHandle
@@ -113,7 +113,7 @@ export const dropHandler = (token, handleId) => ({
 
 The app removes the email you just deleted from your appendable data. This moves the email to the `deleted_data` field of the appendable data.
 
-#### [Remove from data by index](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#remove-from-data-by-index)
+#### [Remove a data item](https://api.safedev.org/low-level-api/appendable-data/remove-data-at-index.html#remove-a-data-item)
 
 ```
 DELETE /appendable-data/:handleId/:index
@@ -142,7 +142,7 @@ export const removeFromAppendableData = (token, handleId, index) => {
 
 The app saves your appendable data by sending a POST request to the SAFE Network.
 
-#### [Save AppendableData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#save-appendabledata)
+#### [Save appendable data](https://api.safedev.org/low-level-api/appendable-data/save-appendable-data.html#post-endpoint)
 
 ```
 POST /appendable-data/:handleId
@@ -169,7 +169,7 @@ export const postAppendableData = (token, handleId) => ({
 
 The app clears the `deleted_data` field of your appendable data.
 
-#### [Clear deleted data section](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#clear-deleted-data-section)
+#### [Clear all deleted data items](https://api.safedev.org/low-level-api/appendable-data/clear-all-data.html#clear-all-deleted-data-items)
 
 ```
 DELETE /appendable-data/clear-deleted-data/:handleId
@@ -196,7 +196,7 @@ export const clearDeletedData = (token, handleId) => ({
 
 The app saves your appendable data by sending a POST request to the SAFE Network.
 
-#### [Save AppendableData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#save-appendabledata)
+#### [Save appendable data](https://api.safedev.org/low-level-api/appendable-data/save-appendable-data.html#post-endpoint)
 
 ```
 POST /appendable-data/:handleId
@@ -223,7 +223,7 @@ export const postAppendableData = (token, handleId) => ({
 
 The app drops the appendable data handle and [refreshes the inbox folder](refresh-the-inbox-folder.md).
 
-#### [Drop AppendableData handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#drop-handle)
+#### [Drop appendable data handle](https://api.safedev.org/low-level-api/appendable-data/drop-appendable-data-handle.html)
 
 ```
 DELETE /appendable-data/handle/:handleId
@@ -340,7 +340,7 @@ export const postStructuredData = (token, handleId) => ({
 
 The app drops the "cipher options" handle for symmetric encryption.
 
-#### [Drop Cipher-Opts handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/cipher_opts.md#drop-handle)
+#### [Drop cipher options handle](https://api.safedev.org/low-level-api/cipher-options/drop-cipher-options-handle.html)
 
 ```
 DELETE /cipher-opts/:handleId

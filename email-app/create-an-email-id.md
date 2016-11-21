@@ -32,7 +32,7 @@ export const hashEmailId = emailId => {
 };
 ```
 
-#### [Create AppendableData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#create)
+#### [Create appendable data](https://api.safedev.org/low-level-api/appendable-data/create-appendable-data.html)
 
 ```
 POST /appendable-data
@@ -67,7 +67,7 @@ export const createAppendableData = (token, name) => {
 
 The app saves the appendable data to the SAFE Network.
 
-#### [Save AppendableData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#save-appendabledata)
+#### [Save appendable data](https://api.safedev.org/low-level-api/appendable-data/save-appendable-data.html#put-endpoint)
 
 ```
 PUT /appendable-data/:handleId
@@ -94,7 +94,7 @@ export const putAppendableData = (token, handleId) => ({
 
 After the root structured data is successfully updated, the app drops the appendable data handle.
 
-#### [Drop AppendableData handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#drop-handle)
+#### [Drop appendable data handle](https://api.safedev.org/low-level-api/appendable-data/drop-appendable-data-handle.html)
 
 ```
 DELETE /appendable-data/handle/:handleId
@@ -193,7 +193,7 @@ If your email ID is **francis**, the JSON data contained in your root structured
 
 The app drops the "cipher options" handle for symmetric encryption.
 
-#### [Drop Cipher-Opts handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/cipher_opts.md#drop-handle)
+#### [Drop cipher options handle](https://api.safedev.org/low-level-api/cipher-options/drop-cipher-options-handle.html)
 
 ```
 DELETE /cipher-opts/:handleId

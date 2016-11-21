@@ -12,7 +12,7 @@ The plugin fetches the comments associated with the current page and adds them t
 
 The plugin fetches a data identifier handle for the appendable data associated with the current page.
 
-#### [Get DataIdentifier for AppendableData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/data_identifier.md#get-dataidentifier-for-appendabledata)
+#### [Get data ID handle](https://api.safedev.org/low-level-api/data-id/get-data-id-handle.html#for-appendable-data)
 
 ```
 POST /data-id/appendable-data
@@ -49,7 +49,7 @@ The actual name of the appendable data is the hash of `_getLocation()`.
 
 The plugin fetches an appendable data handle using the data identifier handle previously obtained.
 
-#### [Get AppendableData handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#get-appendabledata-handle-from-dataidentifier-handle)
+#### [Get appendable data handle](https://api.safedev.org/low-level-api/appendable-data/get-appendable-data-handle.html)
 
 ```
 GET /appendable-data/handle/:dataIdHandle
@@ -66,7 +66,7 @@ window.safeAppendableData.getHandle(
 
 The plugin fetches the metadata of the appendable data using the appendable data handle. The length of the appendable data represents the number of comments for the current page.
 
-#### [Get metadata](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#get-metadata)
+#### [Get appendable data metadata](https://api.safedev.org/low-level-api/appendable-data/get-appendable-data-metadata.html)
 
 ```
 GET /appendable-data/metadata/:handleId
@@ -89,7 +89,7 @@ If the data length is greater than 0, the plugin fetches all the comments contai
 
 The plugin fetches a data identifier handle from the appendable data based on the current index.
 
-#### [Get DataIdentifier at a specific index](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#get-data-id-of-a-data-at-appendable-data)
+#### [Get data ID handle at index](https://api.safedev.org/low-level-api/appendable-data/get-data-id-handle-at-index.html#for-a-data-item)
 
 ```
 GET /appendable-data/:handleId/:index
@@ -110,7 +110,7 @@ If the current page is using the [Permanent Comments Plugin](https://github.com/
 
 The plugin fetches the data map of the comment using the data identifier handle of the current comment.
 
-#### [Get ImmutableDataReader handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/immutable_data.md#get-immutabledata-reader)
+#### [Get immutable data reader handle](https://api.safedev.org/low-level-api/immutable-data/get-immutable-data-handle.html#get-immutable-data-reader-handle)
 
 ```
 GET /immutable-data/reader/:handleId
@@ -128,7 +128,7 @@ The API returns an immutable data reader handle.
 
 The plugin reads the immutable data representing the comment using the immutable data reader handle.
 
-#### [Read ImmutableData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/immutable_data.md#read-immutable-data-using-reader)
+#### [Read immutable data](https://api.safedev.org/low-level-api/immutable-data/read-immutable-data.html)
 
 ```
 GET /immutable-data/:handleId
@@ -144,7 +144,7 @@ window.safeImmutableData.read(this._authToken, handleId)
 
 The plugin drops the immutable data reader handle.
 
-#### [Drop ImmutableDataReader handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/immutable_data.md#drop-immutable-data-reader)
+#### [Drop immutable data reader handle](https://api.safedev.org/low-level-api/immutable-data/drop-immutable-data-handle.html#drop-immutable-data-reader-handle)
 
 ```
 DELETE /immutable-data/reader/:handleId
@@ -196,7 +196,7 @@ window.safeStructuredData.readData(this._authToken, payload.handleId)
 
 The plugin drops the structured data handle of the current comment.
 
-#### [Drop handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#drop-handle)
+#### [Drop structured data handle](https://api.safedev.org/low-level-api/structured-data/drop-structured-data-handle.html)
 
 ```
 DELETE /structured-data/handle/:handleId

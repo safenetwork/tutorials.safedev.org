@@ -10,7 +10,7 @@ The app needs to receive an answer (a session description in [SDP](https://en.wi
 
 The app fetches a data identifier handle for the structured data that is expected to contain the answer.
 
-#### [Get data ID handle for structured data](https://api.safedev.org/low-level-api/data-id/get-data-id-handle.html#for-structured-data)
+#### [Get data ID handle](https://api.safedev.org/low-level-api/data-id/get-data-id-handle.html#for-structured-data)
 
 ```
 POST /data-id/structured-data
@@ -97,7 +97,7 @@ safeStructuredData.readData(ACCESS_TOKEN, handleId)
 
 The app drops the structured data handle of the answer.
 
-#### [Drop handle](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/structured_data.md#drop-handle)
+#### [Drop structured data handle](https://api.safedev.org/low-level-api/structured-data/drop-structured-data-handle.html)
 
 ```
 DELETE /structured-data/handle/:handleId

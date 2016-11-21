@@ -12,7 +12,7 @@ If you are the website owner, you can delete comments by removing them from the 
 
 The plugin moves the comment you want to delete to the `deleted_data` field of the appendable data associated with the current page.
 
-#### [Remove from data by index](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#remove-from-data-by-index)
+#### [Remove a data item](https://api.safedev.org/low-level-api/appendable-data/remove-data-at-index.html#remove-a-data-item)
 
 ```
 DELETE /appendable-data/:handleId/:index
@@ -28,7 +28,7 @@ window.safeAppendableData.removeAt(this._authToken, this._currentPostHandleId, i
 
 The plugin updates the appendable data associated with the current page by sending a POST request to the SAFE Network.
 
-#### [Save AppendableData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#save-appendabledata)
+#### [Save appendable data](https://api.safedev.org/low-level-api/appendable-data/save-appendable-data.html#post-endpoint)
 
 ```
 POST /appendable-data/:handleId
@@ -44,7 +44,7 @@ window.safeAppendableData.post(this._authToken, this._currentPostHandleId)
 
 The plugin clears the `deleted_data` field of the appendable data associated with the current page.
 
-#### [Clear deleted data section](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#clear-deleted-data-section)
+#### [Clear all deleted data items](https://api.safedev.org/low-level-api/appendable-data/clear-all-data.html#clear-all-deleted-data-items)
 
 ```
 DELETE /appendable-data/clear-deleted-data/:handleId
@@ -60,7 +60,7 @@ window.safeAppendableData.clearAll(this._authToken, this._currentPostHandleId, t
 
 The plugin updates the appendable data associated with the current page by sending a POST request to the SAFE Network.
 
-#### [Save AppendableData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#save-appendabledata)
+#### [Save appendable data](https://api.safedev.org/low-level-api/appendable-data/save-appendable-data.html#post-endpoint)
 
 ```
 POST /appendable-data/:handleId

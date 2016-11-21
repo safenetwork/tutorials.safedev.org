@@ -12,7 +12,7 @@ If you are the website owner, you can block users by adding their signing key to
 
 The plugin fetches the signing key of the user you want to block.
 
-#### [Get signing key by index](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#get-signing-key-of-a-data-by-index)
+#### [Get signing key handle at index](https://api.safedev.org/low-level-api/appendable-data/get-signing-key-handle-at-index.html#for-a-data-item)
 
 ```
 GET /appendable-data/sign-key/:handleId/:index
@@ -28,7 +28,7 @@ window.safeAppendableData.getSignKeyAt(this._authToken, this._currentPostHandleI
 
 The plugin adds the signing key of the user you want to block to the filter of the appendable data associated with the current page. Since the filter of the appendable data is a blacklist, everyone except the keys listed in the filter will be allowed to append data.
 
-#### [Add signing key to filter](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#add-sign-keys-to-filter)
+#### [Add signing keys](https://api.safedev.org/low-level-api/appendable-data/filter/add-signing-keys.html)
 
 ```
 PUT /appendable-data/filter/:handleId
@@ -44,7 +44,7 @@ window.safeAppendableData.addToFilter(this._authToken, this._currentPostHandleId
 
 The plugin updates the appendable data associated with the current page by sending a POST request to the SAFE Network.
 
-#### [Save AppendableData](https://github.com/maidsafe/rfcs/blob/master/text/0042-launcher-api-v0.6/api/appendable_data.md#save-appendabledata)
+#### [Save appendable data](https://api.safedev.org/low-level-api/appendable-data/save-appendable-data.html#post-endpoint)
 
 ```
 POST /appendable-data/:handleId
@@ -68,7 +68,7 @@ this._saveBlockedUser(userName, signKeyHandleId)
 
 The plugins serializes the signing key of the user you want to block.
 
-#### Serialize signing key
+#### [Serialize signing key](https://api.safedev.org/low-level-api/appendable-data/signing-key/serialize-signing-key.html)
 
 ```
 GET /sign-key/serialise/:handleId
@@ -186,7 +186,7 @@ After the user has been blocked, the plugin [reloads the comments](fetch-comment
 
 The plugin drops the handle that represents the signing key of the user you just blocked.
 
-#### Drop handle
+#### [Drop signing key handle](https://api.safedev.org/low-level-api/appendable-data/signing-key/drop-signing-key-handle.html)
 
 ```
 DELETE /sign-key/:handleId

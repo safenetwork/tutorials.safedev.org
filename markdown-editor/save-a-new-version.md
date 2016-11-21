@@ -12,7 +12,7 @@ When you edit an existing file, a new version is stored inside the structured da
 
 The app obtains a data ID handle for the versioned structured data (type tag 501) that contains the file you just edited. The ID of this structured data is based on your user prefix and the name of the file.
 
-#### [Get data ID handle for structured data](https://api.safedev.org/low-level-api/data-id/get-data-id-handle.html#for-structured-data)
+#### [Get data ID handle](https://api.safedev.org/low-level-api/data-id/get-data-id-handle.html#for-structured-data)
 
 ```
 POST /data-id/structured-data

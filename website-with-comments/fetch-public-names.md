@@ -72,7 +72,7 @@ window.safeCipherOpts.getHandle(
 
 The plugin fetches a data identifier handle for the structured data that contains the list of blocked users for the current page.
 
-#### [Get data ID handle for structured data](https://api.safedev.org/low-level-api/data-id/get-data-id-handle.html#for-structured-data)
+#### [Get data ID handle](https://api.safedev.org/low-level-api/data-id/get-data-id-handle.html#for-structured-data)
 
 ```
 POST /data-id/structured-data
