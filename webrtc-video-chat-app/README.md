@@ -48,7 +48,7 @@ You will learn about the following APIs:
 
 ### Live version
 
-You can access the **SAFE Signaling Demo** at **[safe://mediawebrtc.ben](safe://mediawebrtc.ben)** using [SAFE Browser v0.4.1-1](https://github.com/joshuef/beaker/releases/tag/v0.4.1-1).
+You can access the **SAFE Signaling Demo** at **[safe://mediawebrtc.ben](safe://mediawebrtc.ben)** using [SAFE Browser v0.4.0](https://github.com/joshuef/beaker/releases/tag/v0.4.0).
 
 ### Development mode
 
@@ -60,7 +60,7 @@ Start [SAFE Launcher v0.10.0](https://github.com/maidsafe/safe_launcher/releases
 
 ##### 2. SAFE Browser
 
-Start [SAFE Browser v0.4.1-1](https://github.com/joshuef/beaker/releases/tag/v0.4.1-1).
+Start [SAFE Browser v0.4.0](https://github.com/joshuef/beaker/releases/tag/v0.4.0).
 
 ##### 3. Node.js
 
