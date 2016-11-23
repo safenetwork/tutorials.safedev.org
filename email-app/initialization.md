@@ -100,4 +100,4 @@ The app needs a way to store your email data on the SAFE Network. One solution i
 
 Your root structured data is created using a random ID. In order to be able to retrieve your root structured data later, you need to store its ID in a config file. This config file will be stored in the app's root directory.
 
-During the initialization process, if the app detects that you already have a config file, it will try to fetch your root structured data. If you don't have a config file, the app will create one for you.
+During the initialization process, [the app checks if a config file is present](fetch-email-data.md#check-if-a-config-file-is-present) in its root directory. [If a config file is not found](fetch-email-data.md#if-a-config-file-is-not-found), the app creates a root structured data and a config file. [If a config file is found](fetch-email-data.md#if-a-config-file-is-found), the app tries to fetch your root structured data.
