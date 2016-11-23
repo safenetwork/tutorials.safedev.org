@@ -1,10 +1,6 @@
-# Fetch config file
+# Fetch email data
 
-The app needs a way to store your email data on the SAFE Network. Using the [Structured Data API](https://api.safedev.org/low-level-api/structured-data/), you can create a private structured data that will be used by the app to store your email ID and your saved emails. Let's call it the "root structured data".
-
-Your root structured data is created using a random ID. In order to be able to retrieve your root structured data later, you need to store its ID in a config file. This config file will be stored in the app's root directory.
-
-During the initialization process, if the app detects that you already have a config file, it will try to fetch your root structured data. If you don't have a config file, the app will create one for you.
+The app fetches the structured data that contains your email data.
 
 #### Contents
 
@@ -40,8 +36,6 @@ export const getConfigFile = token => {
 };
 ```
 
-<!-- *(Should we explain why we just fetch the first byte of the config file?)* -->
-
 ## If a config file is not found
 
 The app will create a root structured data with a random ID. All structured data items need to have an ID that is 32 bytes long. Therefore, the app generates a 32 bytes long random ID using this function:
@@ -54,9 +48,7 @@ export const generateStructredDataId = () => {
 };
 ```
 
-The root structured data will be used to store your email ID and your saved emails. Since we use an  structured data, you can store as many emails as you want.
-
-The email data can be represented using a simple [JSON](https://en.wikipedia.org/wiki/JSON) format:
+The root structured data will be used to store your email data (your email ID and your saved emails). This data can be represented using a simple [JSON](https://en.wikipedia.org/wiki/JSON) format:
 
 ```json
 {

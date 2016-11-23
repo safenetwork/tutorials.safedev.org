@@ -2,8 +2,8 @@
 
 * [Introduction](README.md)
 * [Email app](email-app/README.md)
-  * [Authorization](email-app/authorization.md)
-  * [Fetch config file](email-app/fetch-config-file.md)
+  * [Initialization](email-app/initialization.md)
+  * [Fetch email data](email-app/fetch-email-data.md)
   * [Create an email ID](email-app/create-an-email-id.md)
   * [Send an email](email-app/send-an-email.md)
   * [Refresh the inbox folder](email-app/refresh-the-inbox-folder.md)

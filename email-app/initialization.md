@@ -1,8 +1,14 @@
-# Authorization
+# Initialization
 
-First, the app needs to receive an authorization token from SAFE Launcher.
+First, the app needs to receive an authorization token from SAFE Launcher. Then, it needs to retrieve your email data (your email ID and your saved emails).
+
+#### Contents
+
+<!-- toc -->
 
 ![Initialization page](img/initialization-page.png)
+
+## Authorize the app
 
 The app sends an [authorization request](https://api.safedev.org/auth/) to SAFE Launcher.
 
@@ -87,3 +93,11 @@ After you authorize the request, the app receives an authorization token.
 > #### info::What is an authorization token?
 >
 > Authorization tokens are used to invoke APIs that require [authorized access](https://api.safedev.org/auth/#authorized-access). These tokens are session based and thus will be valid only while SAFE Launcher is running.
+
+## Fetch the email data
+
+The app needs a way to store your email data on the SAFE Network. One solution is to create a private [structured data](https://api.safedev.org/low-level-api/structured-data/)) that will be used by the app to store your email ID and your saved emails. Let's call it the "root structured data".
+
+Your root structured data is created using a random ID. In order to be able to retrieve your root structured data later, you need to store its ID in a config file. This config file will be stored in the app's root directory.
+
+During the initialization process, if the app detects that you already have a config file, it will try to fetch your root structured data. If you don't have a config file, the app will create one for you.
