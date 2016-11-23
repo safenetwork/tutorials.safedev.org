@@ -1,5 +1,5 @@
 {
-  "plugins": ["prism", "-highlight", "toggle-chapters", "edit-link", "simple-page-toc", "bootstrap-callout", "back-to-top-button"],
+  "plugins": ["prism", "-highlight", "toggle-chapters", "edit-link", "simple-page-toc", "bootstrap-callout"],
   "pluginsConfig": {
     "edit-link": {
       "base": "https://github.com/safenetwork/tutorials.safedev.org/tree/master",

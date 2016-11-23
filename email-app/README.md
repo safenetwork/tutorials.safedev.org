@@ -14,6 +14,7 @@ Instead of relying on an email service provider such as Gmail, or going through 
 
 This tutorial will showcase how to:
 
+- [Fetch config file](fetch-config-file.md)
 - [Create an email ID](create-an-email-id.md)
 - [Send an email](send-an-email.md)
 - [Refresh the inbox folder](refresh-the-inbox-folder.md)
