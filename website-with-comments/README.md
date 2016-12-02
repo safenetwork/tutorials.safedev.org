@@ -60,7 +60,7 @@ Start [SAFE Launcher v0.10.0](https://github.com/maidsafe/safe_launcher/releases
 
 ##### 2. SAFE Browser
 
-Start [SAFE Browser v0.4.0](https://github.com/joshuef/beaker/releases/tag/v0.4.0).
+Start [SAFE Browser v0.4.2](https://github.com/joshuef/beaker/releases/tag/v0.4.2).
 
 ##### 3. SAFE Demo App
 
