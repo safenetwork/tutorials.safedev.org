@@ -2,7 +2,7 @@
 
 In this tutorial, you will learn how to **enable comments on your SAFE website**!
 
-We built two comments plugin: one for **permanent comments** and the other for **editable comments**.
+We built two comments plugins: one for **permanent comments** and the other for **editable comments**. These plugins demonstrate the usage of [public appendable data](https://api.safedev.org/low-level-api/appendable-data/).
 
 Both plugins let people comment on content using their [public name](https://api.safedev.org/dns/). They also enable the website owner to delete comments and block users.
 

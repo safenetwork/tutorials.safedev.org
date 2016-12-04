@@ -4,6 +4,8 @@ In this tutorial, you will learn how to build **an email app that works entirely
 
 Instead of relying on an email service provider such as Gmail, or going through the trouble of running your own mail server, you can use the SAFE Network to build dynamic applications such as email and messaging apps.
 
+The emails you send using **SAFE Mail Tutorial** are encrypted using the public [encryption key](https://api.safedev.org/low-level-api/appendable-data/encryption-key/) of the recipient. This means that only the recipient of an email is able to read its content. This example app demonstrates the usage of [private appendable data](https://api.safedev.org/low-level-api/appendable-data/).
+
 #### Contents
 
 <!-- toc -->

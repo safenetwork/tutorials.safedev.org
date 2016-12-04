@@ -2,7 +2,7 @@
 
 In this tutorial, you will learn how to build **a text editor that stores its data on the SAFE Network**.
 
-The **SAFE Markdown Editor** lets you create and edit Markdown files. The files are encrypted using a symmetric key, which means that only you can read them. Each time you save a file, a new version is stored on the SAFE Network. You can browse through previous versions of your files and compare the difference across versions. This example demonstrates the usage of [versioned structured data](https://api.safedev.org/low-level-api/structured-data/).
+The **SAFE Markdown Editor** lets you create and edit Markdown files. The files are encrypted using a symmetric key, which means that only you can read them. Each time you save a file, a new version is stored on the SAFE Network. You can browse through previous versions of your files and compare the difference across versions. This example app demonstrates the usage of [versioned structured data](https://api.safedev.org/low-level-api/structured-data/).
 
 #### Contents
 
