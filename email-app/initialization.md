@@ -96,7 +96,7 @@ After you authorize the request, the app receives an authorization token.
 
 ## Fetch the email data
 
-The app needs a way to store your email data on the SAFE Network. One solution is to create a private [structured data](https://api.safedev.org/low-level-api/structured-data/)) that will be used by the app to store your email ID and your saved emails. Let's call it the "root structured data".
+The app needs a way to store your email data on the SAFE Network. One solution is to create a private [structured data](https://api.safedev.org/low-level-api/structured-data/) that will be used by the app to store your email ID and your saved emails. Let's call it the "root structured data".
 
 Your root structured data is created using a random ID. In order to be able to retrieve your root structured data later, you need to store its ID in a config file. This config file will be stored in the app's root directory.
 
