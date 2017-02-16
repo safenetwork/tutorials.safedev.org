@@ -80,8 +80,6 @@ GET /sign-key/serialise/:handleId
 window.safeSignKey.serialise(this._authToken, signKeyHandle)
 ```
 
-The API returns a handle ID for the serialized signing key.
-
 ## If the structured data for blocked users is found
 
 The plugin adds the serialized signing key of the user you want to block to the list of block users for the current page.
